@@ -1,10 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const expressSession = require("express-session");
-const sessionConfig = require("./sessionConfig");
-const cookieParser = require("cookie-parser");
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+const expressSession = require('express-session');
+const cookieParser = require('cookie-parser');
+const sessionConfig = require('./sessionConfig');
 // const clearCookie = require("../middleware/clearCookie");
 // const checkIsAuth = require("../middleware/checkIsAuth");
 
@@ -15,12 +15,12 @@ const config = (app) => {
   app.use(express.json());
   app.use(
     cors({
-      origin: ["http://localhost:3000"],
+      origin: ['http://localhost:3000'],
       credentials: true,
-    })
+    }),
   );
   app.use(helmet());
-  app.use(morgan("dev"));
+  app.use(morgan('dev'));
   app.use(expressSession(sessionConfig));
   // app.use(clearCookie);
   // app.use(checkIsAuth);
