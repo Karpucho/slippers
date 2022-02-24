@@ -7,6 +7,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      productId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Products',
+        },
+      },
       sizeNumber: {
         type: Sequelize.INTEGER,
       },

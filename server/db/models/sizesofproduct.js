@@ -5,10 +5,16 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class SizesOfProduct extends Model {
     static associate({ Product }) {
-      SizesOfProduct.hasMany(Product, { foreignKey: 'sizesId' });
+      SizesOfProduct.belongsTo(Product, { foreignKey: 'productId' });
     }
   }
   SizesOfProduct.init({
+    productId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Products',
+      },
+    },
     sizeNumber: {
       type: DataTypes.INTEGER,
     },
