@@ -1,18 +1,42 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const config = require("./config/config");
-const router = require("./routes/index");
-const errorHandler = require("./middleware/errorHandler");
-
-const app = express();
+const dotenv = require('dotenv');
 
 dotenv.config();
-config(app);
+
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const {
+  sequelize,
+} = require('./db/models');
+
+const router = require('./routes/index.js');
+const errorMiddleware = require('./middlewares/errors.middleware.js');
 
 const PORT = process.env.PORT ?? 5000;
+const app = express();
 
-// routing
-app.use("/", router);
-app.use(errorHandler);
+app.use(express.json());
+app.use(cookieParser());
+// app.use(cors());
 
-app.listen(PORT, () => console.log(`*Server started at ${PORT} port ***`));
+const corsOptions = {
+  origin: ['http://localhost:3000', 'http://localhost:5000'],
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+app.use('/api', router);
+// обазательно должен идти послденим
+app.use(errorMiddleware);
+
+app.listen(PORT, async () => {
+  console.log('Сервер запущен на порту', PORT);
+
+  try {
+    await sequelize.authenticate();
+    console.log('Подключение к БД успешно');
+  } catch {
+    console.log('Не получилось подключиться к БД');
+  }
+});
