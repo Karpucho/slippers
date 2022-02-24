@@ -13,7 +13,6 @@ const router = require("./routes/index");
 
 // routing
 app.use("/", router);
-
 // app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`*Server started at ${PORT} port ***`));

@@ -31,27 +31,7 @@ async function signIn(req, res) {
   }
 }
 
-// async function sign(req, res) {
-//   try {
-//     const user = await authService.findCreate(req.body);
-//     req.session.user = user;
-//     req.session.isAuth = true;
-//     console.log(user);
-//     res.status(201).json({
-//       user,
-//       isAuth: true,
-//       message: "Успешный вход",
-//     });
-//   } catch (error) {
-//     res.status(400).json({
-//       isAuth: false,
-//       message: error.message,
-//     });
-//   }
-// }
-
 module.exports = {
   signUp,
   signIn,
-  sign
 };
