@@ -5,8 +5,8 @@ const morgan = require("morgan");
 const expressSession = require("express-session");
 const sessionConfig = require("./sessionConfig");
 const cookieParser = require("cookie-parser");
-const checkIsAuth = require('../middleware/checkAuth')
-
+// const clearCookie = require("../middleware/clearCookie");
+// const checkIsAuth = require("../middleware/checkIsAuth");
 
 const config = (app) => {
   // Use
@@ -22,7 +22,8 @@ const config = (app) => {
   app.use(helmet());
   app.use(morgan("dev"));
   app.use(expressSession(sessionConfig));
-  app.use(checkIsAuth);
+  // app.use(clearCookie);
+  // app.use(checkIsAuth);
 };
 
 module.exports = config;
