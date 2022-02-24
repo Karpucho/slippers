@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate({
       Cart, RatingFromUser, Category, SizesOfProduct, Comment,
     }) {
-      // Product.hasMany(Cart, { foreignKey: 'productId' });
-      // Product.hasMany(RatingFromUser, { foreignKey: 'productId' });
-      // Product.belongsTo(Category, { foreignKey: 'categoryId' });
-      // Product.hasMany(SizesOfProduct, { foreignKey: 'productId' });
-      // Product.hasMany(Comment, { foreignKey: 'productId' });
+      Product.hasMany(Cart, { foreignKey: 'productId' });
+      Product.hasMany(RatingFromUser, { foreignKey: 'productId' });
+      Product.belongsTo(Category, { foreignKey: 'categoryId' });
+      Product.hasMany(SizesOfProduct, { foreignKey: 'productId' });
+      Product.hasMany(Comment, { foreignKey: 'productId' });
     }
   }
   Product.init({
