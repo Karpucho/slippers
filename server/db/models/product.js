@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(Cart, { foreignKey: 'productId' });
       Product.hasMany(RatingFromUser, { foreignKey: 'productId' });
       Product.belongsTo(Category, { foreignKey: 'categoryId' });
-      Product.belongsTo(SizesOfProduct, { foreignKey: 'sizesId' });
+      Product.hasMany(SizesOfProduct, { foreignKey: 'productId' });
       Product.hasMany(Comment, { foreignKey: 'productId' });
     }
   }
@@ -38,12 +38,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     photo: {
       type: DataTypes.TEXT,
-    },
-    sizesId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'SizesOfProducts',
-      },
     },
     rating: {
       type: DataTypes.INTEGER,

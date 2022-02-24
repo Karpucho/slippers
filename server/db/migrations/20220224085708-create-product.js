@@ -31,12 +31,6 @@ module.exports = {
       photo: {
         type: Sequelize.TEXT,
       },
-      sizesId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'SizesOfProducts',
-        },
-      },
       rating: {
         type: Sequelize.INTEGER,
       },
