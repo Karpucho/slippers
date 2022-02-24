@@ -1,23 +1,23 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('SizesOfProducts', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      productId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Products',
-        },
+      email: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
-      sizeNumber: {
-        type: Sequelize.INTEGER,
+      password: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
-      itemsLeft: {
-        type: Sequelize.INTEGER,
+      role: {
+        allowNull: false,
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +30,6 @@ module.exports = {
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('SizesOfProducts');
+    await queryInterface.dropTable('Users');
   },
 };
