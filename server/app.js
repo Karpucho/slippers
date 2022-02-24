@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const config = require("./config/config");
+const router = require("./routes/index");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
@@ -9,7 +10,6 @@ dotenv.config();
 config(app);
 
 const PORT = process.env.PORT ?? 5000;
-const router = require("./routes/index");
 
 // routing
 app.use("/", router);
