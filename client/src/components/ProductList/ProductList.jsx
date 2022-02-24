@@ -6,7 +6,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 
 
 export default function ProductList({visibility}) {
-  const products = useSelector(state => state.productsReducer);
+  const {products} = useSelector(state => state.productsReducer);
 
   const dispatch = useDispatch();
 
