@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const config = require("./config/config");
-// const errorHandler = require("./middleware/errorHandler");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
@@ -13,6 +13,6 @@ const router = require("./routes/index");
 
 // routing
 app.use("/", router);
-// app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`*Server started at ${PORT} port ***`));
