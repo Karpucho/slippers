@@ -1,12 +1,10 @@
 import React, { useRef } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
 function RegForm(props) {
-  // const inputName = useRef();
-  // const inputEmail = useRef();
-  // const inputPassword = useRef();
-
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors },
@@ -14,55 +12,20 @@ function RegForm(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     const body = {
       name: data.name,
       email: data.email,
       password: data.password,
     };
-
-    console.log(body);
-    
-    fetch("/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(body),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch(console.error());
+    dispatch({type: "FETCH_CREATE_USER", payload: body})
   };
-
-  // const navigate = useNavigate();
-
-  // function register(event) {
-  //   event.preventDefault();
-  //   const user = {
-  //     name: inputName.current.value,
-  //     email: inputEmail.current.value,
-  //     password: inputPassword.current.value,
-  //   }
-  //   fetch('http://localhost:4000/registration',
-  //   {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     credentials: 'include',
-  //     body: JSON.stringify(user),
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-  //   .catch(console.error())
-
-  //   navigate('/')
-
-  // }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h3> Зарегься чтобы мы доставили тапочки</h3>
       <label>
-        First Name
+        Name
         <input
           type="text"
           {...register("name", {
@@ -113,15 +76,6 @@ function RegForm(props) {
       </div>
       <button type="submit">Зарегистрироваться</button>
     </form>
-
-    // <form>
-
-    //     <input ref={inputName} placeholder='name'/>
-    //     <input ref={inputEmail} placeholder='email'/>
-    //     <input ref={inputPassword} placeholder='password'/>
-    //     <button onClick={register}>Рега</button>
-
-    // </form>
   );
 }
 

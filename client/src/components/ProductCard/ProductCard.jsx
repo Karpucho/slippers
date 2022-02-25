@@ -10,8 +10,8 @@ export default function ProductCard({product}) {
 
 
   return (
-    <><div>
-          <div onClick={() => setVisibility(true)}>
+    <><div onClick={() => setVisibility(true)}>
+          <div>
             {/* <img src={currentProduct.photo}/> */}
           </div>
           <div>

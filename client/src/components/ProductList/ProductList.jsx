@@ -2,16 +2,18 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import ProductCurrentCard from '../../ProductCurrentCard/ProductCurrentCard'
+// import ProductCurrentCard from '../../ProductCurrentCard/ProductCurrentCard'
 
 
 export default function ProductList({visibility}) {
-  const products = useSelector(state => state.productsReducer);
+  const {products} = useSelector(state => state.productsReducer);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-      fetch('/products')
+      fetch('http://localhost:5000/products', {
+        credentials: 'include',
+      })
       .then(data => data.json())
       .then(data => {
         if(data.message === 'sucsess') {
