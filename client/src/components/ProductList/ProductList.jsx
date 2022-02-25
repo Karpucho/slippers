@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import { Link } from 'react-router-dom';
 // import ProductCurrentCard from '../../ProductCurrentCard/ProductCurrentCard'
 
 
 export default function ProductList({visibility}) {
   const {products} = useSelector(state => state.productsReducer);
+
 
   const dispatch = useDispatch();
 
@@ -32,7 +34,9 @@ export default function ProductList({visibility}) {
       <ul>
         {products?.length && products.map(product => (
             <li key={product.id} >
+              <Link to={`/home/${product.id}`}>
               <ProductCard product={product}/>
+              </Link>
             </li>
           ))}
       </ul>
