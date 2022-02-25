@@ -1,4 +1,4 @@
-const { User } = require("../db/models");
+const { User } = require('../db/models');
 
 async function getUserById(id) {
   const user = await User.findOne({
@@ -7,9 +7,22 @@ async function getUserById(id) {
     },
   });
   if (!user) {
-    throw new Error("запрашиваемого пользователя не существует");
+    throw new Error('запрашиваемого пользователя не существует');
   }
   return user;
 }
 
-async function 
+// async function updateUser(id, data) {
+//   const currentUser = await User.findOne({
+//     where: {
+//       id,
+//     },
+//   });
+//   currentUser.set(data);
+//   await currentUser.save();
+// }
+
+module.exports = {
+  getUserById,
+  // updateUser,
+};
