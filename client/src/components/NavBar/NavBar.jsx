@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem } from '@mui/material';
+import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { useNavigate } from 'react-router-dom'
 import { createTheme } from '@mui/material/styles';
@@ -69,6 +69,14 @@ function NavBar(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const [modal, setModal] = React.useState(false)
+  const handleClickOpen = () => {
+    setModal(true)
+  }
+  const handleCloseModal = () => {
+    setModal(false)
+  }
   return (
 <ThemeProvider theme={theme}>
 <AppBar  className={classes.barColor} position='fixed'>
@@ -98,7 +106,44 @@ function NavBar(props) {
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
          <Box m={3}>
-           <Button onClick={() => navigate('/')} color="inherit" variant="outlined">log in</Button>
+           <Button onClick={handleClickOpen} color="inherit" variant="outlined">log in</Button>
+             <Dialog open={open} onClose={handleCloseModal} aria-labelledby="form-dialog-title">
+               <DialogTitle id="form-dialog-title"> Signup!</DialogTitle>
+               <DialogContent>
+                 <DialogContentText> Log in to by it </DialogContentText>
+                 <TextField 
+                  autoFocus
+                  margin="dense"
+                  fullWidth
+                  id="name"
+                  label="Your name"
+                  type="email"
+                  fullWidth
+                />
+                 <TextField 
+                  autoFocus
+                  margin="dense"
+                  fullWidth
+                  id="email"
+                  label="Email address"
+                  type="email"
+                  fullWidth
+                />
+                 <TextField 
+                  autoFocus
+                  margin="dense"
+                  fullWidth
+                  id="pass"
+                  label="Password confirm"
+                  type="password"
+                  fullWidth
+                />
+               </DialogContent>
+               <DialogActions>
+                 <Button onClick={handleCloseModal} color="primary">Cancel</Button>
+                 <Button onClick={handleCloseModal} color="primary">Log in</Button>
+               </DialogActions>
+             </Dialog>
          </Box>
          <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button>
         </Toolbar>
