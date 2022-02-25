@@ -93,9 +93,9 @@ function Home(props) {
           <div className={classes.mainContent}>
           <Grid container spacing={2} justify="center">
               <Grid>
-              <Button variant="outlined" color="inherit">
+              {/* <Button variant="outlined" color="inherit">
                 О нас
-              </Button>
+              </Button> */}
               </Grid>
             </Grid>
           </div>
