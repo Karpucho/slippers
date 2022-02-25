@@ -1,4 +1,4 @@
-import { CREATE_USER } from "../actionsTypes/userAT";
+import { CREATE_USER } from "../actionTypes/userAT";
 
 const initialState = {
   users: [],
