@@ -19,6 +19,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
+      isActivated: {
+        defaultValue: false,
+        type: Sequelize.BOOLEAN,
+      },
+      activationLink: Sequelize.STRING,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
