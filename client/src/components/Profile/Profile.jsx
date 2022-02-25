@@ -12,7 +12,14 @@ function Profile(props) {
   } = useForm();
 
   const onSubmit = (data) => {
+    
     alert(JSON.stringify(data));
+    const body = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    };
+    console.log(body);
   };
 
   return (
