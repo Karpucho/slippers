@@ -3,6 +3,7 @@ import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, M
 import Button from '@mui/material/Button';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
+import AdminProductList from '../AdminProductList/AdminProductList';
 
 const theme = createTheme();
 
@@ -102,6 +103,7 @@ function Home(props) {
         </Container>
      </div>
   </main>
+  <AdminProductList />
  </ThemeProvider>
   );
 }
