@@ -14,7 +14,7 @@ function Profile(props) {
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
-  
+
   return (
     <>
       <div>
@@ -23,7 +23,7 @@ function Profile(props) {
         <h3>Изменить профиль</h3>
       </div>
       <form onSubmit={changeProfile}>
-        <h3> Зарегься чтобы мы доставили тапочки</h3>
+        <h3> Изменить данные</h3>
         <label>
           Name
           <input
@@ -74,7 +74,7 @@ function Profile(props) {
             <p>{errors?.password?.message || "Введите корректный пароль"}</p>
           )}
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit">Изменить данные</button>
       </form>
     </>
   );

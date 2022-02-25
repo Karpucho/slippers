@@ -13,7 +13,7 @@ config(app);
 const PORT = process.env.PORT ?? 5000;
 
 // routing
-app.use("/", router);
+app.use("/",kjhjkhjk, router);
 //catching errors
 app.use(errorHandler);
 
