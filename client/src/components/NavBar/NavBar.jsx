@@ -11,6 +11,12 @@ import Button from '@mui/material/Button';
 const theme = createTheme();
 
 const useStyles = makeStyles({
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
   root: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     border: 0,
@@ -58,10 +64,23 @@ const useStyles = makeStyles({
 function NavBar(props) {
   const navigate = useNavigate();
   const classes = useStyles();
-
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const open = Boolean(anchorEl);
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -69,6 +88,7 @@ function NavBar(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
   return (
 <ThemeProvider theme={theme}>
 <AppBar  className={classes.barColor} position='fixed'>
@@ -91,9 +111,12 @@ function NavBar(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Каталог</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Женские</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Мужские</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Подросток</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Личный кабинет</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Контакты</MenuItem>
+        
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
@@ -104,30 +127,6 @@ function NavBar(props) {
         </Toolbar>
      </Container>
     </AppBar>
-    <main>
-    <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(http://source.unsplash.com/random)`}}>
-      <Container maxWidth="md">
-        <div className={classes.overlay}/>
-        <Grid container>
-          <Grid item md={6}>
-
-            <div className={classes.mainFeaturesPostContent}>
-              <Typography component="h1" color="inherit" variant="h3" gutterBottom>
-                Tapcomania
-              </Typography>
-              <Typography component="h5" color="inherit" paragraph>
-                Оптово-розничная продажа домашней и летней обуви
-                             по всей России !
-              </Typography>
-              <Button variant="outlined" color="inherit">
-                О нас
-              </Button>
-            </div>
-          </Grid>
-        </Grid>
-      </Container>
-     </Paper>
-    </main>
 </ThemeProvider>
   );
 }
