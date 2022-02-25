@@ -15,7 +15,6 @@ export default function ProductList({visibility}) {
         credentials: 'include',
       })
       .then(data => data.json())
-      .then(data => console.log(data))
       .then(data => {
         if(data.message === 'sucsess') {
           dispatch(initProductsListAC(data.products))

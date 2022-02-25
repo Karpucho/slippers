@@ -6,14 +6,9 @@ router.route('/')
   .get(async (req, res) => {
     try {
       const products = await Product.findAll({
-        raw: true,
         include: 'SizesOfProducts',
-        where: {
-          name:
-            'name',
-        },
       });
-      console.log(products);
+      console.log(products[0].SizesOfProducts[0].dataValues);
       if (products.length > 0) return res.json({ message: 'sucsess', products });
       return res.json({ message: 'noproducts' });
     } catch (error) {

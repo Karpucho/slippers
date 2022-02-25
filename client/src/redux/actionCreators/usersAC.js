@@ -1,4 +1,4 @@
-import { LOGIN_USER, CREATE_USER } from "../../components/actionTypes/userAT";
+import { LOGIN_USER, CREATE_USER } from "../actionTypes/userAT";
 
 export const loginUserAC = (payload) => {
   return {

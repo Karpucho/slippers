@@ -2,8 +2,10 @@ import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductBasketAC } from '../../redux/actionCreators/basketAC'
+import ChooseSize from '../ChooseSize/ChooseSize'
 // import { useParams } from 'react-router-dom';
-import './ProductCard.css'
+import './ProductCard.css';
+
 
 
 export default function ProductCard({product}) {
@@ -15,16 +17,14 @@ export default function ProductCard({product}) {
 
 
   const addProductBacket = () => {
-    console.log(product);
     dispatch(addProductBasketAC(product));
    
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem('basket', JSON.stringify(basketProducts));
-  // }, [basketProducts]);
+  useEffect(() => {
+    localStorage.setItem('basket', JSON.stringify(basketProducts));
+  }, [basketProducts]);
 
-  console.log(basketProducts);
 
   return (
     <><div onClick={() => setVisibility(true)}>
@@ -45,6 +45,9 @@ export default function ProductCard({product}) {
             <h3>{product.name}</h3>
             <div>{product.description}</div>
             <p>{product.price}</p>
+            <ChooseSize /> 
+            <br />
+        
             <button onClick={addProductBacket}>В корзину</button>
             <button>В избрaнное</button>
           </div>
