@@ -293,10 +293,10 @@ function NavBar(props) {
       >
         {/* <HomeIcon color="disabled" /> */}
         <MenuItem>
-          <Avatar onClick={() => {navigate('/home');handleClose()}}/> Войти
+          <Avatar onClick={() => {navigate('/profile');handleClose()}}/> Войти
         </MenuItem>
         <MenuItem>
-          <Avatar /> <div onClick={() => {navigate('/home');handleClose()}}> Мой аккаунт</div>
+          <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
         {/* <MenuItem>
