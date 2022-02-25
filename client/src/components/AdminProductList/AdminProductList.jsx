@@ -19,7 +19,7 @@ function AdminProductList(props) {
   const classes = useStyles();
 
   useEffect(() => {
-    fetch('http://localhost:5000/products', {
+    fetch('/api/products', {
       credentials: 'include',
     })
     .then(data => data.json())
