@@ -15,7 +15,6 @@ router.route('/')
     } catch (error) {
       return res.json({ message: 'error', error: error.message });
     }
-  })
-  
+  });
 
 module.exports = router;

@@ -19,6 +19,7 @@ class UserController {
       const userData = await userService.register(email, password, role);
       // рефреш куку храним в куках на 30 дней из token.service
       // 1ым парам - ключ , 2ым - сам токен
+      console.log(userData.userDto, 'ЮЗЕРДАТА');
       res.cookie('refreshToken', userData.refreshToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true });
       return res.json(userData);
     } catch (error) {

@@ -11,7 +11,7 @@ import Profile from "../Profile/Profile";
 
 function App() {
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <BrowserRouter>
       <NavBar/>
 
@@ -26,7 +26,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-    </Provider>
+    // </Provider>
   );
 }
 
