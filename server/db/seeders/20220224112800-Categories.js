@@ -2,7 +2,15 @@ module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('Categories', [
       {
-        name: 'cfylfk', createdAt: new Date(), updatedAt: new Date(),
+
+        name: 'шлепки', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'сандалии', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'тапки', createdAt: new Date(), updatedAt: new Date(),
+
       },
     ]);
   },
