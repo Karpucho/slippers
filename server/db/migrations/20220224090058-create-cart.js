@@ -21,6 +21,20 @@ module.exports = {
           model: 'Products',
         },
       },
+      sizeId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'SizesOfProducts',
+        },
+      },
+      numberOfItems: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      status: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

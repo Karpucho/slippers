@@ -14,6 +14,7 @@ module.exports = {
       categoryId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'Categories',
         },
@@ -33,6 +34,9 @@ module.exports = {
       },
       rating: {
         type: Sequelize.INTEGER,
+      },
+      status: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
