@@ -207,7 +207,6 @@ function NavBar(props) {
         <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Женские</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Мужские</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Подросток</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Личный кабинет</MenuItem>
         
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
@@ -294,29 +293,29 @@ function NavBar(props) {
       >
         {/* <HomeIcon color="disabled" /> */}
         <MenuItem>
-          <Avatar /> Profile
+          <Avatar onClick={() => {navigate('/home');handleClose()}}/> Войти
         </MenuItem>
         <MenuItem>
-          <Avatar /> My account
+          <Avatar /> <div onClick={() => {navigate('/home');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
-        <MenuItem>
+        {/* <MenuItem>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
           Add another account
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Настройки
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          Выйти
         </MenuItem>
       </Menu>
         </Toolbar>
