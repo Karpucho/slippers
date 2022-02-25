@@ -11,13 +11,22 @@ module.exports = {
         productId: 3, authorName: 'vov', text: 'Супер класс', photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 4, authorName: 'хэй', text: 'хэй хэй хэй', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        productId: 4, authorName: 'покупатель', text: 'буэ', photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 5, authorName: 'хэй', text: 'хоп хэй', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        productId: 5, authorName: 'лошадь', text: 'хоп хэй', photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
         productId: 6, authorName: 'предвестник', text: 'очень удобно', photo: '', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        productId: 4, authorName: 'кто-то', text: '!!!!!!!!', photo: '', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        productId: 5, authorName: '!!!!', text: 'хоп хэй', photo: '', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        productId: 6, authorName: 'предвестник', text: 'rkfcc', photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
     ]);
   },

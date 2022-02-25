@@ -7,6 +7,8 @@ import NavBar from "../NavBar/NavBar";
 import ProductList from "../ProductList/ProductList";
 import Home from "../Home/Home";
 import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurrentCard'
+import Profile from "../Profile/Profile";
+
 
 function App() {
   return (
@@ -18,8 +20,11 @@ function App() {
 
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/products" element={<ProductList />} />
           <Route path="/signup" element={<RegForm />} />
           <Route path="/home/:id" element={<ProductCurrentCard />} />
+          <Route path="/profile" element={<Profile />} />
+
         </Routes>
       </BrowserRouter>
     </Provider>
