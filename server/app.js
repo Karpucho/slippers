@@ -16,7 +16,8 @@ const app = express();
 config(app);
 
 app.use("/api", router);
-// обазательно должен идти послденим
+
+
 app.use(errorMiddleware);
 
 app.listen(PORT, async () => {

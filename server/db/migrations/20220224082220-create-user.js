@@ -16,6 +16,7 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       role: {
+        allowNull: true,
         type: Sequelize.TEXT,
       },
       isActivated: {
