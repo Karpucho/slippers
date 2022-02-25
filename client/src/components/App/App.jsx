@@ -4,6 +4,7 @@ import { store } from "../../redux/store";
 
 import RegForm from "../RegForm/RegForm";
 import NavBar from "../NavBar/NavBar";
+import ProductList from "../ProductList/ProductList";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
       <NavBar/>
         <h1>Test!</h1>
+        <ProductList />
         <Routes>
           <Route path="/signup" element={<RegForm />} />
         </Routes>

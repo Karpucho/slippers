@@ -1,35 +1,52 @@
 import { useRef, useState } from 'react';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addProductBasketAC } from '../../redux/actionCreators/basketAC'
 // import { useParams } from 'react-router-dom';
+import './ProductCard.css'
 
 
 export default function ProductCard({product}) {
 
   const [visibility, setVisibility ] = useState(false);
+  const dispatch = useDispatch();
 
+  const { basketProducts } = useSelector(state => state.basketReducer);
+
+
+  const addProductBacket = () => {
+    console.log(product);
+    dispatch(addProductBasketAC(product));
+   
+  };
+
+  // useEffect(() => {
+  //   localStorage.setItem('basket', JSON.stringify(basketProducts));
+  // }, [basketProducts]);
+
+  console.log(basketProducts);
 
   return (
     <><div onClick={() => setVisibility(true)}>
-          <div>
+          <div className="test2">
             {/* <img src={currentProduct.photo}/> */}
           </div>
           <div>
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
+            <p>Цена: {product.price}</p>
           </div>
           </div>
-          {visibility && <div>
-            <button>Закрыть</button>
+          {visibility && <div className="test">
+            <button onClick={() => setVisibility(false)}>Закрыть</button>
             <div>
             {/* <img src={currentProduct.photo}/> */}
           </div>
           <div>
             <h3>{product.name}</h3>
-            <div>{product.discription}</div>
+            <div>{product.description}</div>
             <p>{product.price}</p>
-            <button>В корзину</button>
-            <button>В избрвнное</button>
+            <button onClick={addProductBacket}>В корзину</button>
+            <button>В избрaнное</button>
           </div>
           </div>}
     </>
