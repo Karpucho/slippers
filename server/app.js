@@ -29,4 +29,3 @@ app.listen(PORT, async () => {
     console.log("Не получилось подключиться к БД");
   }
 });
-
