@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material';
+import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { useNavigate } from 'react-router-dom'
 import { createTheme } from '@mui/material/styles';
@@ -182,6 +182,15 @@ function NavBar(props) {
     setAnchor(null);
   };
 
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+
+  const dialogClickOpen = () => {
+    setDialogOpen(true);
+  }
+  const dialogClickClose = () => {
+    setDialogOpen(false);
+  }
+
   return (
 <ThemeProvider theme={theme}>
 <AppBar  className={classes.barColor} position='fixed'>
@@ -292,8 +301,13 @@ function NavBar(props) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         {/* <HomeIcon color="disabled" /> */}
+<<<<<<< HEAD
+        <MenuItem onClick={() => {navigate('/home');handleClose();dialogClickOpen()}}>
+          <div >Войти</div>
+=======
         <MenuItem>
           <Avatar onClick={() => {navigate('/profile');handleClose()}}/> Войти
+>>>>>>> 0c0f441164297977503f3945f1807f2279f2cf31
         </MenuItem>
         <MenuItem>
           <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
@@ -320,6 +334,34 @@ function NavBar(props) {
       </Menu>
         </Toolbar>
      </Container>
+     <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
+        <DialogTitle id="from-dialog-title">Войти</DialogTitle>
+        <DialogContent>
+          <DialogContentText>Авторизация</DialogContentText>
+          <TextField 
+          autoFocus
+          margin="dense"
+          id="name"
+          label="Email Adresse"
+          type="email"
+          fillWidth
+          autocomplete="off"
+          />
+          <TextField 
+          autocomplete="off"
+          autoFocus
+          margin="dense"
+          id="pass"
+          label="Password"
+          type="password"
+          fillWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Авторизоваться</Button>
+          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
+        </DialogActions>
+     </Dialog>
     </AppBar>
 </ThemeProvider>
   );
