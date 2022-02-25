@@ -1,4 +1,4 @@
-const ApiError = require('../exceptions/api.errors.js');
+const ApiError = require('../exceptions/api.errors');
 
 module.exports = function (err, req, res, next) {
   console.log(err);

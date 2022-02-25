@@ -5,7 +5,7 @@ const { User } = require('../db/models');
 const mailService = require('./mail.service');
 const tokenService = require('./token.service');
 const UserDto = require('../dtos/user.dto');
-const ApiError = require('../exceptions/api.errors.js');
+const ApiError = require('../exceptions/api.errors');
 
 class UserService {
   async register(email, password, role) {
@@ -114,7 +114,7 @@ class UserService {
     if (!refreshToken) {
       throw ApiError.UnaurhorizedError();
     }
-    // валидируем токен
+    // валидируем (проверяем) токен
     const userData = tokenService.validateRefreshToken(refreshToken);
     // отправляем токен в функцию, которая найдет его в бд
     const tokenFromDB = await tokenService.findToken(refreshToken);

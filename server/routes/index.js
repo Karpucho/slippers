@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const { body } = require('express-validator');
-const userConroller = require('../controllers/users.controller.js');
+const userConroller = require('../controllers/users.controller');
 
 const router = new Router();
-const authMiddleware = require('../middlewares/auth.middleware.js');
+const authMiddleware = require('../middlewares/auth.middleware');
 
 router.post(
   '/registration',
@@ -14,7 +14,7 @@ router.post(
 );
 
 router.post('/login', userConroller.login);
-router.post('/logout', userConroller.logout);
+router.get('/logout', userConroller.logout); // поменял запрос на get
 // активация аккаунта по ссылке
 router.get('/activate/:link', userConroller.activate);
 // перезаписывать фксесс токен когда токен помрет

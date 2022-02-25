@@ -13,6 +13,7 @@ function Nav() {
       <li> <Link to='/registration'>Регистрация</Link> </li>
       <li> <Link to='/login'>Логин</Link> </li>
       {/* <li> <Link to='/success'>Успех</Link> </li> */}
+      <li> <Link to='/logout'>Выход</Link> </li>
       <li> <Link to='/'>Домой</Link> </li>
     </ul> 
 

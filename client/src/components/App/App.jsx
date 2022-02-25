@@ -4,6 +4,7 @@ import Registration from '../Registration/Registration';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 import Success from '../Success/Success';
+import Logout from '../Logout/Logout';
 
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
          <Route path="/" element={<Home />} />
          <Route path="/registration" element={<Registration />} />
          <Route path="/login" element={<Login />} />
-         <Route path="/success" element={<Success />} />
+         {/* <Route path="/success" element={<Success />} /> */}
+        <Route path="/logout" element={<Logout />} />
+
       </Routes>
 
   </BrowserRouter>
