@@ -9,8 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     }) {
       Product.hasMany(Cart, { foreignKey: 'productId' });
       Product.hasMany(RatingFromUser, { foreignKey: 'productId' });
-      Product.belongsTo(Category, { foreignKey: 'categoryId' });
-      Product.hasMany(SizesOfProduct, { foreignKey: 'productId' });
+      Product.belongsTo(Category, { foreignKey: 'categoryId' }, {
+        onDelete: 'cascade',
+      });
+      Product.hasMany(SizesOfProduct, { foreignKey: 'productId' }, {
+        onDelete: 'cascade',
+      });
       Product.hasMany(Comment, { foreignKey: 'productId' });
     }
   }
@@ -41,6 +45,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     rating: {
       type: DataTypes.INTEGER,
+    },
+    status: {
+      type: DataTypes.TEXT,
     },
   }, {
     sequelize,
