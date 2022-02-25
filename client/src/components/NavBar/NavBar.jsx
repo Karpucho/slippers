@@ -301,11 +301,16 @@ function NavBar(props) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         {/* <HomeIcon color="disabled" /> */}
+<<<<<<< HEAD
         <MenuItem onClick={() => {navigate('/home');handleClose();dialogClickOpen()}}>
           <div >Войти</div>
+=======
+        <MenuItem>
+          <Avatar onClick={() => {navigate('/profile');handleClose()}}/> Войти
+>>>>>>> 0c0f441164297977503f3945f1807f2279f2cf31
         </MenuItem>
         <MenuItem>
-          <Avatar /> <div onClick={() => {navigate('/home');handleClose()}}> Мой аккаунт</div>
+          <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
         {/* <MenuItem>
