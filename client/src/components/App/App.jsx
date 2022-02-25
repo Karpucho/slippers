@@ -5,6 +5,7 @@ import { store } from "../../redux/store";
 import RegForm from "../RegForm/RegForm";
 import NavBar from "../NavBar/NavBar";
 import Home from "../Home/Home";
+import Profile from "../Profile/Profile";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<RegForm />} />
+          <Route path="/signup" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </Provider>
