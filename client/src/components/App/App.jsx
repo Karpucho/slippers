@@ -12,7 +12,6 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
       <NavBar/>
-        <h1>Test!</h1>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<RegForm />} />
