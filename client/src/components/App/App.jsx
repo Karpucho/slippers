@@ -1,31 +1,25 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Nav from '../Nav/Nav';
-import Registration from '../Registration/Registration';
-import Home from '../Home/Home';
-import Login from '../Login/Login';
-import Success from '../Success/Success';
-import Logout from '../Logout/Logout';
+import { Provider } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { store } from "../../redux/store";
+
+import RegForm from "../RegForm/RegForm";
+import NavBar from "../NavBar/NavBar";
+import Home from "../Home/Home";
+import Profile from "../Profile/Profile";
 
 
 function App() {
-
-
-  
   return (
-    <BrowserRouter >
-
-     <Nav />
-     
-      <Routes>
-         <Route path="/" element={<Home />} />
-         <Route path="/registration" element={<Registration />} />
-         <Route path="/login" element={<Login />} />
-         {/* <Route path="/success" element={<Success />} /> */}
-        <Route path="/logout" element={<Logout />} />
-
-      </Routes>
-
-  </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+      <NavBar/>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/signup" element={<RegForm />} />
+          <Route path="/signup" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

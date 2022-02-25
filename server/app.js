@@ -1,5 +1,9 @@
-const express = require('express');
-const dotenv = require('dotenv');
+const express = require("express");
+const dotenv = require("dotenv");
+const config = require("./config/config");
+const router = require("./routes/index");
+const productsRouter = require("./routes/products.router");
+const errorHandler = require("./middleware/errorHandler");
 
 dotenv.config();
 
