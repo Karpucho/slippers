@@ -2,6 +2,7 @@ module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('Products', [
       {
+
         name: 'ROSSI', categoryId: 1, gender: 'female', description: 'Шлепанцы бежевые', photo: '', rating: 4, price: 1990, createdAt: new Date(), updatedAt: new Date(),
       },
       {
@@ -36,6 +37,7 @@ module.exports = {
       },
       {
         name: 'ВВВВВВВO', categoryId: 2, gender: 'male', description: 'Сандалии черные с клёпками', photo: '', rating: 4, price: 1140, createdAt: new Date(), updatedAt: new Date(),
+
       },
     ]);
   },

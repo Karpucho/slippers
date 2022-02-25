@@ -9,7 +9,6 @@ import Home from "../Home/Home";
 import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurrentCard'
 import Profile from "../Profile/Profile";
 
-
 function App() {
   return (
     <Provider store={store}>

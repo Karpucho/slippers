@@ -20,7 +20,9 @@ module.exports = {
         productId: 6, sizeNumber: 41, itemsLeft: 9, createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 7, sizeNumber: 37, itemsLeft: 10, createdAt: new Date(), updatedAt: new Date(),
+
+        productId: 1, sizeNumber: 37, itemsLeft: 10, createdAt: new Date(), updatedAt: new Date(),
+
       },
       {
         productId: 2, sizeNumber: 42, itemsLeft: 50, createdAt: new Date(), updatedAt: new Date(),
@@ -36,6 +38,7 @@ module.exports = {
       },
       {
         productId: 6, sizeNumber: 43, itemsLeft: 9, createdAt: new Date(), updatedAt: new Date(),
+
       },
       {
         productId: 1, sizeNumber: 38, itemsLeft: 10, createdAt: new Date(), updatedAt: new Date(),
@@ -54,6 +57,7 @@ module.exports = {
       },
       {
         productId: 6, sizeNumber: 36, itemsLeft: 9, createdAt: new Date(), updatedAt: new Date(),
+
       },
     ]);
   },
