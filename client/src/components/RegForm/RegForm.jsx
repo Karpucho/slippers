@@ -12,9 +12,9 @@ function RegForm(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    // alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
     const body = {
-      name: data.name,
+      role: data.role,
       email: data.email,
       password: data.password,
     };
@@ -25,11 +25,11 @@ function RegForm(props) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <h3> Зарегься чтобы мы доставили тапочки</h3>
       <label>
-        Name
+      role
         <input
           type="text"
-          {...register("name", {
-            required: "Введите имя",
+          {...register("role", {
+            required: "Введите role",
             minLength: {
               value: 2,
               message: "Имя не должны быть короче 2 символов",
@@ -37,8 +37,8 @@ function RegForm(props) {
           })}
         />
       </label>
-      <div style={{ height: 40 }}>
-        {errors?.name && <p>{errors?.name?.message || "Eror!"}</p>}
+      <div style={{ height: 20 }}>
+        {errors?.role && <p>{errors?.role?.message || "Eror!"}</p>}
       </div>
       <label>
         Email
@@ -51,7 +51,7 @@ function RegForm(props) {
           })}
         />
       </label>
-      <div style={{ height: 40 }}>
+      <div style={{ height: 20 }}>
         {errors?.email && (
           <p>{errors?.email?.message || "Введите действительную почту"}</p>
         )}
@@ -69,7 +69,7 @@ function RegForm(props) {
           })}
         />
       </label>
-      <div style={{ height: 40 }}>
+      <div style={{ height: 20 }}>
         {errors?.password && (
           <p>{errors?.password?.message || "Введите корректный пароль"}</p>
         )}
