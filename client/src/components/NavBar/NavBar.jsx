@@ -219,6 +219,7 @@ function NavBar(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
+
         <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/api/products');handleClose()}}>Розница</MenuItem>
         <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>

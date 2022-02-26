@@ -9,6 +9,7 @@ import Home from "../Home/Home";
 import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurrentCard'
 import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
+import Footer from "../Footer/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
         </Routes>
         </div>
+        <Footer/>
       </BrowserRouter>
     </Provider>
   );
