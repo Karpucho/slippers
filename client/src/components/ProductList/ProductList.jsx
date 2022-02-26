@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
-import ProductCard from '../../components/ProductCard/ProductCard'
-import { Link } from 'react-router-dom';
-// import ProductCurrentCard from '../../ProductCurrentCard/ProductCurrentCard'
-
+import ProductCard from '../ProductCard/ProductCard'
+import { Grid, Container} from '@material-ui/core';
+import Advertising from '../Advertising/Advertising';
 
 export default function ProductList({visibility}) {
   const {products} = useSelector(state => state.productsReducer);
+
 
 
   const dispatch = useDispatch();
@@ -29,18 +29,21 @@ export default function ProductList({visibility}) {
 
 
   return (
-    <div>
-      <h3>Все товары</h3>
-      <ul>
-        {products?.length && products.map(product => (
-            <li key={product.id} >
-              <Link to={`/products/${product.id}`}>
-              <ProductCard product={product}/>
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </div>
+    <>
+    <Advertising/>
+    <Container
+            sx={{
+                mt: '1rem'
+            }}
+            style={{paddingTop: '7rem'}}
+        >
+    <Grid container spacing={2}>
+    {(products?.length)? products.map(product => (
+              <ProductCard  key={product.id} product={product}/>
+          )) : <></>}
+   </Grid>
+   </Container>
+   </>
   );
 }
 
