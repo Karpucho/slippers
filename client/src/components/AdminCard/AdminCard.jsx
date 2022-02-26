@@ -32,8 +32,8 @@ export default function ActionAreaCard({product}) {
 
   const dispatch = useDispatch();
   const fetchDeleteProduct = () => {
-    fetch(`products/${product.id}`, {
-      method: 'DELETE'
+    fetch(`/api/products/${product.id}`, {
+      method: 'PUT'
     })
       .then(res => res.json())
       .then(data => dispatch(deleteProductAC(data)))
