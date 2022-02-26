@@ -9,7 +9,7 @@ async function fetchData({ url, method, headers, body }) {
 
 function* postUserWorker(action) {
   const newUser = yield call(fetchData, {
-    url: "/signup",
+    url: "/api/registration",
     method: "POST",
     headers: {
       'Content-Type': 'Application/json'
