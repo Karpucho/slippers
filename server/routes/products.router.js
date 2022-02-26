@@ -23,7 +23,6 @@ router.route('/:id')
         where: { id },
         include: 'SizesOfProducts',
       });
-      console.log(currentProduct);
       return res.json({ message: 'sucsess', currentProduct });
     } catch (error) {
       return res.json({ message: 'error', error: error.message });

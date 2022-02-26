@@ -4,6 +4,7 @@ import  { addProductBasketAC }  from '../../redux/actionCreators/basketAC';
 import SizeInStock from '../SizeInStock/SizeInStock';
 import { v4 as uuidv4 } from 'uuid';
 import { Link, useParams } from 'react-router-dom';
+import {Button, Card, CardActions, CardContent, Container, CardMedia, Typography } from "@material-ui/core";
 
 import { initCurrentProductCardAC } from '../../redux/actionCreators/productsAC'
 
@@ -43,31 +44,53 @@ function ProductCurrentCard() {
 console.log(currentProduct.SizesOfProducts);
 
   return (
-    
-    <div>
-          <div>
-          <Link to='/products/'><button>закрыть</button></Link>
-          <div>
-            {/* <img src={currentProduct.photo}/> */}
+    <Container
+            style={{padding: '8rem'}}
+        >
+    <Card className="motion"
+    style={{ height: '70vh' }}
+    >
+       <Button><Link to='/products/'></Link></Button>
+        <CardMedia
+            image={currentProduct.photo}
+            component="img"
+            alt={currentProduct.name}
+            title={currentProduct.name}
+            style={{ height: '40vh' }}
+        />
+        <CardContent>
+            <Typography
+                variant="h6"
+                component="h3"
+            >
+                {currentProduct.name}
+            </Typography>
+            <Typography variant="body1">Цена: {currentProduct.price} руб.</Typography>
+            <Typography variant="body1">Описание: {currentProduct.description}</Typography>
+            {currentProduct.rating ? <p>Рейтинг {currentProduct.rating}</p> 
+            : <p>Пока что никто не оставил отзыв на данный товар</p>}
+            <div>
+          <p>В наличии</p>
+        {currentProduct.SizesOfProducts?.length && 
+            currentProduct.SizesOfProducts
+            .map(el => 
+            <SizeInStock key={uuidv4()} size={el.sizeNumber} count={el.itemsLeft}/>)
+             }
           </div>
-            <h3>{currentProduct.name}</h3>
-            <h3>Описание товара</h3>
-            <div>{currentProduct.description}</div>
-             {<p>{currentProduct.price}</p>}
+        </CardContent>
+        
+        <CardActions>
+          
+            <Button
+                variant="text"
+                // onClick={addProductBacket}
+            >
+                В корзину
+            </Button>
+        </CardActions>
+    </Card>
+</Container>
 
-            <p>В наличии</p>
-            
-            {currentProduct.SizesOfProducts?.length && 
-            currentProduct.SizesOfProducts.map(el => <SizeInStock key={uuidv4()} size={el.sizeNumber} count={el.itemsLeft}/>)
-            }
-            <br />
-            {currentProduct.rating ? <p>Рейтинг {currentProduct.rating}</p> : <p>Пока что никто не оставил отзыв на данный товар</p>}
-            <button onClick={addProductBacket}>В корзину</button>
-            <button>В избрaнное</button>
-            <h3>Похожие товары</h3>
-            <h3>Отзывы</h3>
-          </div>
-     </div>
   );
 }
 
