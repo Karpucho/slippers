@@ -4,16 +4,16 @@ import  { addProductBasketAC }  from '../../redux/actionCreators/basketAC';
 import SizeInStock from '../SizeInStock/SizeInStock';
 import { v4 as uuidv4 } from 'uuid';
 import { Link, useParams } from 'react-router-dom';
-
+import { initProductsListAC } from '../../redux/actionCreators/productsAC'
 import { initCurrentProductCardAC } from '../../redux/actionCreators/productsAC'
+import ProductCard from '../ProductCard/ProductCard';
 
 function ProductCurrentCard() {
 
   const dispatch = useDispatch();
   const params = useParams();
   const { currentProduct } = useSelector(state => state.productsReducer);
-
-
+  const { products } = useSelector(state => state.productsReducer);
 
   // const { basketProducts } = useSelector(state => state.basketReducer);
   const addProductBacket = () => {
@@ -40,7 +40,21 @@ function ProductCurrentCard() {
     .catch(error => error.message)
 }, [dispatch, params.id]);
 
-console.log(currentProduct.SizesOfProducts);
+useEffect(() => {
+  fetch('http://localhost:5000/products', {
+    credentials: 'include',
+  })
+  .then(data => data.json())
+  .then(data => {
+    if(data.message === 'sucsess') {
+      dispatch(initProductsListAC(data.products))
+    } else if (data.message === 'noproducts') {
+      console.log('noproducts');
+    } else (console.log(data.error))})
+  .catch(error => error.message)
+}, [dispatch]);
+
+// console.log(currentProduct.SizesOfProducts);
 
   return (
     <div>
@@ -63,7 +77,19 @@ console.log(currentProduct.SizesOfProducts);
             {currentProduct.rating ? <p>Рейтинг {currentProduct.rating}</p> : <p>Пока что никто не оставил отзыв на данный товар</p>}
             <button onClick={addProductBacket}>В корзину</button>
             <button>В избрaнное</button>
+            <div className="">
             <h3>Похожие товары</h3>
+            <ul>
+              {products
+              .filter(product => product.categoryId === currentProduct.categoryId)
+              .map( product =>
+                  <li key={product.id} >
+                    <Link to={`/products/${product.id}`}>
+                    <ProductCard product={product}/>
+                    </Link>
+                  </li>).slice(0,3)}
+            </ul>
+            </div>
             <h3>Отзывы</h3>
           </div>
      </div>

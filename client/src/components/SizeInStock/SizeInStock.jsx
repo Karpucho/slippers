@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 
 function ChooseSize({size, count}) {
 
-
-  console.log(size, count);
   return (
     <div>
       {(count > 0) ? <div>

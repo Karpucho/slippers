@@ -26,22 +26,6 @@ function RegForm(props) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <h3> Зарегься чтобы мы доставили тапочки</h3>
       <label>
-      role
-        <input
-          type="text"
-          {...register("role", {
-            required: true,
-            minLength: {
-              value: 2,
-              message: "Имя не должны быть короче 2 символов",
-            },
-          })}
-        />
-      </label>
-      <div style={{ height: 20 }}>
-        {errors?.role && <p>{errors?.role?.message || "Eror!"}</p>}
-      </div>
-      <label>
         Email
         <input
           type="text"

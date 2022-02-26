@@ -10,7 +10,7 @@ export default function ProductCard({product}) {
     <>
      <Link to={`/products/${product.id}`}>
           <div className="test2">
-            {/* <img src={currentProduct.photo}/> */}
+            <img src='https://kgrm.ru/wa-data/public/shop/products/16/29/2916/images/8028/8028.280.jpg' />
           </div>
           <div>
             <h3>{product.name}</h3>
