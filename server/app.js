@@ -9,12 +9,6 @@ const config = require('./config/config');
 const router = require('./routes/index');
 const productsRouter = require('./routes/products.router');
 
-
-const express = require('express');
-const config = require('./config/config');
-const router = require('./routes/index');
-// const productsRouter = require("./routes/products.router");
-
 const { sequelize } = require('./db/models');
 
 const errorMiddleware = require('./middlewares/errors.middleware');
