@@ -19,14 +19,9 @@ import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 
-
 const theme = createTheme();
 
 const useStyles = makeStyles({
-  inputContainer: {
-    flex: 1,
-    flexDirection: 'column'
-  },
   setColor: {
     grey: {
       main: grey[900],
@@ -218,10 +213,12 @@ function NavBar(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/api/products');handleClose()}}>Розница</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Все товары</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Женские</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Мужские</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Подросток</MenuItem>
+        
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Отзывы</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
@@ -264,7 +261,7 @@ function NavBar(props) {
           </IconButton>
         </Tooltip>
         <IconButton aria-label="cart">
-                <StyledBadge badgeContent={19} color="primary">
+                <StyledBadge badgeContent={1} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
                 </IconButton>
@@ -333,52 +330,34 @@ function NavBar(props) {
       </Menu>
         </Toolbar>
      </Container>
-    <Box mr={3}>
-    <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
-        <DialogTitle  id="from-dialog-title">Закрыть</DialogTitle>
-        <DialogContent className={classes.inputContainer}>
+     <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
+        <DialogTitle id="from-dialog-title">Войти</DialogTitle>
+        <DialogContent>
           <DialogContentText>Авторизация</DialogContentText>
           <TextField 
           autoFocus
           margin="dense"
-          id="email"
+          id="name"
           label="Email Adresse"
           type="email"
           fillWidth
           autocomplete="off"
           />
           <TextField 
-          margin="dense"
-          id="name"
-          label="Ваше Имя"
-          type="name"
-          fillWidth
           autocomplete="off"
-          />
-          <TextField 
-          autocomplete="off"
+          autoFocus
           margin="dense"
           id="pass"
-          label="Пароль"
+          label="Password"
           type="password"
           fillWidth
           />
-          <TextField 
-          autocomplete="off"
-          margin="dense"
-          id="secondPass"
-          label="Подтвердите ароль"
-          type="password"
-          fillWidth
-          />
-
-          <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button>
-          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
-
         </DialogContent>
-        
+        <DialogActions>
+          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Авторизоваться</Button>
+          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
+        </DialogActions>
      </Dialog>
-    </Box>
     </AppBar>
 </ThemeProvider>
   );

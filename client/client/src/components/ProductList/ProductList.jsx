@@ -13,7 +13,7 @@ export default function ProductList({visibility}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      fetch('http://localhost:5000/api/products', {
+      fetch('http://localhost:5000/products', {
         credentials: 'include',
       })
       .then(data => data.json())
@@ -34,7 +34,7 @@ export default function ProductList({visibility}) {
       <ul>
         {products?.length && products.map(product => (
             <li key={product.id} >
-              <Link to={`/home/${product.id}`}>
+              <Link to={`/products/${product.id}`}>
               <ProductCard product={product}/>
               </Link>
             </li>

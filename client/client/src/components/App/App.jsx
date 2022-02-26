@@ -13,14 +13,13 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-
       <NavBar/>
 
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/api/products" element={<ProductList />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductList />} />
           <Route path="/signup" element={<RegForm />} />
-          <Route path="/home/:id" element={<ProductCurrentCard />} />
+          <Route path="/products/:id" element={<ProductCurrentCard />} />
           <Route path="/profile" element={<Profile />} />
 
         </Routes>
