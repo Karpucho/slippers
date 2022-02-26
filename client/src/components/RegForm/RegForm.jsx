@@ -18,16 +18,8 @@ function RegForm(props) {
       password: data.password,
       role: data.role,
     };
-// console.log(body, 'БОДИ');
-    const response = await fetch('http://localhost:5000/api/registration', {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include'
-    }).then(data => data.json())
-      .catch(console.error)
 
-    dispatch({type: "FETCH_CREATE_USER", payload: response.userData})
+    dispatch({type: "FETCH_CREATE_USER", payload: body})
   };
 
   return (
@@ -88,48 +80,5 @@ function RegForm(props) {
     </form>
   );
 }
-
-// function RegForm(props) {
-  
-//   const inputEmail = useRef();
-//   const inputPassword = useRef();
-//   const inputRole = useRef();
-
-//   const navigate = useNavigate();
-
-//   function register(event) {
-//     event.preventDefault();
-//     const user = {
-//       email: inputEmail.current.value,
-//       password: inputPassword.current.value,
-//       role: inputRole.current.value,
-//     }
-//     fetch('http://localhost:5000/api/registration',
-//     {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       credentials: 'include',
-//       body: JSON.stringify(user),
-//     })
-//     .then(res => res.json())
-//     .then(data => console.log(data))
-//     .catch(console.error())
-
-//     navigate('/')
-
-//   }
-
-//   return (
-//     <form>
-
-//         <input ref={inputEmail} placeholder='email'/>
-//         <input ref={inputPassword} placeholder='password'/>
-//         <input ref={inputRole} placeholder='role'/>
-
-//         <button onClick={register}>Рега</button>
-
-//     </form>
-//   );
-// }
 
 export default RegForm;
