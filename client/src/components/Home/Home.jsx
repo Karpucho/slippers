@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import AdminProductList from '../AdminProductList/AdminProductList';
+import Advertising from '../Advertising/Advertising';
 
 const theme = createTheme();
 
@@ -57,29 +58,8 @@ function Home(props) {
 
   return (
     <ThemeProvider theme={theme}>
+      <Advertising/>
   <main>
-  <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(http://source.unsplash.com/random)`}}>
-      <Container maxWidth="md">
-        <div className={classes.overlay}/>
-        <Grid container>
-          <Grid item md={6}>
-
-            <div className={classes.mainFeaturesPostContent}>
-              <Typography component="h1" color="inherit" variant="h3" gutterBottom>
-                Tapcomania
-              </Typography>
-              <Typography component="h5" color="inherit" paragraph>
-                Оптово-розничная продажа домашней и летней обуви
-                             по всей России !
-              </Typography>
-              <Button variant="outlined" color="inherit">
-                О нас
-              </Button>
-            </div>
-          </Grid>
-        </Grid>
-      </Container>
-     </Paper>
      <div className={classes.mainContent}>
         <Container maxWidth="md">
           <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
