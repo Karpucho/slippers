@@ -1,25 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Profile(props) {
+  const user = useSelector(state => state.user)
+  console.log('user selector', user);
   const dispatch = useDispatch();
 
   const {
     register,
     formState: { errors },
-    changeProfile,
+    handleSubmit,
   } = useForm();
 
   const onSubmit = (data) => {
-    
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     const body = {
-      name: data.name,
       email: data.email,
       password: data.password,
+      role: data.role,
     };
-    console.log(body);
+    dispatch({ type: "FETCH_UPDATE_USER", payload: body });
+    // console.log(body);
   };
 
   return (
@@ -29,26 +31,26 @@ function Profile(props) {
         <h3>Ваши заказы</h3>
         <h3>Изменить профиль</h3>
       </div>
-      <form onSubmit={changeProfile}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h3> Изменить данные</h3>
         <label>
-          Name
+          Сменить роль
           <input
             type="text"
-            {...register("name", {
+            {...register("role", {
               required: "Введите имя",
               minLength: {
                 value: 2,
-                message: "Имя не должны быть короче 2 символов",
+                message: "role не должны быть короче 2 символов",
               },
             })}
           />
         </label>
         <div style={{ height: 40 }}>
-          {errors?.name && <p>{errors?.name?.message || "Eror!"}</p>}
+          {errors?.role && <p>{errors?.role?.message || "Eror!"}</p>}
         </div>
         <label>
-          Email
+          Обновить email
           <input
             type="text"
             {...register("email", {
@@ -64,7 +66,7 @@ function Profile(props) {
           )}
         </div>
         <label>
-          Задайте пароль
+          Изменить пароль
           <input
             type="password"
             {...register("password", {
@@ -81,7 +83,7 @@ function Profile(props) {
             <p>{errors?.password?.message || "Введите корректный пароль"}</p>
           )}
         </div>
-        <button type="submit">Изменить данные</button>
+        <button type="submit">Изменить свои данные</button>
       </form>
     </>
   );

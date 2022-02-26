@@ -21,11 +21,11 @@ export const productsReducer = (state = initialState, action) => {
         products: state.products.filter(product => product.id !== Number(action.payload)),
       };
 
-    // case INIT_CURRENT_PRODUCT_CARD:
-    //   return {
-    //     ...state,
-    //     currentProduct: action.payload,
-    //   };
+    case INIT_CURRENT_PRODUCT_CARD:
+      return {
+        ...state,
+        currentProduct: action.payload,
+      };
 
     case UPDATE_PRODUCT:
       const updatedProduct = action.payload;
