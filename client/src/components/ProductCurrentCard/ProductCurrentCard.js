@@ -43,8 +43,9 @@ function ProductCurrentCard() {
 console.log(currentProduct.SizesOfProducts);
 
   return (
+    
     <div>
-          <div className="test">
+          <div>
           <Link to='/products/'><button>закрыть</button></Link>
           <div>
             {/* <img src={currentProduct.photo}/> */}

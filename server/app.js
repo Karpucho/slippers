@@ -3,7 +3,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const express = require('express');
-
 const config = require('./config/config');
 const router = require('./routes/index');
 const productsRouter = require('./routes/products.router');
@@ -17,12 +16,9 @@ const app = express();
 
 config(app);
 
-app.use('/api', router);
+app.use('/', router);
 
-
-// можно блядь не трогать мои роуты до сдачи проекта????!!!!!!!! и остальные файлы
 app.use('/products', productsRouter);
-
 
 app.use(errorMiddleware);
 
