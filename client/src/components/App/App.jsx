@@ -19,7 +19,7 @@ function App() {
 
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/api/products" element={<ProductList />} />
+          <Route path="/products" element={<ProductList />} />
           <Route path="/signup" element={<RegForm />} />
           <Route path="/products/:id" element={<ProductCurrentCard />} />
           <Route path="/profile" element={<Profile />} />
