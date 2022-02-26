@@ -213,7 +213,8 @@ function NavBar(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Женские</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Все товары</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Женские</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Мужские</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Подросток</MenuItem>
         
