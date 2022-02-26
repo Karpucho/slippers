@@ -13,7 +13,7 @@ export default function ProductList({visibility}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      fetch('http://localhost:5000/api/products', {
+      fetch('http://localhost:5000/products', {
         credentials: 'include',
       })
       .then(data => data.json())
