@@ -57,6 +57,7 @@ const useStyles = makeStyles({
   },
   barColor: {
     background: 'linear-gradient(45deg, #FFFFFF 30%, #FFFFFF 90%)',
+    marginBottom: theme.spacing(40)
   },
   mainFeaturesPost: {
     position: 'relative',
@@ -198,7 +199,7 @@ function NavBar(props) {
 
   return (
 <ThemeProvider theme={theme}>
-<AppBar  className={classes.barColor} position='fixed'>
+<AppBar className={classes.barColor} position='fixed'>
      <Container fixed>
         <Toolbar>
         <IconButton
@@ -220,9 +221,9 @@ function NavBar(props) {
       >
         <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/api/products');handleClose()}}>Розница</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Отзывы</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
          {/* <Box m={3}>

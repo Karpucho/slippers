@@ -8,22 +8,23 @@ import ProductList from "../ProductList/ProductList";
 import Home from "../Home/Home";
 import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurrentCard'
 import Profile from "../Profile/Profile";
+import Reviews from "../Reviews/Reviews";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-
       <NavBar/>
-
+        <div style={{ marginTop: '4%' }}>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/api/products" element={<ProductList />} />
           <Route path="/signup" element={<RegForm />} />
-          <Route path="/home/:id" element={<ProductCurrentCard />} />
+          <Route path="/products/:id" element={<ProductCurrentCard />} />
           <Route path="/profile" element={<Profile />} />
-
+          <Route path="/reviews" element={<Reviews />} />
         </Routes>
+        </div>
       </BrowserRouter>
     </Provider>
   );
