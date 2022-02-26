@@ -29,7 +29,7 @@ function RegForm(props) {
         <input
           type="text"
           {...register("role", {
-            required: "Введите role",
+            required: true,
             minLength: {
               value: 2,
               message: "Имя не должны быть короче 2 символов",
