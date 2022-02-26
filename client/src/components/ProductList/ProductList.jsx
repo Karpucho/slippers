@@ -36,9 +36,9 @@ export default function ProductList({visibility}) {
             style={{paddingTop: '7rem'}}
         >
     <Grid container spacing={2}>
-    {products?.length && products.map(product => (
+    {(products?.length)? products.map(product => (
               <ProductCard  key={product.id} product={product}/>
-          ))}
+          )) : <></>}
    </Grid>
    </Container>
   );
