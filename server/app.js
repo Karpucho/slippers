@@ -1,11 +1,12 @@
 const dotenv = require('dotenv');
 
 dotenv.config();
-
 const express = require('express');
 const config = require('./config/config');
 const router = require('./routes/index');
 const productsRouter = require('./routes/products.router');
+const cartRouter = require('./routes/cart.router');
+
 
 const { sequelize } = require('./db/models');
 
@@ -19,6 +20,9 @@ config(app);
 app.use('/', router);
 
 app.use('/products', productsRouter);
+
+app.use('/cart', cartRouter);
+
 
 app.use(errorMiddleware);
 
