@@ -1,59 +1,120 @@
-import React, { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+
 
 function EditCardForm(props) {
-
-  const inputName = useRef();
-  const inputGender = useRef();
-  const inputCategory = useRef();
-  const inputDescription = useRef();
-  const inputPrice = useRef();
-
-
-
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const dispatch = useDispatch()
+ 
+  useEffect(()=> {
+    dispatch({ type: 'FETCH_CURRENT_PRODUCT', payload:id})
+  }, [dispatch, id])
 
-  const { products } = useSelector(state => state.productsReducer);
-  console.log(products);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
 
-  const currentProduct = products.find(el => el.id === id);
-  console.log(currentProduct);
-
-
-  const editPorduct = (e) => {
-    e.preventDefault();
-
-    const
-  }
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+    const body = {
+      name: data.name,
+      price: data.price,
+      gender: data.gender,
+      description:data.description,
+      rating:data.rating
+    };
+    dispatch({ type: "FETCH_UPDATE_PRODUCT", payload: {
+      item: body,
+      id 
+    }});
 
   return (
     <>
-<form>
-  <h3>Имя: {currentProduct.name}</h3>
-    <input ref={inputName} defaultValue={currentProduct.name} type="text" placeholder="Измените имя" />
-
-      <h3>Пол: {currentProduct.gender}</h3>
-        <select name="gender">
-          <option ref={inputGender} value="женские">женские</option>
-          <option ref={inputGender} value="мужские">мужские</option>
-        </select>
-
-        <h3>Категория: {currentProduct.Category.name}</h3>
-        <select name="category">
-          {currentProduct.Category.map(el => <option ref={inputCategory} value={el.id}>{el.name}</option>)}
-        </select>
-
-        <h3>Описание: {currentProduct.description}</h3>
-        <input ref={inputDescription} defaultValue={currentProduct.description} type="text" placeholder="Измените описание" />
-
-      <h3>Цена: {currentProduct.price}</h3>
-    <input ref={inputPrice} defaultValue={currentProduct.price} type="number" placeholder="Измените цену" />
-  <button type="submit" onClick={editProduct}>Сохранить изменения</button>
-</form>
-<button onClick={() => navigate(-1)}>Назад</button>
-   </>
+    <div>
+      <h3>Изменить карточку</h3>
+    </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <h3> Изменить данные</h3>
+      <label>
+        Сменить роль
+        <input
+          type="text"
+          {...register("name", {
+            required: "Введите имя",
+            minLength: {
+              value: 2,
+              message: "name товара  не должно быть короче 2 символов",
+            },
+          })}
+        />
+      </label>
+      <div style={{ height: 40 }}>
+        {errors?.name && <p>{errors?.name?.message || "Eror!"}</p>}
+      </div>
+      <label>
+        Обновить price
+        <input
+          type="text"
+          {...register("price", {
+            required: true,
+           })}
+        />
+      </label>
+      <div style={{ height: 40 }}>
+        {errors?.price && (
+          <p>{errors?.price?.message || "Введите норм цену"}</p>
+        )}
+      </div>
+      <label>
+        Изменить gender
+        <input
+          type="text"
+          {...register("gender", {
+            required: true,
+          })}
+        />
+      </label>
+      <div style={{ height: 40 }}>
+        {errors?.gender && (
+          <p>{errors?.gender?.message || "Введите пол"}</p>
+        )}
+      </div>
+      <label>
+        Изменить description
+        <input
+          type="text"
+          {...register("description", {
+            required: true,
+          })}
+        />
+      </label>
+      <div style={{ height: 40 }}>
+        {errors?.description && (
+          <p>{errors?.description?.message || "Введите description"}</p>
+        )}
+      </div>
+      <label>
+        Изменить rating
+        <input
+          type="text"
+          {...register("rating", {
+            required: true,
+          })}
+        />
+      </label>
+      <div style={{ height: 40 }}>
+        {errors?.rating && (
+          <p>{errors?.rating?.message || "Введите description"}</p>
+        )}
+      </div>
+      <button type="submit">Изменить свои данные</button>
+    </form>
+  </>
   );
 };
 
