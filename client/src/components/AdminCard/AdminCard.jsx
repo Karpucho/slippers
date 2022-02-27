@@ -10,10 +10,12 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import DoneIcon from '@mui/icons-material/Done';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { deleteProductAC } from '../../redux/actionCreators/productsAC'
+
 
 
 
@@ -29,10 +31,11 @@ const useStyles = makeStyles({
 
 export default function ActionAreaCard({product}) {
   const classes = useStyles();
+  const navigate =useNavigate();
 
   const dispatch = useDispatch();
   const fetchDeleteProduct = () => {
-    fetch(`/api/products/${product.id}`, {
+    fetch(`/products/${product.id}`, {
       method: 'PUT'
     })
       .then(res => res.json())
@@ -41,7 +44,7 @@ export default function ActionAreaCard({product}) {
   }
 
   const handleClick = () => {
-    console.info('You clicked the Chip.');
+    navigate(`/products/edit/${product.id}`)
   };
 
   const handleDelete = () => {
@@ -61,12 +64,14 @@ export default function ActionAreaCard({product}) {
           <Typography variant="body2" color="text.secondary">
             {product.description}  
           </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {product.status}  
+          </Typography>
         </CardContent>
         <Stack direction="row" spacing={1}>
       <Chip
         label="РЕДАКТИРОВАТЬ"
         onClick={handleClick}
-        onDelete={handleDelete}
         deleteIcon={<DoneIcon />}
       />
       <Chip
