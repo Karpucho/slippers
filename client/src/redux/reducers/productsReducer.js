@@ -8,8 +8,7 @@ export const productsReducer = (state = initialState, action) => {
       const newProduct = action.payload.product;
 
       return {
-        ...state,
-        products: state.products ? [...state.products, newProduct] : [newProduct],
+       
       };
 
     case INIT_PRODUCTS_LIST:
