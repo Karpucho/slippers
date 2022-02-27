@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 function Profile(props) {
-  const user = useSelector(state => state.user)
+  const {user} = useSelector(state => state.user)
   console.log('user selector', user);
   const dispatch = useDispatch();
 
