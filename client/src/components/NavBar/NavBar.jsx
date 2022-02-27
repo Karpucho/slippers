@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
@@ -19,7 +19,6 @@ import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Login from "../Login/Login";
-
 
 const theme = createTheme();
 
@@ -198,7 +197,6 @@ function NavBar(props) {
     setDialogOpen(false);
   }
 
-
   return (
 <ThemeProvider theme={theme}>
 <AppBar className={classes.barColor} position='fixed'>
@@ -233,6 +231,7 @@ function NavBar(props) {
            <Button className={classes.buttons} onClick={() => navigate('/signin')} color="inherit" variant="outlined">log in</Button>
          </Box>
          <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button> */}
+
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Search>
             <SearchIconWrapper>
@@ -259,9 +258,8 @@ function NavBar(props) {
 
           </IconButton>
         </Tooltip>
-        <IconButton aria-label="cart"
- >
-                <StyledBadge badgeContent={7} color="primary">
+        <IconButton aria-label="cart">
+                <StyledBadge badgeContent={19} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
                 </IconButton>

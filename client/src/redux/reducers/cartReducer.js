@@ -13,13 +13,13 @@ export const cartReducer = (state = initialState, action) => {
 
     case ADD_PRODUCT_CART:
       const addedProduct = state.cartProducts.find(
-        product => (product.id === action.payload.id) && (product.size === action.payload.size)
+        product => product.id === action.payload.id
       );
       if (addedProduct) {
         return {
           ...state,
           cartProducts: state.cartProducts.map(product => {
-            if ((product.id === action.payload.id) && (product.size === action.payload.size)) {
+            if (product.id === action.payload.id) {
               return { ...product, numberOfItems: product.numberOfItems + action.payload.numberOfItems };
             }
             return product;
