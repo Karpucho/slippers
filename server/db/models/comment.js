@@ -4,18 +4,10 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
-    static associate({ Product }) {
-      Comment.belongsTo(Product, { foreignKey: 'productId' });
+    static associate() {
     }
   }
   Comment.init({
-    productId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Products',
-      },
-    },
     authorName: {
       allowNull: false,
       type: DataTypes.TEXT,
@@ -23,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     text: {
       allowNull: false,
       type: DataTypes.TEXT,
+    },
+    rating: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
     },
     photo: {
       type: DataTypes.TEXT,

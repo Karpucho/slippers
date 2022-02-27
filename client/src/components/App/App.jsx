@@ -10,7 +10,7 @@ import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurre
 import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
-import EditCardForm from "../EditCardForm/EditCardForm";
+import Info from "../Info/Info";
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
           <Route path="/products/edit/:id" element={<EditCardForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/info" element={<Info/>} />
         </Routes>
         </div>
         <Footer/>
