@@ -232,13 +232,6 @@ function NavBar(props) {
          </Box>
          <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button> */}
 
-
-
-
-
-
-
-
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Search>
             <SearchIconWrapper>

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const { Product, Category } = require('../db/models');
 
 router.route('/')
