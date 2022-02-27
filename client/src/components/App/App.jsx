@@ -17,12 +17,14 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
       <NavBar/>
+      
         <div style={{ marginTop: '4%' }}>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/signup" element={<RegForm />} />
           <Route path="/products/:id" element={<ProductCurrentCard />} />
+          <Route path="/products/edit/:id" element={<EditCardForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
