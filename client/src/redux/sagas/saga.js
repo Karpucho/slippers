@@ -10,8 +10,6 @@ import {
   initCurrentProductCardAC,
 } from "../actionCreators/productsAC";
 
-
-
 async function fetchData({ url, method, headers, body }) {
   const response = await fetch(url, { method, headers, body });
   return await response.json();
@@ -28,6 +26,25 @@ function* postUserWorker(action) {
     body: JSON.stringify(action.payload),
   });
   yield put(createUserAC(newUser));
+  if(newUser.success) {
+    localStorage.setItem('user', JSON.stringify(newUser))
+  }
+}
+
+function* loginUserAsync(action) {
+  const user = yield call(fetchData, {
+    url: "/login",
+    method: "POST",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+    body: JSON.stringify(action.payload),
+  });
+
+  yield put(loginUserAC(user));
+  if (user.success) {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
 }
 
 function* putUserWorker(action) {
@@ -67,4 +84,5 @@ export function* globalWatcher() {
   yield takeEvery("FETCH_UPDATE_USER", putUserWorker);
   yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
   yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
+  yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
 }

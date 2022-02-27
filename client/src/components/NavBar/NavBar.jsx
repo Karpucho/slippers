@@ -18,7 +18,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-
+import Login from "../Login/Login";
 
 const theme = createTheme();
 
@@ -330,10 +330,10 @@ function NavBar(props) {
      </Container>
     <Box mr={3}>
     <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
-        <DialogTitle  id="from-dialog-title">Закрыть</DialogTitle>
+        <DialogTitle  id="from-dialog-title">Авторизация</DialogTitle>
         <DialogContent className={classes.inputContainer}>
-          <DialogContentText>Авторизация</DialogContentText>
-          <TextField 
+          {/* <DialogContentText>Авторизация</DialogContentText> */}
+          {/* <TextField 
           autoFocus
           margin="dense"
           id="email"
@@ -365,10 +365,10 @@ function NavBar(props) {
           label="Подтвердите ароль"
           type="password"
           fillWidth
-          />
-
-          <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button>
-          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
+          /> */}
+          <Login/>
+          {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
+          <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
 
         </DialogContent>
         
