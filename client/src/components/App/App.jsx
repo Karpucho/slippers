@@ -10,6 +10,9 @@ import ProductCurrentCard from '../ProductCurrentCard/ProductCurrentCard'
 import Profile from "../Profile/Profile";
 import {useState} from 'react'
 import Snack from '../Snack/Snack'
+import Reviews from "../Reviews/Reviews";
+import Footer from "../Footer/Footer";
+import Info from "../Info/Info";
 
 function App() {
 
@@ -79,6 +82,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+<<<<<<< HEAD
 
 
       <NavBar
@@ -94,18 +98,30 @@ function App() {
       closeCart={() => setCartOpen(false)}
       />
 
+=======
+      <NavBar/>
+      
+        <div style={{ marginTop: '4%' }}>
+>>>>>>> 1fc043e16ed8dca3d7d63b9524405e5f80764b6b
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/signup" element={<RegForm />} />
           <Route path="/products/:id" element={<ProductCurrentCard />} />
+          <Route path="/products/edit/:id" element={<EditCardForm />} />
           <Route path="/profile" element={<Profile />} />
-
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/info" element={<Info/>} />
         </Routes>
+<<<<<<< HEAD
         <Snack
             isOpen={isSnackOpen}
             handleClose={() => setSnackOpen(false)}
         />
+=======
+        </div>
+        <Footer/>
+>>>>>>> 1fc043e16ed8dca3d7d63b9524405e5f80764b6b
       </BrowserRouter>
     </Provider>
   );

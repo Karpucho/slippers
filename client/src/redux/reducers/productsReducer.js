@@ -1,5 +1,6 @@
 import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT_IN_STOK, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
 
+
 const initialState = { products: [], currentProduct: {}};
 
 export const productsReducer = (state = initialState, action) => {
@@ -55,6 +56,13 @@ export const productsReducer = (state = initialState, action) => {
           }
         }),
       };
+
+      case CHANGE_PRODUCT_STATUS:
+        return {
+          ...state,
+          products: state.products.filter(product => product.id === Number(action.payload)),
+        };
+
 
     default:
       return state;

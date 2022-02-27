@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../ProductCard/ProductCard'
 import { Grid, Container} from '@material-ui/core';
-
+import Advertising from '../Advertising/Advertising';
 
 export default function ProductList({visibility}) {
   const {products} = useSelector(state => state.productsReducer);
@@ -29,6 +29,8 @@ export default function ProductList({visibility}) {
 
 
   return (
+    <>
+    <Advertising/>
     <Container
             sx={{
                 mt: '1rem'
@@ -41,6 +43,7 @@ export default function ProductList({visibility}) {
           )) : <></>}
    </Grid>
    </Container>
+   </>
   );
 }
 

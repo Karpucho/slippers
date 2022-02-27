@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { INIT_PRODUCTS_LIST, ADD_PRODUCT, UPDATE_PRODUCT_IN_STOK, DELETE_PRODUCT,  UPDATE_PRODUCT, INIT_CURRENT_PRODUCT_CARD} from '../actionsTypes/productsAT';
+=======
+import { INIT_PRODUCTS_LIST, ADD_PRODUCT, DELETE_PRODUCT,  UPDATE_PRODUCT, INIT_CURRENT_PRODUCT_CARD, CHANGE_PRODUCT_STATUS} from '../actionsTypes/productsAT';
+>>>>>>> 1fc043e16ed8dca3d7d63b9524405e5f80764b6b
 
 export const initProductsListAC = (payload = []) => {
   return {
@@ -38,6 +42,13 @@ export const updateProductCardAC = (payload = {}) => {
 export const initCurrentProductCardAC = (payload = {}) => {
   return {
     type: INIT_CURRENT_PRODUCT_CARD,
+    payload,
+  };
+};
+
+export const updateProductStatusAC = (payload = {}) => {
+  return {
+    type: CHANGE_PRODUCT_STATUS,
     payload,
   };
 };
