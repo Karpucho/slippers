@@ -222,7 +222,7 @@ function NavBar(props) {
 
         <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Розница</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
       </Menu>

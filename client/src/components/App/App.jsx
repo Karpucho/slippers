@@ -10,6 +10,7 @@ import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurre
 import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
+import Info from "../Info/Info";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/products/:id" element={<ProductCurrentCard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/info" element={<Info/>} />
         </Routes>
         </div>
         <Footer/>

@@ -5,17 +5,15 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate({
-      Cart, RatingFromUser, Category, SizesOfProduct, Comment,
+      Cart, Category, SizesOfProduct,
     }) {
       Product.hasMany(Cart, { foreignKey: 'productId' });
-      Product.hasMany(RatingFromUser, { foreignKey: 'productId' });
       Product.belongsTo(Category, { foreignKey: 'categoryId' }, {
         onDelete: 'cascade',
       });
       Product.hasMany(SizesOfProduct, { foreignKey: 'productId' }, {
         onDelete: 'cascade',
       });
-      Product.hasMany(Comment, { foreignKey: 'productId' });
     }
   }
   Product.init({

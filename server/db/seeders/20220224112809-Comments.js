@@ -2,31 +2,31 @@ module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('Comments', [
       {
-        productId: 1, authorName: 'IVAn', text: 'Мне очень понравились! Советую всем!', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'IVAn', text: 'Мне очень понравились! Советую всем!', rating: 5, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 2, authorName: 'svetVkonce', text: 'А мне не оч! Дорого и неудобно!', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'svetVkonce', text: 'А мне не оч! Дорого и неудобно!', rating: 5, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 3, authorName: 'vov', text: 'Супер класс', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'vov', text: 'Супер класс', rating: 5, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 4, authorName: 'покупатель', text: 'буэ', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'покупатель', text: 'буэ', rating: 1, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 5, authorName: 'лошадь', text: 'хоп хэй', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'лошадь', text: 'хоп хэй', rating: 4, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 6, authorName: 'предвестник', text: 'очень удобно', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'предвестник', text: 'очень удобно', rating: 3, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 4, authorName: 'кто-то', text: '!!!!!!!!', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'кто-то', text: '!!!!!!!!', rating: 5, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 5, authorName: '!!!!', text: 'хоп хэй', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: '!!!!', text: 'хоп хэй', rating: 5, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        productId: 6, authorName: 'предвестник', text: 'rkfcc', photo: '', createdAt: new Date(), updatedAt: new Date(),
+        authorName: 'предвестник', text: 'rkfcc', rating: 2, photo: '', createdAt: new Date(), updatedAt: new Date(),
       },
     ]);
   },
