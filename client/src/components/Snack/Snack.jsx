@@ -1,6 +1,6 @@
 import React from 'react';
 import { Snackbar } from "@material-ui/core"
-import { Alert } from '@material-ui'
+// import { Alert } from '@material-ui'
 
 function Snac(props) {
   return (
@@ -9,9 +9,9 @@ function Snac(props) {
             onClose={props.handleClose}
             autoHideDuration={3000}
         >
-            <Alert
+            {/* <Alert
                 severity="success"
-            >Товар добавлен в корзину!</Alert>
+            >Товар добавлен в корзину!</Alert> */}
         </Snackbar>
   );
 }

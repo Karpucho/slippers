@@ -13,6 +13,7 @@ import Snack from '../Snack/Snack'
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
+import EditCardForm from '../EditCardForm/EditCardForm'
 
 function App() {
 
@@ -82,8 +83,6 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-<<<<<<< HEAD
-
 
       <NavBar
       handleCart={() => setCartOpen(true)}
@@ -97,12 +96,9 @@ function App() {
       cartOpen={isCartOpen}
       closeCart={() => setCartOpen(false)}
       />
-
-=======
       <NavBar/>
       
         <div style={{ marginTop: '4%' }}>
->>>>>>> 1fc043e16ed8dca3d7d63b9524405e5f80764b6b
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
@@ -113,15 +109,12 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
         </Routes>
-<<<<<<< HEAD
         <Snack
             isOpen={isSnackOpen}
             handleClose={() => setSnackOpen(false)}
         />
-=======
         </div>
         <Footer/>
->>>>>>> 1fc043e16ed8dca3d7d63b9524405e5f80764b6b
       </BrowserRouter>
     </Provider>
   );
