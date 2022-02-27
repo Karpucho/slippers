@@ -18,7 +18,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import { useSelector } from 'react-redux';
+
 
 
 const theme = createTheme();
@@ -149,16 +149,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function NavBar(props) {
 
-  // const [count, setCount ] = useState('');
-
-  // const { cartProducts } = useSelector(state => state.cartReducer);
-
-  // useEffect(() => {
-  //   let countProducts = JSON.parse(localStorage.getItem('cart')).length;
-  //   console.log('sdfghjk', countProducts);
-  // }, [cartProducts])
-
-
   const navigate = useNavigate();
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -206,6 +196,7 @@ function NavBar(props) {
   const dialogClickClose = () => {
     setDialogOpen(false);
   }
+
 
   return (
 <ThemeProvider theme={theme}>
@@ -269,7 +260,8 @@ function NavBar(props) {
 
           </IconButton>
         </Tooltip>
-        <IconButton aria-label="cart">
+        <IconButton aria-label="cart"
+ >
                 <StyledBadge badgeContent={7} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
