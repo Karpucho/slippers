@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
@@ -18,6 +18,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import { useSelector } from 'react-redux';
 
 
 const theme = createTheme();
@@ -148,6 +149,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function NavBar(props) {
 
+  // const [count, setCount ] = useState('');
+
+  // const { cartProducts } = useSelector(state => state.cartReducer);
+
+  // useEffect(() => {
+  //   let countProducts = JSON.parse(localStorage.getItem('cart')).length;
+  //   console.log('sdfghjk', countProducts);
+  // }, [cartProducts])
+
+
   const navigate = useNavigate();
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -232,12 +243,6 @@ function NavBar(props) {
          <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button> */}
 
 
-
-
-
-
-
-
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Search>
             <SearchIconWrapper>
@@ -265,7 +270,7 @@ function NavBar(props) {
           </IconButton>
         </Tooltip>
         <IconButton aria-label="cart">
-                <StyledBadge badgeContent={19} color="primary">
+                <StyledBadge badgeContent={7} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
                 </IconButton>
