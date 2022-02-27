@@ -7,6 +7,9 @@ const profileRouter = require('./profile.route');
 
 const authMiddleware = require('../middlewares/auth.middleware');
 
+// const productRoter = require('./products.router');
+
+
 router.post(
   '/registration',
   body('email').isEmail(),
@@ -22,6 +25,8 @@ router.get('/activate/:link', userConroller.activate);
 // перезаписывать фксесс токен когда токен помрет
 router.get('/refresh', userConroller.refresh);
 router.get('/users', authMiddleware, userConroller.getUsers);
+
+// router.use('/products', productRoter);
 
 router.use('/', profileRouter);
 

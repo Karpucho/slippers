@@ -7,6 +7,7 @@ const router = require('./routes/index');
 const productsRouter = require('./routes/products.router');
 const cartRouter = require('./routes/cart.router');
 
+
 const { sequelize } = require('./db/models');
 
 const errorMiddleware = require('./middlewares/errors.middleware');
@@ -19,7 +20,9 @@ config(app);
 app.use('/', router);
 
 app.use('/products', productsRouter);
+
 app.use('/cart', cartRouter);
+
 
 app.use(errorMiddleware);
 
