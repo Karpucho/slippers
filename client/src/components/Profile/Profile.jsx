@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 function Profile(props) {
-  const {user} = useSelector(state => state.user)
+  const {user} = useSelector(state => state.usersReducer.user)
   console.log('user selector', user);
   const dispatch = useDispatch();
-
+  const id = user.id
+  console.log('userId', id);
   const {
     register,
     formState: { errors },
@@ -14,13 +15,16 @@ function Profile(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    // alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
     const body = {
       email: data.email,
       password: data.password,
       role: data.role,
     };
-    dispatch({ type: "FETCH_UPDATE_USER", payload: body });
+    dispatch({ type: "FETCH_UPDATE_USER", payload: {
+      body,
+      id 
+    }});
     // console.log(body);
   };
 
@@ -36,6 +40,7 @@ function Profile(props) {
         <label>
           Сменить роль
           <input
+             defaultValue={user?.email}
             type="text"
             {...register("role", {
               required: "Введите имя",
@@ -52,6 +57,7 @@ function Profile(props) {
         <label>
           Обновить email
           <input
+           defaultValue={user?.email}
             type="text"
             {...register("email", {
               required: true,
@@ -65,7 +71,7 @@ function Profile(props) {
             <p>{errors?.email?.message || "Введите действительную почту"}</p>
           )}
         </div>
-        <label>
+        {/* <label>
           Изменить пароль
           <input
             type="password"
@@ -82,7 +88,7 @@ function Profile(props) {
           {errors?.password && (
             <p>{errors?.password?.message || "Введите корректный пароль"}</p>
           )}
-        </div>
+        </div> */}
         <button type="submit">Изменить свои данные</button>
       </form>
     </>

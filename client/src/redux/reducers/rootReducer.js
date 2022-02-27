@@ -6,7 +6,7 @@ import { reviewsReducer } from './reviewsReducer';
 
 export const rootReducer = combineReducers({
   productsReducer,
-  basketReducer,
+  // basketReducer,
   reviewsReducer,
   cartReducer,
   usersReducer,

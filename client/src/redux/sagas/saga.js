@@ -19,7 +19,7 @@ async function fetchData({ url, method, headers, body }) {
 
 function* postUserWorker(action) {
   const newUser = yield call(fetchData, {
-    url: "/api/registration",
+    url: "/registration",
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
@@ -32,12 +32,12 @@ function* postUserWorker(action) {
 
 function* putUserWorker(action) {
   const user = yield call(fetchData, {
-    url: "/api/users/:id",
+    url: `/users/${action.payload.id}`,
     method: "PUT",
     headers: {
       "Content-Type": "Application/json",
     },
-    body: JSON.stringify(action.payload),
+    body: JSON.stringify(action.payload.body),
   });
   yield put(updateUserAC(user));
 }
