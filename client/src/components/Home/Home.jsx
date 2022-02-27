@@ -60,7 +60,7 @@ function Home(props) {
     <ThemeProvider theme={theme}>
       <Advertising/>
   <main>
-     <div className={classes.mainContent}>
+     <div>
         <Container maxWidth="md">
           <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
           Наши торговые марки:
@@ -71,7 +71,7 @@ function Home(props) {
       Теперь Вы можете заказать обувь Сахаб, Гэмбол или Кания оптом и в розницу от надежного поставщика на Юге России !
             Приятных покупок !
           </Typography>
-          <div className={classes.mainContent}>
+          <div>
           <Grid container spacing={2} justify="center">
               <Grid>
               {/* <Button variant="outlined" color="inherit">

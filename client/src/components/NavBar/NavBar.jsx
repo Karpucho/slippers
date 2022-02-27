@@ -222,7 +222,7 @@ function NavBar(props) {
 
         <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Розница</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
       </Menu>
@@ -231,12 +231,6 @@ function NavBar(props) {
            <Button className={classes.buttons} onClick={() => navigate('/signin')} color="inherit" variant="outlined">log in</Button>
          </Box>
          <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button> */}
-
-
-
-
-
-
 
 
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>

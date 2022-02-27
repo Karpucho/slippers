@@ -6,6 +6,7 @@ const express = require('express');
 const config = require('./config/config');
 const router = require('./routes/index');
 const productsRouter = require('./routes/products.router');
+const commentsRouter = require('./routes/reviews.router');
 
 const { sequelize } = require('./db/models');
 
@@ -17,8 +18,8 @@ const app = express();
 config(app);
 
 app.use('/', router);
-
 app.use('/products', productsRouter);
+app.use('/reviews', commentsRouter);
 
 app.use(errorMiddleware);
 
