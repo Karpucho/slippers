@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
-import Cart from '../Cart/Cart'
-import { Link } from "react-router-dom";
-import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
+import Cart from '../Cart/Cart';
+import { AppBar, Container, Toolbar, IconButton, Typography, Box, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Badge from '@mui/material/Badge';
 import { styled, alpha } from '@mui/material/styles';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+
 import Login from "../Login/Login";
+
 
 
 const theme = createTheme();
@@ -151,8 +150,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function NavBar() {
 
-  const [isCartOpen, setCartOpen] = useState(false); ///esdfcgvhbjnkml,;.
-
   const navigate = useNavigate();
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -200,12 +197,6 @@ function NavBar() {
   const dialogClickClose = () => {
     setDialogOpen(false);
   }
-
-  const toggleCart = () => {
-    setCartOpen(true);
-    console.log('sdfghjk');
-  }
-
 
   return (
 <ThemeProvider theme={theme}>
@@ -267,12 +258,7 @@ function NavBar() {
 
           </IconButton>
         </Tooltip>
-        <IconButton onClick={toggleCart} aria-label="cart"
-          >
-                <StyledBadge badgeContent={7} color="primary">
-                  <ShoppingCartIcon />
-                  </StyledBadge>
-                </IconButton>
+      <Cart/>
       </Box>
       <Menu
         anchorEl={anchor}
@@ -312,6 +298,9 @@ function NavBar() {
         {/* <HomeIcon color="disabled" /> */}
         <MenuItem onClick={() => {handleClose();dialogClickOpen()}}>
           <div> Войти</div>
+        </MenuItem>
+        <MenuItem>
+           <div onClick={() => {navigate('/signup');handleClose()}}> Регистрация</div>
         </MenuItem>
         <MenuItem>
           <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
@@ -385,28 +374,9 @@ function NavBar() {
      </Dialog>
     </Box>
     </AppBar>
-    <Cart 
-        cartOpen={isCartOpen}
-        closeCart={setCartOpen}
-      />
 </ThemeProvider>
   );
 }
 
 export default NavBar;
-{/* <div>
-<ul>
-  <li>
-    <Link to="/">Домой</Link>
-  </li>
-  <li>
-    <Link to="/signup">Зарегистрироваться</Link>
-  </li>
-  <li>
-    <Link to="/signin">Войти</Link>
-  </li>
-  <li>
-    <Link to="/logout">Выйти</Link>
-  </li>
-</ul>
-</div> */}
+

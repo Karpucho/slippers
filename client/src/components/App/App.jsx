@@ -5,15 +5,18 @@ import RegForm from "../RegForm/RegForm";
 import NavBar from "../NavBar/NavBar";
 import ProductList from "../ProductList/ProductList";
 import Home from "../Home/Home";
-import ProductCurrentCard from '../ProductCurrentCard/ProductCurrentCard'
+import ProductCurrentCard from '../ProductCurrentCard/ProductCurrentCard.jsx'
 import Profile from "../Profile/Profile";
 import Snack from '../Snack/Snack'
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
+
+import AddingReviews from "../AddingReviews/AddingReviews";
 import EditCardForm from '../EditCardForm/EditCardForm'
 
-function App(props) {
+
+function App() {
 
 
   return (
@@ -33,6 +36,7 @@ function App(props) {
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
+          <Route path="/addreviews" element={<AddingReviews/>} />
         </Routes>
         <Snack
             

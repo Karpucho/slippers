@@ -10,8 +10,8 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 export default function ProductCard({product}) {
 
   
-
   return (
+
     <Grid item xs={12} md={4}>
     <Link className="noDecoration"to={`/products/${product.id}`}>
     <Card className="motion"
@@ -52,6 +52,5 @@ export default function ProductCard({product}) {
     </Card>
     </Link>
 </Grid>
-
   );
 }
