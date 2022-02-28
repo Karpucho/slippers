@@ -6,11 +6,7 @@ export default function ReviewsCard({reviews}) {
 
   return (
     <Grid item xs={12} md={4}>
-    <Card className="motion"
-        sx={{
-            height: '100%',
-        }}
-    >
+    <Card className="motion" sx={{height: '100%',}}>
         <CardContent>
             <Typography
                 variant="body1"

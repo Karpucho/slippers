@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "../../redux/store";
-
 import RegForm from "../RegForm/RegForm";
 import NavBar from "../NavBar/NavBar";
 import ProductList from "../ProductList/ProductList";
@@ -11,6 +10,7 @@ import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
+import AddingReviews from "../AddingReviews/AddingReviews";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
+          <Route path="/addreviews" element={<AddingReviews/>} />
         </Routes>
         </div>
         <Footer/>
