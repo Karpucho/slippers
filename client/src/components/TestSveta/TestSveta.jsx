@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { Grid, Container,  Typography, Box, Button, Dialog, DialogTitle, DialogContent, DialogContentText, Link } from '@mui/material'
+import { Container,  Box, Button, Dialog, DialogTitle, DialogContent, DialogContentText} from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { createTheme } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { initRewiewsListAC } from '../../redux/actionCreators/reviewsAC';
-import ReviewsCard from '../Reviews/ReviewsCard';
 import { useNavigate } from 'react-router-dom';
 import ProductList from '../ProductList/ProductList';
 
