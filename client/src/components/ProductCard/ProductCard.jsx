@@ -10,7 +10,6 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 export default function ProductCard({product}) {
 
   
-
   return (
 
     <Grid item xs={12} md={4}>
