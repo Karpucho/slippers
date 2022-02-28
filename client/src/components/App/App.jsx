@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
+import EditCardForm from "../EditCardForm/EditCardForm";
 
 function App() {
   return (

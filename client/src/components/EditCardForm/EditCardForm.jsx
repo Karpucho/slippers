@@ -14,6 +14,7 @@ function EditCardForm(props) {
   const inputCategory = useRef();
   const inputDescription = useRef();
   const inputPrice = useRef();
+  const inputPhoto = useRef();
 
 
   // useEffect(() => {
@@ -42,8 +43,9 @@ function EditCardForm(props) {
 
     const updatedProduct = {
       name: inputName.current.value,
-      gender: inputName.current.value,
+      gender: inputGender.current.value,
       category: inputCategory.current.value,
+      photo: inputPhoto.current.value,
       description: inputDescription.current.value,
       price: inputPrice.current.value,
     }
@@ -70,6 +72,8 @@ function EditCardForm(props) {
   return (
     <>
 <form>
+  <h3>Фото:</h3>
+    <input type="file" ref={inputPhoto}/>
   <h3>Имя: 
     {currentProduct.name}
     </h3>
@@ -79,17 +83,17 @@ function EditCardForm(props) {
       <h3>Пол: 
         {currentProduct.gender}
         </h3>
-        <select ref={inputCategory} name="gender">
-          <option value="женские">женские</option>
-          <option value="мужские">мужские</option>
+        <select ref={inputGender} name="gender">
+          <option ref={inputGender} value="женские">женские</option>
+          <option ref={inputGender} value="мужские">мужские</option>
         </select>
         <h3>Категория: 
           {/* {currentProduct.Category.name} */}
           </h3>
-        <select name="category">
-          <option value="1">шлепки</option>
-          <option value="2">сандалии</option>
-          <option value="3">тапки</option>
+        <select ref={inputCategory} name="category">
+          <option ref={inputCategory} value="1">шлепки</option>
+          <option ref={inputCategory} value="2">сандалии</option>
+          <option ref={inputCategory} value="3">тапки</option>
         </select>
         <h3>Описание: 
           {currentProduct.description}
