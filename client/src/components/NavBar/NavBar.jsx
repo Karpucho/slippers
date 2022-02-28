@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cart from '../Cart/Cart'
 import { Link } from "react-router-dom";
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
@@ -148,7 +149,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-function NavBar(props) {
+function NavBar() {
+
+  const [isCartOpen, setCartOpen] = useState(false); ///esdfcgvhbjnkml,;.
 
   const navigate = useNavigate();
   const classes = useStyles();
@@ -196,6 +199,11 @@ function NavBar(props) {
   }
   const dialogClickClose = () => {
     setDialogOpen(false);
+  }
+
+  const toggleCart = () => {
+    setCartOpen(true);
+    console.log('sdfghjk');
   }
 
 
@@ -259,8 +267,8 @@ function NavBar(props) {
 
           </IconButton>
         </Tooltip>
-        <IconButton aria-label="cart"
- >
+        <IconButton onClick={toggleCart} aria-label="cart"
+          >
                 <StyledBadge badgeContent={7} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
@@ -377,6 +385,10 @@ function NavBar(props) {
      </Dialog>
     </Box>
     </AppBar>
+    <Cart 
+        cartOpen={isCartOpen}
+        closeCart={setCartOpen}
+      />
 </ThemeProvider>
   );
 }

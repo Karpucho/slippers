@@ -7,17 +7,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Cart(props) {
 
+  const {
+    isCartOpen,
+    setCartOpen,
+    removeFromOrder,
+  } = props;
 
 
-  const { cartProducts } = useSelector(state => state.cartReducer);
+const { cartProducts } = useSelector(state => state.cartReducer);
 
-
+const toggleCartN = () => {
+  setCartOpen(false);
+  console.log(1123456789);
+}
 
   return (
     <Drawer
             anchor="right"
-            // open={cartOpen}
-            // onClose={closeCart}
+            open={isCartOpen}
+            onClose={toggleCartN}
         >
             <List sx={{width: '400px'}}>
                 <ListItem>
@@ -35,7 +43,7 @@ function Cart(props) {
                     {cartProducts.map((products) => (
                         <CartItems key={uuidv4()} 
                         // removeFromOrder={removeFromOrder} 
-                        {...products} />
+                        products={products} />
                     ))}
                     <Divider />
                     <ListItem>

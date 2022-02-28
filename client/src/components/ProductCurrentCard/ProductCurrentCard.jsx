@@ -64,7 +64,6 @@ function ProductCurrentCard() {
       }
 
   }
-  console.log(currentProduct);
     
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartProducts));
@@ -134,7 +133,6 @@ function ProductCurrentCard() {
             {currentProduct.SizesOfProducts?.length && 
             currentProduct.SizesOfProducts
             .map(el => {
-              console.log(needSize);
               return <ChooseSize key={uuidv4()} setSize={setSize} size={el.sizeNumber} count={el.itemsLeft}/>
              })
              }
