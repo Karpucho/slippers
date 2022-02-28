@@ -383,19 +383,4 @@ function NavBar(props) {
 }
 
 export default NavBar;
-{/* <div>
-<ul>
-  <li>
-    <Link to="/">Домой</Link>
-  </li>
-  <li>
-    <Link to="/signup">Зарегистрироваться</Link>
-  </li>
-  <li>
-    <Link to="/signin">Войти</Link>
-  </li>
-  <li>
-    <Link to="/logout">Выйти</Link>
-  </li>
-</ul>
-</div> */}
+

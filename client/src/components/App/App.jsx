@@ -11,12 +11,15 @@ import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
 import AddingReviews from "../AddingReviews/AddingReviews";
+import Slider from "../Slider/Slider";
+
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
       <NavBar/>
+      <Slider/>
         <div style={{ marginTop: '4%' }}>
         <Routes>
           <Route path="/home" element={<Home />} />

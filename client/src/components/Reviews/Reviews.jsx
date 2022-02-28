@@ -80,7 +80,7 @@ function Reviews(props) {
               </Typography>
               {/* <Box component="span" maxWidth="sm" sx={{ p: 2 }}> */}
                {/* <Button onClick={() => {dialogClickOpen()}} variant="outlined" color="inherit">Оставить отзыв на нашем сайте</Button> */}
-               <Button  variant="outlined" style={{margin: '20px 170px 0px 170px'}} color="inherit"><Link to="https://www.google.ru/maps/place/%D0%A2%D0%B0%D0%BF%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F-%D0%AE%D0%B3/@45.021658,38.999233,15z/data=!4m5!3m4!1s0x0:0x7adb46b7ae607a25!8m2!3d45.0214375!4d38.9990577">ДОБАВИТЬ ОТЗЫВ</Link></Button>
+               <Button  variant="outlined" onClick={()=>{navigate('/addreviews')}} style={{margin: '20px 170px 0px 170px'}} color="inherit">ОСТАВИТЬ ОТЗЫВ</Button>
                <Button variant="outlined" style={{margin: '20px 170px 0px 170px'}} color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
                <Button variant="outlined" style={{margin: '20px 170px 20px 170px'}} color="inherit">ОТЗЫВ НА GOOGLE</Button>
               {/* </Box> */}

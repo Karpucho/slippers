@@ -32,7 +32,7 @@ function EditCardForm(props) {
       item: body,
       id 
     }});
-
+  }
   return (
     <>
     <div>
