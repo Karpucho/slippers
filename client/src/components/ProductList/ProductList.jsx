@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initProductsListAC, filterProductsListAC } from '../../redux/actionCreators/productsAC'
+import { initProductsListAC, filterProductsListAC, sortProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../ProductCard/ProductCard'
 import { Grid, Container} from '@material-ui/core';
 import Advertising from '../Advertising/Advertising';
@@ -42,11 +42,11 @@ export default function ProductList({visibility}) {
             style={{paddingTop: '7rem'}}
         >
 
-<FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Пол</InputLabel>
+<FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label">Пол</InputLabel>
         <Select
-          labelId="demo-simple-select-helper-label"
-          id="demo-simple-select-helper"
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
           // value={age}
           label="Age"
           onChange={(event) => dispatch(filterProductsListAC(event.target.value))}
@@ -56,9 +56,25 @@ export default function ProductList({visibility}) {
           </MenuItem>
           <MenuItem value='male'>Мужское</MenuItem>
           <MenuItem value='female'>Женское</MenuItem>
-          {/* <MenuItem value={30}>Thirty</MenuItem> */}
+          {/* <MenuItem value='kid'>Детское</MenuItem> */}
         </Select>
-        <FormHelperText>Выберите гендер</FormHelperText>
+      </FormControl>
+
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label">Сортировка</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          // value={age}
+          label="Sort"
+          onChange={(event) => dispatch(sortProductsListAC(event.target.value))}
+        >
+          <MenuItem value="">
+            <em>По умолчанию</em>
+          </MenuItem>
+          <MenuItem value='up'>По возрастанию</MenuItem>
+          <MenuItem value='down'>По убыванию</MenuItem>
+        </Select>
       </FormControl>
 
     <Grid container spacing={2}>
@@ -70,4 +86,5 @@ export default function ProductList({visibility}) {
    </>
   );
 }
+
 

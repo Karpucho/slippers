@@ -1,7 +1,7 @@
-import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, FILTER_PRODUCTS_LIST, CHANGE_PRODUCT_STATUS, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT_IN_STOK, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
+import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, SORT_PRODUCTS_LIST, FILTER_PRODUCTS_LIST, CHANGE_PRODUCT_STATUS, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT_IN_STOK, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
 
 
-const initialState = { products: [], currentProduct: {}, productsFilter: [] };
+const initialState = { products: [], currentProduct: {}, productsFilter: [], sortFilter: [] };
 
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -35,6 +35,15 @@ export const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         productsFilter: state.products.filter(product => product.gender === action.payload),
+      };
+
+    case SORT_PRODUCTS_LIST:
+      return {
+        ...state,
+        sortFilter: state.products.sort((prev, next) => {
+         if (action.payload === 'up') return prev.price - next.price;
+         if (action.payload === 'down') return next.price - prev.price;
+        }),
       };
 
     case INIT_CURRENT_PRODUCT_CARD:
