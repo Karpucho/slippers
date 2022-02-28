@@ -81,7 +81,7 @@ function App() {
   };
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <BrowserRouter>
 
       <NavBar
@@ -116,7 +116,7 @@ function App() {
         </div>
         <Footer/>
       </BrowserRouter>
-    </Provider>
+    // </Provider>
   );
 }
 

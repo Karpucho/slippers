@@ -306,6 +306,9 @@ function NavBar(props) {
           <div> Войти</div>
         </MenuItem>
         <MenuItem>
+           <div onClick={() => {navigate('/signup');handleClose()}}> Регистрация</div>
+        </MenuItem>
+        <MenuItem>
           <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
