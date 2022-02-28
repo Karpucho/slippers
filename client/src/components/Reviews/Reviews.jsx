@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid, Container, Card, CardContent, Typography, CardMedia, Box, Button, TextareaAutosize, Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material'
+import { Grid, Container, Card, CardContent, Typography, CardMedia, Box, Button, TextareaAutosize, Dialog, DialogTitle, DialogContent, DialogContentText, Link } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { createTheme } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
@@ -65,18 +65,22 @@ function Reviews(props) {
   return (
     <>
     <Container sx={{mt: '1rem'}}
-            style={{paddingTop: '7rem'}}>
+            style={{paddingTop: '1.5rem'}}>
 
               <div>
               <Container style={{ display: 'flex',flexDirection: 'column', justifyContent: 'center', align:"center"}}  sx={{ p: 3 }} maxWidth="sm">
-              <Typography variant='h5' align="center" color="textPrimary" gutterBottom>
+                <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
+                  Отзывы
+                </Typography>
+              <Typography variant='h6' align="center" color="textSecondary" gutterBottom>
                 Уважаемые покупатели, на этой страничке Вы можете оставить свой отзыв
               </Typography>
-              <Typography variant='h5' align="center" color="textPrimary" gutterBottom>
+              <Typography variant='h6' align="center" color="textSecondary" gutterBottom>
                 Спасибо за Ваше мнение !
               </Typography>
               {/* <Box component="span" maxWidth="sm" sx={{ p: 2 }}> */}
                {/* <Button onClick={() => {dialogClickOpen()}} variant="outlined" color="inherit">Оставить отзыв на нашем сайте</Button> */}
+               <Button  variant="outlined" style={{margin: '20px 170px 0px 170px'}} color="inherit"><Link to="https://www.google.ru/maps/place/%D0%A2%D0%B0%D0%BF%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F-%D0%AE%D0%B3/@45.021658,38.999233,15z/data=!4m5!3m4!1s0x0:0x7adb46b7ae607a25!8m2!3d45.0214375!4d38.9990577">ДОБАВИТЬ ОТЗЫВ</Link></Button>
                <Button variant="outlined" style={{margin: '20px 170px 0px 170px'}} color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
                <Button variant="outlined" style={{margin: '20px 170px 20px 170px'}} color="inherit">ОТЗЫВ НА GOOGLE</Button>
               {/* </Box> */}

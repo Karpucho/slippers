@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
@@ -18,7 +18,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+
+import Test from "../Test/Test";
+
 import Login from "../Login/Login";
+
 
 
 const theme = createTheme();
@@ -259,12 +263,18 @@ function NavBar(props) {
 
           </IconButton>
         </Tooltip>
+
+
+        {/* <IconButton aria-label="cart">
+                <StyledBadge badgeContent={19} color="primary">
         <IconButton aria-label="cart"
- >
+
                 <StyledBadge badgeContent={7} color="primary">
+
                   <ShoppingCartIcon />
                   </StyledBadge>
-                </IconButton>
+                </IconButton> */}
+                <Test/>
       </Box>
       <Menu
         anchorEl={anchor}
