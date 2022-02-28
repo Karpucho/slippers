@@ -1,8 +1,16 @@
-import { INIT_PRODUCTS_LIST, ADD_PRODUCT, DELETE_PRODUCT,  UPDATE_PRODUCT, INIT_CURRENT_PRODUCT_CARD, CHANGE_PRODUCT_STATUS} from '../actionsTypes/productsAT';
+
+import { INIT_PRODUCTS_LIST, ADD_PRODUCT, CHANGE_PRODUCT_STATUS, UPDATE_PRODUCT_IN_STOK, DELETE_PRODUCT,  UPDATE_PRODUCT, INIT_CURRENT_PRODUCT_CARD} from '../actionsTypes/productsAT';
 
 export const initProductsListAC = (payload = []) => {
   return {
     type: INIT_PRODUCTS_LIST,
+    payload,
+  };
+};
+
+export const updateProductInStokAC = (payload) => {
+  return {
+    type: UPDATE_PRODUCT_IN_STOK,
     payload,
   };
 };

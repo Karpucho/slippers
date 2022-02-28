@@ -19,7 +19,7 @@ function ChooseSize({size, count, setSize}) {
   return (
     <>
     
-    {count && <Button onClick={chooseSize} style={{padding: '0px'}} variant="outlined" color="default">{size}</Button>}
+    {(+count > 0) && <Button onClick={chooseSize} style={{padding: '0px'}} variant="outlined" color="default">{size}</Button>}
 
    </>
 
