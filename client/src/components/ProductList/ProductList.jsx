@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initProductsListAC } from '../../redux/actionCreators/productsAC'
+import { initProductsListAC, filterProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../ProductCard/ProductCard'
 import { Grid, Container} from '@material-ui/core';
 import Advertising from '../Advertising/Advertising';
 
 export default function ProductList({visibility}) {
-  const {products} = useSelector(state => state.productsReducer);
 
-
+  const {productsFilter} = useSelector(state => state.productsReducer);
 
   const dispatch = useDispatch();
 
@@ -30,6 +29,8 @@ export default function ProductList({visibility}) {
 
   return (
     <>
+
+
     <Advertising/>
     <Container
             sx={{
@@ -37,8 +38,12 @@ export default function ProductList({visibility}) {
             }}
             style={{paddingTop: '7rem'}}
         >
+        <select onChange={(event) => dispatch(filterProductsListAC(event.target.value))}> 
+          <option value='male'> мужское</option>
+          <option value='female'> женское</option>
+        </select>
     <Grid container spacing={2}>
-    {(products?.length)? products.map(product => (
+    {(productsFilter?.length)? productsFilter.map(product => (
               <ProductCard  key={product.id} product={product}/>
           )) : <></>}
    </Grid>
