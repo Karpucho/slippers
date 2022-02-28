@@ -1,6 +1,6 @@
-const { validationResult } = require('express-validator');
-const userService = require('../service/user.service');
-const ApiError = require('../exceptions/api.errors');
+const { validationResult } = require("express-validator");
+const userService = require("../service/user.service");
+const ApiError = require("../exceptions/api.errors");
 
 class UserController {
   async register(req, res, next) {
@@ -10,7 +10,9 @@ class UserController {
       // // делаем проверку массива ошибок
       if (!errors.isEmpty()) {
         // передается в error handler
-        return next(ApiError.BadRequest('Ошибка при валидации', errors.array()));
+        return next(
+          ApiError.BadRequest("Ошибка при валидации", errors.array())
+        );
       }
 
       // получаем данные из тела
@@ -19,8 +21,17 @@ class UserController {
       const userData = await userService.register(email, password, role);
       // рефреш куку храним в куках на 30 дней из token.service
       // 1ым парам - ключ , 2ым - сам токен
-      res.cookie('refreshToken', userData.refreshToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true });
-      return res.json(userData);
+      res
+        .status(201)
+        .cookie("refreshToken", userData.refreshToken, {
+          maxAge: 1000 * 60 * 60 * 24 * 30,
+          httpOnly: true,
+        });
+      return res.json({
+        userData,
+        success: true,
+        message: "Регистрация прошла успешно",
+      });
     } catch (error) {
       next(error);
     }
@@ -33,8 +44,15 @@ class UserController {
       // вытваем из юзер сервиса и передадим майл и апроль
       const userData = await userService.login(email, password);
       // установим рефреш куки
-      res.cookie('refreshToken', userData.refreshToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true });
-      return res.json(userData);
+      res.cookie("refreshToken", userData.refreshToken, {
+        maxAge: 1000 * 60 * 60 * 24 * 30,
+        httpOnly: true,
+      });
+      return res.json({
+        userData,
+        success: true,
+        message: "Авторизация прошла успешно",
+      });
     } catch (error) {
       next(error);
     }
@@ -47,7 +65,7 @@ class UserController {
       // передаем в сервис рефрешнутый токен
       const token = await userService.logout(refreshToken);
       // в ответе удаляем куку
-      res.clearCookie('refreshToken');
+      res.clearCookie("refreshToken");
       return res.json(token);
     } catch (error) {
       next(error);
@@ -72,7 +90,10 @@ class UserController {
       const { refreshToken } = req.cookies;
       const userData = await userService.refresh(refreshToken);
       // установим рефреш куки
-      res.cookie('refreshToken', userData.refreshToken, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true });
+      res.cookie("refreshToken", userData.refreshToken, {
+        maxAge: 1000 * 60 * 60 * 24 * 30,
+        httpOnly: true,
+      });
       return res.json(userData);
     } catch (error) {
       next(error);

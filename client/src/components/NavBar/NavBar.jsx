@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
@@ -18,10 +18,16 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import Login from "../Login/Login";
+
 
 const theme = createTheme();
 
 const useStyles = makeStyles({
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'column'
+  },
   setColor: {
     grey: {
       main: grey[900],
@@ -52,6 +58,7 @@ const useStyles = makeStyles({
   },
   barColor: {
     background: 'linear-gradient(45deg, #FFFFFF 30%, #FFFFFF 90%)',
+    marginBottom: theme.spacing(40)
   },
   mainFeaturesPost: {
     position: 'relative',
@@ -191,9 +198,10 @@ function NavBar(props) {
     setDialogOpen(false);
   }
 
+
   return (
 <ThemeProvider theme={theme}>
-<AppBar  className={classes.barColor} position='fixed'>
+<AppBar className={classes.barColor} position='fixed'>
      <Container fixed>
         <Toolbar>
         <IconButton
@@ -213,12 +221,11 @@ function NavBar(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Все товары</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Женские</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Мужские</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Подросток</MenuItem>
-        
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Инфо</MenuItem>
+
+        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Розница</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
@@ -226,14 +233,6 @@ function NavBar(props) {
            <Button className={classes.buttons} onClick={() => navigate('/signin')} color="inherit" variant="outlined">log in</Button>
          </Box>
          <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button> */}
-
-
-
-
-
-
-
-
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Search>
             <SearchIconWrapper>
@@ -260,8 +259,9 @@ function NavBar(props) {
 
           </IconButton>
         </Tooltip>
-        <IconButton aria-label="cart">
-                <StyledBadge badgeContent={1} color="primary">
+        <IconButton aria-label="cart"
+ >
+                <StyledBadge badgeContent={7} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
                 </IconButton>
@@ -333,34 +333,52 @@ function NavBar(props) {
       </Menu>
         </Toolbar>
      </Container>
-     <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
-        <DialogTitle id="from-dialog-title">Войти</DialogTitle>
-        <DialogContent>
-          <DialogContentText>Авторизация</DialogContentText>
-          <TextField 
+    <Box mr={3}>
+    <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
+        <DialogTitle  id="from-dialog-title">Авторизация</DialogTitle>
+        <DialogContent className={classes.inputContainer}>
+          {/* <DialogContentText>Авторизация</DialogContentText> */}
+          {/* <TextField 
           autoFocus
           margin="dense"
-          id="name"
+          id="email"
           label="Email Adresse"
           type="email"
           fillWidth
           autocomplete="off"
           />
           <TextField 
+          margin="dense"
+          id="name"
+          label="Ваше Имя"
+          type="name"
+          fillWidth
           autocomplete="off"
-          autoFocus
+          />
+          <TextField 
+          autocomplete="off"
           margin="dense"
           id="pass"
-          label="Password"
+          label="Пароль"
           type="password"
           fillWidth
           />
+          <TextField 
+          autocomplete="off"
+          margin="dense"
+          id="secondPass"
+          label="Подтвердите ароль"
+          type="password"
+          fillWidth
+          /> */}
+          <Login/>
+          {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
+          <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
+
         </DialogContent>
-        <DialogActions>
-          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Авторизоваться</Button>
-          <Button onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
-        </DialogActions>
+        
      </Dialog>
+    </Box>
     </AppBar>
 </ThemeProvider>
   );

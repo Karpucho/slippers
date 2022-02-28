@@ -7,13 +7,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      productId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Products',
-        },
-      },
       authorName: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -21,6 +14,10 @@ module.exports = {
       text: {
         allowNull: false,
         type: Sequelize.TEXT,
+      },
+      rating: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       photo: {
         type: Sequelize.TEXT,

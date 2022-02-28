@@ -4,9 +4,8 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate({ Cart, RatingFromUser, Token }) {
+    static associate({ Cart, Token }) {
       User.hasMany(Cart, { foreignKey: 'userId' });
-      User.hasMany(RatingFromUser, { foreignKey: 'userId' });
       User.hasOne(Token, { foreignKey: 'userId' });
     }
   }

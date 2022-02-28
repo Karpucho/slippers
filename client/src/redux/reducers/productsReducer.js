@@ -1,15 +1,26 @@
-import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
+import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, CHANGE_PRODUCT_STATUS, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT_IN_STOK, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
+
 
 const initialState = { products: [], currentProduct: {}};
 
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_PRODUCT_IN_STOK:
+      return {
+        ...state,
+        products: state.currentProduct.SizesOfProducts.map(product => {
+          if (product.sizeNumber === Number(action.payload.size)) {
+            return product.itemsLeft - action.payload.numberOfItems
+          }
+          return product;
+        }),
+      };
+
     case ADD_PRODUCT:
       const newProduct = action.payload.product;
 
       return {
-        ...state,
-        products: state.products ? [...state.products, newProduct] : [newProduct],
+       
       };
 
     case INIT_PRODUCTS_LIST:
@@ -45,6 +56,13 @@ export const productsReducer = (state = initialState, action) => {
           }
         }),
       };
+
+      case CHANGE_PRODUCT_STATUS:
+        return {
+          ...state,
+          products: state.products.filter(product => product.id === Number(action.payload)),
+        };
+
 
     default:
       return state;
