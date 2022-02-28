@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { initCurrentProductCardAC } from '../../redux/actionCreators/productsAC'
 import { updateProductCardAC} from '../../redux/actionCreators/productsAC'
+import axios from 'axios'
+
+
 function EditCardForm(props) {
   const dispatch = useDispatch();
   const params = useParams();
@@ -16,6 +19,8 @@ function EditCardForm(props) {
   const inputPrice = useRef();
   const inputPhoto = useRef();
 
+  const [img, setImg ] = React.useState(null);
+  const [photo, setPhoto ] = React.useState(null);
 
   // useEffect(() => {
   //   dispatch({type:"FETCH_CURRENT_PRODUCT"})
@@ -63,7 +68,21 @@ function EditCardForm(props) {
   }
 
 
+  const sendFile = React.useCallback( async () => {
+    try {
+      const data = new FormData();
+      data.append('productPhoto', img);
 
+      await axios.post(`/products/edit/${currentProduct.id}`, data, {
+        headers: {
+          'content-type': 'multipart/form-data'
+        },
+      })
+        .then(res => setPhoto(res.data.path));
+    } catch (error) {
+      
+    }
+  }, [img])
     
   //   dispatch({ type: 'FETCH_UPDATE_PRODUCT', payload: updatedProduct });
   //   // goToProductList();
@@ -73,7 +92,11 @@ function EditCardForm(props) {
     <>
 <form>
   <h3>Фото:</h3>
-    <input type="file" ref={inputPhoto}/>
+    { photo
+        ? <img src={`${photo}`} />
+        : <p>Загрузите фото</p>  }
+    <input type="file" onChange={e => setImg(e.target.files[0])}/> 
+    {/* ref={inputPhoto} */}
   <h3>Имя: 
     {currentProduct.name}
     </h3>
@@ -107,7 +130,7 @@ function EditCardForm(props) {
     <input ref={inputPrice} 
     defaultValue={currentProduct.price} 
     type="number" placeholder="Измените цену" />
-  <button type="submit" onClick={editProduct}>Сохранить изменения</button>
+  <button type="submit" onClick={sendFile}>Сохранить изменения</button>
 </form>
 <button onClick={() => navigate(-1)}>Назад</button>
    </>

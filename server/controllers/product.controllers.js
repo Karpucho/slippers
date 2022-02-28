@@ -1,17 +1,6 @@
-const path = require('path');
-const multer = require('multer');
 const { Product, Category } = require('../db/models');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'Images');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extreme(file.originalname));
-  },
-});
-
-const editProduct = async (req, res) => {
+const getOneProduct = async (req, res) => {
   try {
     const { id } = req.params;
     const currentProduct = await Product.findOne({
@@ -24,22 +13,35 @@ const editProduct = async (req, res) => {
   }
 };
 
-const upload = multer({
-  storage,
-  limits: { fileSize: '1000000' },
-  fileFilter: (req, file, cb) => {
-    const fileTypes = /jpeg|jpg|png|gif/;
-    const mimeType = fileTypes.test(file.mimetype);
-    const extname = fileTypes.test(path.extname(file.originalname));
+const editProduct = async (req, res) => {
+  console.log(req.body);
+  try {
+    const { id } = req.params;
+    const neededProduct = await Product.findOne({
+      where: { id },
+    });
 
-    if (mimeType && extname) {
-      return cb(null, true);
-    }
-    cb('Загрузите фото другого формата');
-  },
-}).single('photo'); // Здесь у меня несовпадения - у него image (так навзвана еще и колонка в бд)
+    const body = {
+      name: req.body.name,
+      gender: req.body.gender,
+      category: req.body.category,
+      // photo: req.file,
+      description: req.body.description,
+      price: req.body.price,
+    };
+
+    const changedProduct = await neededProduct.update(body);
+    res.json({
+      message: 'vse norm',
+      changedProduct,
+    });
+  } catch (error) {
+    res.json({ error: error.message });
+    console.log(error);
+  }
+};
 
 module.exports = {
-  upload,
+  getOneProduct,
   editProduct,
 };

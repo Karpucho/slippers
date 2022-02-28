@@ -1,4 +1,4 @@
-import { INIT_PRODUCT_CART, ADD_PRODUCT_CART, UPDATE_PRODUCT_CART, DELETE_PRODUCT_CART, CLEAR_CART} from '../actionsTypes/cartAT';
+import { INIT_PRODUCT_CART, ADD_PRODUCT_CART, REMOVE_PRODUCT_CART, DELETE_PRODUCT_CART, CLEAR_CART} from '../actionsTypes/cartAT';
 
 export const initProductCartAC = (payload) => {
   return {
@@ -14,9 +14,9 @@ export const addProductCartAC = (payload) => {
   }
 };
 
-export const updateProductCartAC = (payload) => {
+export const removeProductCartAC = (payload) => {
   return {
-    type: UPDATE_PRODUCT_CART,
+    type: REMOVE_PRODUCT_CART,
     payload,
   }
 };

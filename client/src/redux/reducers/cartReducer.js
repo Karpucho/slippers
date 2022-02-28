@@ -1,4 +1,4 @@
-import { INIT_PRODUCT_CART, ADD_PRODUCT_CART, UPDATE_PRODUCT_CART, DELETE_PRODUCT_CART, CLEAR_CART } from '../actionsTypes/cartAT';
+import { INIT_PRODUCT_CART, ADD_PRODUCT_CART, REMOVE_PRODUCT_CART, DELETE_PRODUCT_CART, CLEAR_CART } from '../actionsTypes/cartAT';
 
 const initialState = {
   cartProducts: JSON.parse(localStorage.getItem('cart')) || [],
@@ -12,15 +12,17 @@ export const cartReducer = (state = initialState, action) => {
       return { ...state, products: action.payload };
 
     case ADD_PRODUCT_CART:
-      const addedProduct = state.cartProducts.find(
+      const copyCart = [...state.cartProducts];
+
+      const addedProduct = copyCart.find(
         product => (product.id === action.payload.id) && (product.size === action.payload.size)
       );
       if (addedProduct) {
         return {
           ...state,
-          cartProducts: state.cartProducts.map(product => {
+          cartProducts: copyCart.map(product => {
             if ((product.id === action.payload.id) && (product.size === action.payload.size)) {
-              return { ...product, numberOfItems: product.numberOfItems + action.payload.numberOfItems };
+              return { ...product, numberOfItems: product.numberOfItems + 1 };
             }
             return product;
           }),
@@ -32,12 +34,14 @@ export const cartReducer = (state = initialState, action) => {
         };
       }
 
-    case UPDATE_PRODUCT_CART:
+    case REMOVE_PRODUCT_CART:
       return {
         ...state,
         cartProducts: state.cartProducts.map(product => {
-          if (product.id === action.payload.id) {
-            return { ...product, count: product.numberOfItems + action.payload.numberOfItems };
+          if ((product.id === action.payload.id) 
+          && (product.size === action.payload.size) 
+          && (product.numberOfItems >= 1)) {
+            return { ...product, numberOfItems: product.numberOfItems - 1 };
           }
           return product;
         }),
@@ -47,7 +51,10 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartProducts: state.cartProducts.filter(product => {
+          if ((product.id === action.payload.id) 
+          && (product.size === action.payload.size)) {
           return product.id !== action.payload.id;
+          } return product;
         }),
       };
 

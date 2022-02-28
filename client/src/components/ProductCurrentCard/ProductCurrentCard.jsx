@@ -3,14 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import  { addProductCartAC }  from '../../redux/actionCreators/cartAC';
 import ChooseSize from '../ChooseSize/ChooseSize';
 import { v4 as uuidv4 } from 'uuid';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {Button, ButtonGroup, Card, CardActions, CardContent, Container, CardMedia, Typography } from "@material-ui/core";
 import { initCurrentProductCardAC } from '../../redux/actionCreators/productsAC'
 import './ProductCurrentCard.css'
+import { useNavigate } from 'react-router-dom'
+import Rating from '@mui/material/Rating';
+
 import { updateProductInStokAC } from '../../redux/actionCreators/productsAC';
 
 
+
 function ProductCurrentCard() {
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const params = useParams();
@@ -21,6 +27,7 @@ function ProductCurrentCard() {
 
   const [needSize, setSize] = useState();
 
+  console.log('cartProducts', cartProducts);
 
  // переместить на страницу корзины потом
  // пока юзер не зарег - данные проверяются в локал и отправ в стейт,
@@ -59,12 +66,11 @@ function ProductCurrentCard() {
     } else {
       const newOrder = { product: currentProduct.id, size: needSize, numberOfItems: 1 };
       dispatch(addProductCartAC(newOrder));
-      dispatch(updateProductInStokAC(newOrder))
+      // dispatch(updateProductInStokAC(newOrder))
 
       }
 
   }
-  console.log(currentProduct);
     
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartProducts));
@@ -96,7 +102,9 @@ function ProductCurrentCard() {
     style={{ height: '85vh' }}
     className="motion"
     >
-       <Button size="small" variant="outlined" style={{marginLeft: '90%', marginTop: '5px', marginBottom: '5px'}}><Link className="noDecoration" to='/products'>закрыть</Link></Button>
+
+       <Button size="small" variant="outlined" style={{marginLeft: '90%', marginTop: '5px', marginBottom: '5px'}} onClick={()=>  {navigate('/products')}}>Назад</Button>
+
         <CardMedia
             image={currentProduct.photo}
             component="img"
@@ -118,8 +126,11 @@ function ProductCurrentCard() {
             <div>
             <Typography variant="body2">Описание: {currentProduct.description}</Typography>
 
-            {currentProduct.rating ? <Typography variant="body3">Рейтинг: {currentProduct.rating}</Typography>
-              : <Typography variant="body3">Пока что никто не оставил отзыв на данный товар</Typography>}
+            {/* {currentProduct.rating ? <Typography variant="body3">Рейтинг: {currentProduct.rating}</Typography> */}
+            <Typography>Рейтинг:</Typography>
+            {currentProduct.rating ?  
+             <Rating name="read-only" value={currentProduct.rating} readOnly />
+              : <Typography variant="body4">Пока что никто не оставил отзыв на данный товар</Typography>}
             </div>
               
               {/* <ToggleButtonGroup
@@ -134,7 +145,6 @@ function ProductCurrentCard() {
             {currentProduct.SizesOfProducts?.length && 
             currentProduct.SizesOfProducts
             .map(el => {
-              console.log(needSize);
               return <ChooseSize key={uuidv4()} setSize={setSize} size={el.sizeNumber} count={el.itemsLeft}/>
              })
              }

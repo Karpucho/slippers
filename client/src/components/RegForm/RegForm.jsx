@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
-=======
 import React from "react";
->>>>>>> 3ba0b2c02141ae59e20b3505cf00ee20d5075492
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 

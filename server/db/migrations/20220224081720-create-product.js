@@ -8,11 +8,9 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       name: {
-        allowNull: false,
         type: Sequelize.TEXT,
       },
       categoryId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -20,7 +18,6 @@ module.exports = {
         },
       },
       price: {
-        allowNull: false,
         type: Sequelize.INTEGER,
       },
       gender: {

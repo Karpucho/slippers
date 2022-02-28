@@ -1,30 +1,31 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
-// import { useParams } from 'react-router-dom';
-import './ProductCard.css';
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
+import {Button, Card, CardActions, CardContent, Grid, CardMedia, Typography } from "@material-ui/core";
+import { makeStyles } from "@mui/styles"
 
+const useStyles = makeStyles({
+  photoSize: {
+    maxHeight: '300px',
+    minWidth: '250px',
+    margin: '10px',
+  },
+});
 
+export default function SimilarProductCard({product}) {
 
+  const classes = useStyles();
 
-export default function ProductCard({product}) {
-
-  
   return (
 
-    <Grid item xs={12} md={4}>
+    <Grid item xs={10} md={10}>
     <Link className="noDecoration"to={`/products/${product.id}`}>
-    <Card className="motion"
-        sx={{
-            height: '100%',
-        }}
-    >
+    <Card className={classes.photoSize} >
         <CardMedia
             image={product.photo}
             component="img"
             alt={product.name}
             title={product.name}
-            style={{ height: '35vh' }}
+            style={{ height: '15vh' }}
         />
         <CardContent>
             <Typography
