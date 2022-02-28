@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-// import { useNavigate } from "react-router-dom";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
@@ -11,35 +10,20 @@ function RegForm(props) {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     alert(JSON.stringify(data));
     const body = {
-      role: data.role,
       email: data.email,
       password: data.password,
+      role: data.role,
     };
+
     dispatch({type: "FETCH_CREATE_USER", payload: body})
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h3> Зарегься чтобы мы доставили тапочки</h3>
-      <label>
-      role
-        <input
-          type="text"
-          {...register("role", {
-            required: true,
-            minLength: {
-              value: 2,
-              message: "Имя не должны быть короче 2 символов",
-            },
-          })}
-        />
-      </label>
-      <div style={{ height: 20 }}>
-        {errors?.role && <p>{errors?.role?.message || "Eror!"}</p>}
-      </div>
       <label>
         Email
         <input
@@ -73,6 +57,22 @@ function RegForm(props) {
         {errors?.password && (
           <p>{errors?.password?.message || "Введите корректный пароль"}</p>
         )}
+      </div>
+      <label>
+      role
+        <input
+          type="text"
+          {...register("role", {
+            required: true,
+            minLength: {
+              value: 2,
+              message: "Имя не должны быть короче 2 символов",
+            },
+          })}
+        />
+      </label>
+      <div style={{ height: 20 }}>
+        {errors?.role && <p>{errors?.role?.message || "Eror!"}</p>}
       </div>
       <button type="submit">Зарегистрироваться</button>
     </form>

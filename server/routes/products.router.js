@@ -14,6 +14,20 @@ router.route('/')
     }
   });
 
+router.route('/:id')
+  .get(async (req, res) => {
+    try {
+      const { id } = req.params;
+      const currentProduct = await Product.findOne({
+        where: { id },
+        include: 'SizesOfProducts',
+      });
+      return res.json({ message: 'sucsess', currentProduct });
+    } catch (error) {
+      return res.json({ message: 'error', error: error.message });
+    }
+  });
+
 router.route('/edit/:id')
   .get(async (req, res) => {
     try {

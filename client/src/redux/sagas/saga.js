@@ -10,8 +10,6 @@ import {
   initCurrentProductCardAC,
 } from "../actionCreators/productsAC";
 
-
-
 async function fetchData({ url, method, headers, body }) {
   const response = await fetch(url, { method, headers, body });
   return await response.json();
@@ -19,7 +17,7 @@ async function fetchData({ url, method, headers, body }) {
 
 function* postUserWorker(action) {
   const newUser = yield call(fetchData, {
-    url: "/api/registration",
+    url: "/registration",
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
@@ -28,31 +26,50 @@ function* postUserWorker(action) {
     body: JSON.stringify(action.payload),
   });
   yield put(createUserAC(newUser));
+  if(newUser.success) {
+    localStorage.setItem('user', JSON.stringify(newUser))
+  }
 }
 
-function* putUserWorker(action) {
+function* loginUserAsync(action) {
   const user = yield call(fetchData, {
-    url: "/api/users/:id",
-    method: "PUT",
+    url: "/login",
+    method: "POST",
     headers: {
       "Content-Type": "Application/json",
     },
     body: JSON.stringify(action.payload),
   });
-  yield put(updateUserAC(user));
+
+  yield put(loginUserAC(user));
+  if (user.success) {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
 }
 
-function* putProductWorker(action) {
-  const product = yield call(fetchData, {
-    url: `/products/edit/${action.payload.id}`,
+function* putUserWorker(action) {
+  const user = yield call(fetchData, {
+    url: `/users/${action.payload.id}`,
     method: "PUT",
     headers: {
       "Content-Type": "Application/json",
     },
-    body: JSON.stringify(action.payload.item),
+    body: JSON.stringify(action.payload.body),
   });
-  yield put(updateProductCardAC(product));
+  yield put(updateUserAC(user));
 }
+
+// function* putProductWorker(action) {
+//   const product = yield call(fetchData, {
+//     url: `/products/edit/${action.payload.id}`,
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "Application/json",
+//     },
+//     body: JSON.stringify(action.payload.item),
+//   });
+//   yield put(updateProductCardAC(product));
+// }
 
 function* getCurrentProductWorker(action) {
   const cuurentProd = yield call(fetchData, {
@@ -65,6 +82,7 @@ function* getCurrentProductWorker(action) {
 export function* globalWatcher() {
   yield takeEvery("FETCH_CREATE_USER", postUserWorker);
   yield takeEvery("FETCH_UPDATE_USER", putUserWorker);
-  yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
+  // yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
   yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
+  yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
 }
