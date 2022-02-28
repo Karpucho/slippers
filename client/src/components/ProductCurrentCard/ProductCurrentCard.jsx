@@ -27,8 +27,6 @@ function ProductCurrentCard() {
 
   const [needSize, setSize] = useState();
 
-  console.log('cartProducts', cartProducts);
-
  // переместить на страницу корзины потом
  // пока юзер не зарег - данные проверяются в локал и отправ в стейт,
  // как только зарег - данные в БД

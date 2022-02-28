@@ -14,11 +14,17 @@ import { styled } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import CartItems from "../CartItems/CartItems";
+import { Typography} from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Test() {
+export default function Cart() {
+
+  const navigate = useNavigate();
 
   const { cartProducts } = useSelector(state => state.cartReducer);
+  const { products } = useSelector(state => state.productsReducer);
+
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -32,12 +38,12 @@ export default function Test() {
   const [state, setState] = React.useState({right: false});
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if(event
+      && event.target.textContent === 'Оформить заказ') {
+        setState({ ...state, [anchor]: open });
+        navigate('/test');
         return;
-    }
-
+      }
     setState({ ...state, [anchor]: open });
   };
 
@@ -45,7 +51,6 @@ export default function Test() {
     <Box
       sx={{ width: '500px' }}
       role="presentation"
-      // onClickAway={toggleDrawer(anchor, false)}
     >
        <List sx={{width: '500px'}}>
                 <ListItem>
@@ -63,19 +68,28 @@ export default function Test() {
                     {cartProducts.map((orders) => {
                       if (orders.numberOfItems) {
                         return <CartItems key={uuidv4()} 
-                        orders={orders} />
+                        orders={orders}/>
                       }})}
 
                     <Divider />
                     <ListItem>
-                        {/* <Typography sx={{fontWeight: 700}}>
+                        <Typography sx={{fontWeight: 700, fontSize: '20px'}}>
                             Общая стоимость:{' '}
                             {cartProducts.reduce((acc, item) => {
-                            return acc + item.price * item.numberOfItems;
+                            let sum = products.find(el => el.id === item.product);
+                            let tot = (sum?.price || 0) * item.numberOfItems
+                            return acc + tot;
                             }, 0)}{' '}
                             рублей.
-                        </Typography> */}
+                        </Typography>
                     </ListItem>
+                    <Button 
+                    onClick={toggleDrawer(anchor, false)}
+                    color = "inherit"
+                    style={{margin: '50px 150px'}}
+                    variant="outlined" >
+                     Оформить заказ
+                     </Button>
                     </>
                 )}
             </List>
@@ -103,6 +117,7 @@ export default function Test() {
           </Drawer>
         </React.Fragment>
       ))}
+
     </div>
   );
 }

@@ -7,7 +7,7 @@ import ProductList from "../ProductList/ProductList";
 import Home from "../Home/Home";
 import ProductCurrentCard from '../ProductCurrentCard/ProductCurrentCard.jsx'
 import Profile from "../Profile/Profile";
-import Snack from '../Snack/Snack'
+import TestSveta from '../TestSveta/TestSveta'
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
@@ -25,7 +25,6 @@ function App() {
 
       <NavBar/>
       
-      
         <div style={{ marginTop: '4%' }}>
         <Routes>
           <Route path="/home" element={<Home />} />
@@ -37,10 +36,8 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
           <Route path="/addreviews" element={<AddingReviews/>} />
+          <Route path="/test" element={<TestSveta/>} />
         </Routes>
-        <Snack
-            
-        />
         </div>
         <Footer/>
       </BrowserRouter>
