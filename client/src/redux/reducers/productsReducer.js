@@ -30,7 +30,7 @@ export const productsReducer = (state = initialState, action) => {
         ...state,
         products: state.products.filter(product => product.id !== Number(action.payload)),
       };
-
+// мое тут начинается (Игорь)
     case FILTER_PRODUCTS_LIST:
       return {
         ...state,
@@ -43,9 +43,11 @@ export const productsReducer = (state = initialState, action) => {
         sortFilter: state.products.sort((prev, next) => {
          if (action.payload === 'up') return prev.price - next.price;
          if (action.payload === 'down') return next.price - prev.price;
+         if (action.payload === 'upRating') return prev.rating - next.rating;
+         if (action.payload === 'downRating') return next.rating - prev.rating;
         }),
       };
-
+// мое тут кончается
     case INIT_CURRENT_PRODUCT_CARD:
       return {
         ...state,
