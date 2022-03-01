@@ -33,7 +33,9 @@ function SimilarProducts(props) {
             justifyContent="flex-start"
             alignItems="flex-start">
         {products
-        .filter(product => product.categoryId === currentProduct.categoryId)
+        .filter(product => product.categoryId === currentProduct.categoryId 
+             && product.gender === currentProduct.gender
+             && product.id !== currentProduct.id)
         .map( product =>
               <Link to={`/products/${product.id}`}>
               <SimilarProductCard key={product.id} product={product}/>
