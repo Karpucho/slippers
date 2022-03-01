@@ -1,4 +1,4 @@
-const { User } = require('../db/models');
+const { User, Product } = require('../db/models');
 
 async function getUserById(id) {
   const user = await User.findOne({
@@ -22,7 +22,22 @@ async function updateUser(id, data) {
   await currentUser.save();
 }
 
+async function getUserProduct(id) {
+
+  const userProducts = await Product.findAll({
+    where: {
+      user_id: id,
+    },
+  });
+  if (!userProducts) {
+    throw new Error('id неверный');
+  }
+  return userProducts;
+}
+
+
 module.exports = {
   getUserById,
   updateUser,
+  getUserProduct
 };

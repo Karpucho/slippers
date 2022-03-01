@@ -418,5 +418,5 @@ function NavBar(props) {
     </ThemeProvider>
   );
 }
-
+//требует проверки
 export default NavBar;
