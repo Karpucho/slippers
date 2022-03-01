@@ -377,5 +377,5 @@ function NavBar() {
 </ThemeProvider>
   );
 }
-
+//требует проверки
 export default NavBar;
