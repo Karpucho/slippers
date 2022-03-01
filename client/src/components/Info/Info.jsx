@@ -238,3 +238,4 @@ function Info(props) {
   );
 }
 
+export default Info;

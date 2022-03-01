@@ -12,6 +12,16 @@ function AddProduct(props) {
   const inputPhoto = useRef()
   const inputDescription = useRef()
 
+  const input35 = useRef()
+  const input36 = useRef()
+  const input37 = useRef()
+  const input38 = useRef()
+  const input39 = useRef()
+  const input40 = useRef()
+  const input41 = useRef()
+  const input42 = useRef()
+  const input43 = useRef()
+
   const sendFile = React.useCallback(async (event) => {
     // event.preventDefault();
 
@@ -21,7 +31,7 @@ function AddProduct(props) {
       const data = new FormData();
       data.append('productPhoto', img);
 
-      fetch('/addProduct/photo', {
+      fetch('http://localhost:5000/addProduct/photo', {
         method: 'POST',
         body: data,
     })
@@ -44,6 +54,19 @@ function AddProduct(props) {
       description: inputDescription.current.value,
     }
 
+    const sizes = [
+     {35:input35.current.value},
+     {36:input36.current.value},
+      {37:input37.current.value},
+    {38:input38.current.value},
+    {39:input39.current.value},
+     {40:input40.current.value},
+     {41:input41.current.value},
+     {42:input42.current.value} ,
+     {43:input43.current.value},
+    ]
+  
+
     
     fetch('http://localhost:5000/addProduct/',
     {
@@ -51,7 +74,7 @@ function AddProduct(props) {
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify({ newProduct, sizes }),
     })
       .then(res => res.json())
       .catch(error => console.log(error));
@@ -110,6 +133,95 @@ function AddProduct(props) {
           multiline
           rows={4}
         />
+
+      <Typography variant='h6' style={{marginBottom: '30px'}}>
+         Задайтe количество доступных пар обуви для каждого из размеров:
+      </Typography>
+
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+      <TextField inputRef={input35} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="35"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+      <TextField inputRef={input36} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="36"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+       <TextField inputRef={input37} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="37"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+       <TextField inputRef={input38} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="38"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+      <TextField inputRef={input39} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="39"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+       <TextField inputRef={input40} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="40"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+      <TextField inputRef={input41} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="41"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+       <TextField inputRef={input42} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="42"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+      <TextField inputRef={input43} style={{ minWidth: '100px', maxWidth: '150px'}}
+      id="outlined-number"  
+      label="43"
+      type="number"
+      defaultValue="0"
+      InputLabelProps={{
+        shrink: true,
+      }}
+      />
+      </div>
+
       <Button onClick={() => {addNewProduct()}} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Создать</Button>
       </form>
 </Box>

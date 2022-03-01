@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const fileMiddleware = require('../middlewares/file.middleware');
-const { Product } = require('../db/models');
+const { Product, SizesOfProduct } = require('../db/models');
 
 router
   .post('/photo', fileMiddleware.single('productPhoto'), async (req, res) => {
@@ -13,11 +13,9 @@ router
     }
   })
   .post('/', async (req, res) => {
-    console.log(req.body);
-
     const {
       name, price, photo, gender, description,
-    } = req.body;
+    } = req.body.newProduct;
 
     try {
       const newProduct = await Product.create({
@@ -28,7 +26,24 @@ router
         description,
         status: 'active',
       });
-      res.status(201).json(newProduct);
+
+      // console.log(newProduct);
+
+      const { sizes } = req.body;
+      // console.log('sizeeeeeees', sizes);
+      // console.log('fsdfsfsdfsfsfsdfds', newProduct.dataValues.id);
+
+      sizes.forEach(async (el) => {
+        await SizesOfProduct.create({
+          productId: newProduct.dataValues.id,
+          sizeNumber: Number(Object.keys(el)[0]),
+          itemsLeft: Number(Object.values(el)[0]),
+        });
+        // console.log(needSize);
+      });
+
+
+      res.status(201).json({ m: 'jj' });
     } catch (error) {
       res.json({ error: error.message });
       console.log(error);

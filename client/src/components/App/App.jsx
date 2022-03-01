@@ -10,7 +10,7 @@ import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurre
 import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
-// import Info from "../Info/Info";
+import Info from "../Info/Info";
 
 
 
@@ -21,16 +21,6 @@ import Slider from "../Slider/Slider";
 import EditCardForm from '../EditCardForm/EditCardForm'
 import Wholesale from "../Wholesale/Wholesale";
 import Admin from "../Admin/Admin";
-import Signin from "../Signin/Signin"
-import Signup from "../Signup/Signup";
-
-import Slider from "../Slider/Slider";
-import EditCardForm from '../EditCardForm/EditCardForm'
-import Wholesale from "../Wholesale/Wholesale";
-import Admin from "../Admin/Admin";
-
-
-import EditCardForm from '../EditCardForm/EditCardForm'
 import Signin from "../Signin/Signin"
 import Signup from "../Signup/Signup";
 
@@ -55,13 +45,8 @@ function App() {
           <Route path="/products/edit/:id" element={<EditCardForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
-
-          <Route path="/info" element={<Info/>} />
-
-
-          <Route path="/addreviews" element={<AddingReviews/>} />
-          <Route path="/wholesale" element={<Wholesale/>} />
           <Route path="/admin" element={<Admin/>} />
+          <Route path="/info" element={<Info/>} />
 
         </Routes>
         </div>
