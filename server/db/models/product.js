@@ -18,18 +18,15 @@ module.exports = (sequelize, DataTypes) => {
   }
   Product.init({
     name: {
-      allowNull: false,
       type: DataTypes.TEXT,
     },
     categoryId: {
-      allowNull: false,
       type: DataTypes.INTEGER,
       references: {
         model: 'Categories',
       },
     },
     price: {
-      allowNull: false,
       type: DataTypes.INTEGER,
     },
     gender: {

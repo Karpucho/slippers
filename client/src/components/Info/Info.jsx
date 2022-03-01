@@ -165,6 +165,21 @@ function Info(props) {
   
   </Box>
 </Box>
+{/* <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>
+            Наши контакты:
+          </Typography> */}
+          <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textPrimary" gutterBottom>
+          Телефоны:
+          <br />
+          8-918-123-33-03 Дмитрий ( оптово-розничные продажи )
+          <br />
+          8-918-43-93-769 Сергей ( оптовые продажи )
+          <br />
+          E-mail:
+          <br />
+          tapkomania23@yandex.ru
+          </Typography>
+
           <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>
           Наши торговые марки:
           </Typography>

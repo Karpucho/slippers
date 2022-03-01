@@ -17,6 +17,7 @@ import AddingReviews from "../AddingReviews/AddingReviews";
 import Slider from "../Slider/Slider";
 import EditCardForm from '../EditCardForm/EditCardForm'
 import Wholesale from "../Wholesale/Wholesale";
+import Admin from "../Admin/Admin";
 
 
 
@@ -42,7 +43,8 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
           <Route path="/addreviews" element={<AddingReviews/>} />
-          <Route path="/Wholesale" element={<Wholesale/>} />
+          <Route path="/wholesale" element={<Wholesale/>} />
+          <Route path="/admin" element={<Admin/>} />
         </Routes>
         <Snack
             

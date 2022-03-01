@@ -96,7 +96,7 @@ const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
   return (
     <ThemeProvider theme={theme}>
       
-    <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide2})`}}>
+    <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide2})`, marginTop: '62px'}}>
     <Container maxWidth="md">
       <div className={classes.overlay}/>
       <Grid container>

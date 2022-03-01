@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating';
 
 import { updateProductInStokAC } from '../../redux/actionCreators/productsAC';
+import SimilarProducts from '../SimilarProducts/SimilarProducts';
 
 
 
@@ -162,6 +163,7 @@ function ProductCurrentCard() {
             </Button>
         </CardActions>
     </Card>
+    <SimilarProducts />
 </Container>
 
   );

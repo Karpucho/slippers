@@ -1,7 +1,7 @@
-import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, CHANGE_PRODUCT_STATUS, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT_IN_STOK, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
+import { ADD_PRODUCT, INIT_CURRENT_PRODUCT_CARD, SORT_PRODUCTS_LIST, FILTER_PRODUCTS_LIST, CHANGE_PRODUCT_STATUS, INIT_PRODUCTS_LIST, DELETE_PRODUCT, UPDATE_PRODUCT_IN_STOK, UPDATE_PRODUCT} from '../actionsTypes/productsAT';
 
 
-const initialState = { products: [], currentProduct: {}};
+const initialState = { products: [], currentProduct: {}, productsFilter: [], sortFilter: [] };
 
 export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,18 +18,32 @@ export const productsReducer = (state = initialState, action) => {
 
     case ADD_PRODUCT:
       const newProduct = action.payload.product;
-
       return {
        
       };
 
     case INIT_PRODUCTS_LIST:
-      return { ...state, products: action.payload };
+      return { ...state, products: action.payload, productsFilter: action.payload, sortFilter: action.payload};
 
     case DELETE_PRODUCT:
       return {
         ...state,
         products: state.products.filter(product => product.id !== Number(action.payload)),
+      };
+
+    case FILTER_PRODUCTS_LIST:
+      return {
+        ...state,
+        productsFilter: state.products.filter(product => product.gender === action.payload),
+      };
+
+    case SORT_PRODUCTS_LIST:
+      return {
+        ...state,
+        sortFilter: state.products.sort((prev, next) => {
+         if (action.payload === 'up') return prev.price - next.price;
+         if (action.payload === 'down') return next.price - prev.price;
+        }),
       };
 
     case INIT_CURRENT_PRODUCT_CARD:

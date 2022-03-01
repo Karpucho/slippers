@@ -224,7 +224,7 @@ function NavBar() {
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/Wholesale');handleClose()}}>Оптом</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
          {/* <Box m={3}>
