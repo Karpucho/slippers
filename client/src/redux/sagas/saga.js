@@ -3,12 +3,13 @@ import {
   loginUserAC,
   createUserAC,
   updateUserAC,
+  getUserProductsAC
 } from "../actionCreators/usersAC";
 
-import {
-  updateProductCardAC,
-  initCurrentProductCardAC,
-} from "../actionCreators/productsAC";
+// import {
+//   updateProductCardAC,
+//   initCurrentProductCardAC,
+// } from "../actionCreators/productsAC";
 
 async function fetchData({ url, method, headers, body }) {
   const response = await fetch(url, { method, headers, body });
@@ -17,7 +18,7 @@ async function fetchData({ url, method, headers, body }) {
 
 function* postUserWorker(action) {
   const newUser = yield call(fetchData, {
-    url: "/registration",
+    url: "/signup",
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
@@ -40,11 +41,12 @@ function* loginUserAsync(action) {
     },
     body: JSON.stringify(action.payload),
   });
+  console.log('saga', user);
 
   yield put(loginUserAC(user));
   if (user.success) {
     localStorage.setItem("user", JSON.stringify(user));
-  }
+  } 
 }
 
 function* putUserWorker(action) {
@@ -59,6 +61,19 @@ function* putUserWorker(action) {
   yield put(updateUserAC(user));
 }
 
+
+function* getUserProductsWorker(action) {
+  const userProducts = yield call(fetchData, {
+    url: `/users/${action.payload.id}`,
+    // headers: {
+    //   "Content-Type": "Application/json",
+    // },
+  });
+  yield put(getUserProductsAC(userProducts));
+}
+
+
+
 // function* putProductWorker(action) {
 //   const product = yield call(fetchData, {
 //     url: `/products/edit/${action.payload.id}`,
@@ -71,18 +86,19 @@ function* putUserWorker(action) {
 //   yield put(updateProductCardAC(product));
 // }
 
-function* getCurrentProductWorker(action) {
-  const cuurentProd = yield call(fetchData, {
-    url: `/products/edit/${action.payload}`,
-    method: "GET",
-  });
-  yield put(initCurrentProductCardAC(cuurentProd));
-}
+// function* getCurrentProductWorker(action) {
+//   const cuurentProd = yield call(fetchData, {
+//     url: `/products/edit/${action.payload}`,
+//     method: "GET",
+//   });
+//   yield put(initCurrentProductCardAC(cuurentProd));
+// }
 
 export function* globalWatcher() {
   yield takeEvery("FETCH_CREATE_USER", postUserWorker);
   yield takeEvery("FETCH_UPDATE_USER", putUserWorker);
   // yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
-  yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
+  // yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
   yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
+  yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
 }

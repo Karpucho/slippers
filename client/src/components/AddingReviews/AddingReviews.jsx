@@ -23,9 +23,9 @@ function AddingReviews(props) {
   return (
 
   <Container style={{marginTop: '150px'}}>
-    <Typography variant='h6' style={{marginBottom: '30px'}}>
+    {/* <Typography variant='h6' style={{marginBottom: '30px'}}>
     Текст не проходит модерацию и попадает на сайт без исправлений и правок.
-    </Typography>
+    </Typography> */}
     <Box
   sx={{
     width: 400,
