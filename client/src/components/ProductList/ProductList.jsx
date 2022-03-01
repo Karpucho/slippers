@@ -12,7 +12,8 @@ import Select from '@mui/material/Select';
 
 export default function ProductList({visibility}) {
 
-  const {productsFilter} = useSelector(state => state.productsReducer);
+  const { productsFilter } = useSelector(state => state.productsReducer);
+  const { sortFilter } = useSelector(state => state.productsReducer);
 
   const dispatch = useDispatch();
 
@@ -72,13 +73,13 @@ export default function ProductList({visibility}) {
           <MenuItem value="">
             <em>По умолчанию</em>
           </MenuItem>
-          <MenuItem value='up'>По возрастанию</MenuItem>
-          <MenuItem value='down'>По убыванию</MenuItem>
+          <MenuItem value='up'>По возрастанию цены</MenuItem>
+          <MenuItem value='down'>По убыванию цены</MenuItem>
         </Select>
       </FormControl>
 
     <Grid container spacing={2}>
-    {(productsFilter?.length)? productsFilter.map(product => (
+    {(productsFilter?.length) ? productsFilter.map(product => (
               <ProductCard  key={product.id} product={product}/>
           )) : <></>}
    </Grid>

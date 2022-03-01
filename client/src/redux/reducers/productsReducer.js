@@ -23,7 +23,7 @@ export const productsReducer = (state = initialState, action) => {
       };
 
     case INIT_PRODUCTS_LIST:
-      return { ...state, products: action.payload, productsFilter: action.payload};
+      return { ...state, products: action.payload, productsFilter: action.payload, sortFilter: action.payload};
 
     case DELETE_PRODUCT:
       return {
