@@ -6,10 +6,10 @@ import {
   getUserProductsAC
 } from "../actionCreators/usersAC";
 
-import {
-  updateProductCardAC,
-  initCurrentProductCardAC,
-} from "../actionCreators/productsAC";
+// import {
+//   updateProductCardAC,
+//   initCurrentProductCardAC,
+// } from "../actionCreators/productsAC";
 
 async function fetchData({ url, method, headers, body }) {
   const response = await fetch(url, { method, headers, body });
