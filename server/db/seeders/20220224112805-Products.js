@@ -37,6 +37,24 @@ module.exports = {
       {
         name: 'ВВВВВВВO', categoryId: 2, gender: 'male', description: 'Сандалии черные с клёпками', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 4, price: 1140, createdAt: new Date(), updatedAt: new Date(),
       },
+      {
+        name: 'OBYV', categoryId: 1, gender: 'kid', description: 'Сандалии серо-буро-малиновые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 4, price: 990, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'FROMKIDS', categoryId: 2, gender: 'kid', description: 'Шлепанцы детские', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 2, price: 2120, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'NIKE', categoryId: 3, gender: 'kid', description: 'Сланцы с липучкой', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 3, price: 666, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'ABIBAS', categoryId: 1, gender: 'kid', description: 'Сандалии с заклепками', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1488, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'SREEBOK', categoryId: 2, gender: 'kid', description: 'Шлепанцы шлепковые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 1, price: 3510, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'BOLSCHEVICHKA', categoryId: 3, gender: 'kid', description: 'Сланцы голубоватые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1560, createdAt: new Date(), updatedAt: new Date(),
+      },
     ]);
   },
 

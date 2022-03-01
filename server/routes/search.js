@@ -1,3 +1,4 @@
+
 const { Product} = require('../db/models')
 const { Op } = require('@sequelize/core');
 
@@ -10,3 +11,4 @@ async function ( req, res) =>{
 }
 
 module.exports = 
+

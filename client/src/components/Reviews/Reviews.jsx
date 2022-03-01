@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 
 function Reviews(props) {
 
-
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
   const dialogClickOpen = () => {
@@ -36,8 +35,6 @@ function Reviews(props) {
   const classes = useStyles();
 
   const {comment} = useSelector(state => state.reviewsReducer);
-
-  console.log('Смотри сюда',comment);
 
   const dispatch = useDispatch();
 
@@ -93,7 +90,7 @@ function Reviews(props) {
           Отзывы
           </DialogTitle>
       <DialogContentText style={{maxWidth: '80%'}} maxWidth="xs">
-        Выполните автоизацию или регистрацию,
+        Выполните авторизацию или регистрацию,
         <br />
         чтобы ставить оценки и писать отзывы.
         <br />

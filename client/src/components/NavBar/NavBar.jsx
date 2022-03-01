@@ -16,10 +16,7 @@ import { styled, alpha } from '@mui/material/styles';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-
-import Login from "../Login/Login";
-
-
+import SignIn from "../Signin/Signin";
 
 const theme = createTheme();
 
@@ -330,8 +327,8 @@ function NavBar() {
     <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
         <DialogTitle  id="from-dialog-title">Авторизация</DialogTitle>
         <DialogContent className={classes.inputContainer}>
-          
-          <Login/>
+          {/* <DialogContentText>Авторизация</DialogContentText> */}
+          <SignIn/>
           {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
           <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
 
@@ -343,6 +340,5 @@ function NavBar() {
 </ThemeProvider>
   );
 }
-
+//требует проверки
 export default NavBar;
-
