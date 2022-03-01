@@ -30,8 +30,7 @@ export default function Signup() {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log('data',data);
-    // alert(JSON.stringify(data));
+ 
     const body = {
       role: data.role,
       email: data.email,
