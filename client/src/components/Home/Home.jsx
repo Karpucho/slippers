@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import AdminProductList from '../AdminProductList/AdminProductList';
-import Advertising from '../Advertising/Advertising';
+import ProductList from "../ProductList/ProductList";
 
 const theme = createTheme();
 
@@ -58,32 +58,7 @@ function Home(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Advertising/>
-  <main>
-     <div>
-        <Container maxWidth="md">
-          <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
-          Наши торговые марки:
-          </Typography>
-          <Typography variant='h6' align="center" color="textSecondary" paragraph>
-          Sahab  Gambol  Cania (Thailand)
-      Обувь этих марок обладает отличными характеристиками и незаменима для повседневного использования, как в поездке на курорт, так и в городской среде, и даже в качестве домашних тапочек. Высококачественные материалы с высоким содержанием натурального каучука придают этой обуви оптимальную эластичность и прочность. Продукция славится среди потребителей тем, что носится по несколько сезонов, не боится воды, хорошо подходят для пляжа, бассейна, дома и повседневной эксплуатации, оставаясь при этом удобной и красивой.
-      Теперь Вы можете заказать обувь Сахаб, Гэмбол или Кания оптом и в розницу от надежного поставщика на Юге России !
-            Приятных покупок !
-          </Typography>
-          <div>
-          <Grid container spacing={2} justify="center">
-              <Grid>
-              {/* <Button variant="outlined" color="inherit">
-                О нас
-              </Button> */}
-              </Grid>
-            </Grid>
-          </div>
-        </Container>
-     </div>
-  </main>
-  <AdminProductList />
+      <ProductList/>
  </ThemeProvider>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { AppBar, Container, Toolbar, IconButton, Typography, Box, Paper, Grid, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
+import Cart from '../Cart/Cart';
+import { AppBar, Container, Toolbar, IconButton, Typography, Box, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { useNavigate } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
@@ -9,17 +9,13 @@ import Avatar from '@mui/material/Avatar';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Badge from '@mui/material/Badge';
 import { styled, alpha } from '@mui/material/styles';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-
-import Test from "../Test/Test";
 
 import Login from "../Login/Login";
 
@@ -152,7 +148,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-function NavBar(props) {
+function NavBar() {
 
   const navigate = useNavigate();
   const classes = useStyles();
@@ -202,7 +198,6 @@ function NavBar(props) {
     setDialogOpen(false);
   }
 
-
   return (
 <ThemeProvider theme={theme}>
 <AppBar className={classes.barColor} position='fixed'>
@@ -226,11 +221,10 @@ function NavBar(props) {
         }}
       >
 
-        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Розница</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/Wholesale');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
          {/* <Box m={3}>
@@ -263,18 +257,7 @@ function NavBar(props) {
 
           </IconButton>
         </Tooltip>
-
-
-        {/* <IconButton aria-label="cart">
-                <StyledBadge badgeContent={19} color="primary">
-        <IconButton aria-label="cart"
-
-                <StyledBadge badgeContent={7} color="primary">
-
-                  <ShoppingCartIcon />
-                  </StyledBadge>
-                </IconButton> */}
-                <Test/>
+      <Cart/>
       </Box>
       <Menu
         anchorEl={anchor}

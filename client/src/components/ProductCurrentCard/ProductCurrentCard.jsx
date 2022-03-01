@@ -3,12 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import  { addProductCartAC }  from '../../redux/actionCreators/cartAC';
 import ChooseSize from '../ChooseSize/ChooseSize';
 import { v4 as uuidv4 } from 'uuid';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {Button, ButtonGroup, Card, CardActions, CardContent, Container, CardMedia, Typography } from "@material-ui/core";
 import { initCurrentProductCardAC } from '../../redux/actionCreators/productsAC'
 import './ProductCurrentCard.css'
-
-import { initProductCartAC } from '../../redux/actionCreators/cartAC';
 import { useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating';
 
@@ -29,6 +27,7 @@ function ProductCurrentCard() {
 
   const [needSize, setSize] = useState();
 
+  console.log('cartProducts', cartProducts);
 
  // переместить на страницу корзины потом
  // пока юзер не зарег - данные проверяются в локал и отправ в стейт,
@@ -67,12 +66,11 @@ function ProductCurrentCard() {
     } else {
       const newOrder = { product: currentProduct.id, size: needSize, numberOfItems: 1 };
       dispatch(addProductCartAC(newOrder));
-      dispatch(updateProductInStokAC(newOrder))
+      // dispatch(updateProductInStokAC(newOrder))
 
       }
 
   }
-  console.log(currentProduct);
     
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartProducts));
@@ -132,7 +130,7 @@ function ProductCurrentCard() {
             <Typography>Рейтинг:</Typography>
             {currentProduct.rating ?  
              <Rating name="read-only" value={currentProduct.rating} readOnly />
-              : <Typography variant="body3">Пока что никто не оставил отзыв на данный товар</Typography>}
+              : <Typography variant="body4">Пока что никто не оставил отзыв на данный товар</Typography>}
             </div>
               
               {/* <ToggleButtonGroup
@@ -147,7 +145,6 @@ function ProductCurrentCard() {
             {currentProduct.SizesOfProducts?.length && 
             currentProduct.SizesOfProducts
             .map(el => {
-              console.log(needSize);
               return <ChooseSize key={uuidv4()} setSize={setSize} size={el.sizeNumber} count={el.itemsLeft}/>
              })
              }

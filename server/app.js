@@ -16,11 +16,10 @@ const { sequelize } = require('./db/models');
 const PORT = process.env.PORT ?? 5000;
 
 config(app);
-
+app.use('/api', router);
 app.use('/', router);
 app.use('/products', productsRouter);
 app.use('/reviews', commentsRouter);
-
 app.use('/cart', cartRouter);
 
 app.use(errorMiddleware);

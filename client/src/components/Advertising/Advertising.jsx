@@ -106,7 +106,7 @@ const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
             <Typography component="h1" color="inherit" variant="h3" gutterBottom>
               Tapcomania
             </Typography>
-            <Typography component="h5" color="inherit" paragraph>
+            <Typography component="h5"variant="h5" color="inherit" paragraph>
               Оптово-розничная продажа домашней и летней обуви
                            по всей России !
             </Typography>

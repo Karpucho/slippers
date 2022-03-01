@@ -8,8 +8,6 @@ import Advertising from '../Advertising/Advertising';
 export default function ProductList({visibility}) {
   const {products} = useSelector(state => state.productsReducer);
 
-
-
   const dispatch = useDispatch();
 
   useEffect(() => {
