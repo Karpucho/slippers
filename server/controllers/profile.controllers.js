@@ -52,5 +52,5 @@ async function getProducts(req, res) {
 module.exports = {
   getUser,
   changeUser,
-  getProducts
+  getProducts,
 };

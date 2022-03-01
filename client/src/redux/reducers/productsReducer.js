@@ -30,7 +30,8 @@ export const productsReducer = (state = initialState, action) => {
         ...state,
         products: state.products.filter(product => product.id !== Number(action.payload)),
       };
-// мое тут начинается (Игорь)
+
+// моё тут начинается (Игорь)
     case FILTER_PRODUCTS_LIST:
       return {
         ...state,
@@ -50,7 +51,8 @@ export const productsReducer = (state = initialState, action) => {
          if (action.payload === 'downRating') return next.rating - prev.rating;
         }),
       };
-// мое тут кончается
+// моё тут кончается
+
     case INIT_CURRENT_PRODUCT_CARD:
       return {
         ...state,
