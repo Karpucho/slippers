@@ -46,13 +46,16 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
 
+
           <Route path="/info" element={<Info/>} />
 
 
           <Route path="/addreviews" element={<AddingReviews/>} />
           <Route path="/test" element={<TestSveta/>} />
           <Route path="/wholesale" element={<Wholesale/>} />
+
           <Route path="/admin" element={<Admin/>} />
+          <Route path="/info" element={<Info/>} />
 
         </Routes>
         </div>
