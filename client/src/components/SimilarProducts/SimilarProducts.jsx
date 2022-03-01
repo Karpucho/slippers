@@ -31,6 +31,7 @@ function SimilarProducts(props) {
       <Grid container
             direction="row"
             justifyContent="flex-start"
+            style={{width: '100%'}}
             alignItems="flex-start">
         {products
         .filter(product => product.categoryId === currentProduct.categoryId 
