@@ -10,12 +10,12 @@ export default function ReviewsCard({reviews}) {
         <CardContent>
             <Typography
                 variant="body1"
-                component="h3"
+                component="h4"
             >
                 {reviews.authorName}
             </Typography>
             <Rating name="read-only" value={reviews.rating} readOnly />
-            <Typography variant="h6">{reviews.text}</Typography>
+            <Typography >{reviews.text}</Typography>
         </CardContent>
     </Card>
 </Grid>

@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {Button, Card, CardActions, CardContent, Grid, CardMedia, Typography } from "@material-ui/core";
 import { makeStyles } from "@mui/styles"
+import './SimilarProduct.css'
 
 const useStyles = makeStyles({
   photoSize: {
-    maxHeight: '300px',
-    minWidth: '250px',
-    margin: '10px',
+    maxHeight: '200px',
+    width: '150px',
+    margin: '7px',
   },
 });
 
@@ -27,14 +28,13 @@ export default function SimilarProductCard({product}) {
             title={product.name}
             style={{ height: '15vh' }}
         />
-        <CardContent>
+        <CardContent style={{fontSize: '14px', paddingTop: '2px', paddingBottom: '2px'}}>
             <Typography
-                variant="h6"
-                component="h3"
+                component="h6"
             >
                 {product.name}
             </Typography>
-            <Typography variant="body1">Цена: {product.price} руб.</Typography>
+            <Typography variant="body6">Цена: {product.price} руб.</Typography>
         </CardContent>
         <CardActions>
             <Button
