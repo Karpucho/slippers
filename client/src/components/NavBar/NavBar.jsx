@@ -330,40 +330,7 @@ function NavBar() {
     <Dialog open={dialogOpen} onClose={dialogClickClose} arial-labelledby="from-dialog-title">
         <DialogTitle  id="from-dialog-title">Авторизация</DialogTitle>
         <DialogContent className={classes.inputContainer}>
-          {/* <DialogContentText>Авторизация</DialogContentText> */}
-          {/* <TextField 
-          autoFocus
-          margin="dense"
-          id="email"
-          label="Email Adresse"
-          type="email"
-          fillWidth
-          autocomplete="off"
-          />
-          <TextField 
-          margin="dense"
-          id="name"
-          label="Ваше Имя"
-          type="name"
-          fillWidth
-          autocomplete="off"
-          />
-          <TextField 
-          autocomplete="off"
-          margin="dense"
-          id="pass"
-          label="Пароль"
-          type="password"
-          fillWidth
-          />
-          <TextField 
-          autocomplete="off"
-          margin="dense"
-          id="secondPass"
-          label="Подтвердите ароль"
-          type="password"
-          fillWidth
-          /> */}
+          
           <Login/>
           {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
           <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>

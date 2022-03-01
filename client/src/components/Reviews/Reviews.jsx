@@ -68,7 +68,7 @@ function Reviews(props) {
             style={{paddingTop: '1.5rem'}}>
 
               <div>
-              <Container style={{ display: 'flex',flexDirection: 'column', justifyContent: 'center', align:"center"}}  sx={{ p: 3 }} maxWidth="sm">
+              <Container  sx={{ p: 3 }} maxWidth="sm">
                 <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
                   Отзывы
                 </Typography>
@@ -78,12 +78,11 @@ function Reviews(props) {
               <Typography variant='h6' align="center" color="textSecondary" gutterBottom>
                 Спасибо за Ваше мнение !
               </Typography>
-              {/* <Box component="span" maxWidth="sm" sx={{ p: 2 }}> */}
-               {/* <Button onClick={() => {dialogClickOpen()}} variant="outlined" color="inherit">Оставить отзыв на нашем сайте</Button> */}
-               <Button  variant="outlined" onClick={()=>{navigate('/addreviews')}} style={{margin: '20px 170px 0px 170px'}} color="inherit">ОСТАВИТЬ ОТЗЫВ</Button>
-               <Button variant="outlined" style={{margin: '20px 170px 0px 170px'}} color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
-               <Button variant="outlined" style={{margin: '20px 170px 20px 170px'}} color="inherit">ОТЗЫВ НА GOOGLE</Button>
-              {/* </Box> */}
+              <Box sx={{ '& button': { m: 1 } }}>
+               <Button  variant="outlined" onClick={()=>{navigate('/addreviews')}}  color="inherit">ОСТАВИТЬ ОТЗЫВ</Button>
+               <Button variant="outlined" color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
+               <Button variant="outlined"  color="inherit">ОТЗЫВ НА GOOGLE</Button>
+              </Box>
               </Container>
               </div>
 
@@ -104,7 +103,7 @@ function Reviews(props) {
         
      </Dialog>
 
-     
+
     </Box>
     <Grid container spacing={2}>
     {(comment?.length)? comment.map(comment => (
