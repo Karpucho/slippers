@@ -25,14 +25,14 @@ export default function SignIn({ setDialogOpen }) {
 
   //требует проверки
   // const { user:success} = useSelector((state) => state?.usersReducer);
-  const { user:success} = useSelector((state) => state?.usersReducer);
+  // const { user:success} = useSelector((state) => state?.usersReducer);
 
-  if (success) {
-    navigate('/profle')
-  } else {
+  // if (success) {
+  //   navigate('/profle')
+  // } else {
     
-  }
-  console.log('signin user',success)
+  // }
+  // console.log('signin user',success)
 
   // useEffect(() => {
   //   if (success) {
