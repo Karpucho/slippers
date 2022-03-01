@@ -12,6 +12,7 @@ import Rating from '@mui/material/Rating';
 import ProductList from '../ProductList/ProductList';
 import { updateProductInStokAC } from '../../redux/actionCreators/productsAC';
 import {Box, Dialog, DialogContent, DialogContentText } from '@mui/material'
+import SimilarProducts from '../SimilarProducts/SimilarProducts';
 
 
 
@@ -27,6 +28,8 @@ function ProductCurrentCard() {
   const {currentUser} = useSelector(state => state.usersReducer);
 
   const [needSize, setSize] = useState();
+  const countAll = currentProduct.SizesOfProducts?.map(el => el.itemsLeft).reduce((a, b) => a + b);
+
 
  // переместить на страницу корзины потом
  // пока юзер не зарег - данные проверяются в локал и отправ в стейт,
@@ -63,6 +66,8 @@ function ProductCurrentCard() {
         } else (console.log(data.error))})
       .catch(error => error.message)
     } else {
+      if(!needSize) { 
+        return console.log('Выберете размер!')}
       const newOrder = { product: currentProduct.id, size: needSize, numberOfItems: 1 };
       dispatch(addProductCartAC(newOrder));
       // dispatch(updateProductInStokAC(newOrder))
@@ -99,6 +104,11 @@ const dialogClick = () => {
   setDialogOpen(Boolean(User));
 }
 
+const dialogClickOk =() => {
+  setDialogOpen(Boolean(User));
+  navigate(-1)
+}
+
 
   return (
     <>
@@ -114,7 +124,7 @@ const dialogClick = () => {
 
 
         <Container 
-            style={{padding: '2rem'}}
+            style={{padding: '1rem'}}
         >
     <Card 
     style={{ height: '85%' }}
@@ -145,16 +155,16 @@ const dialogClick = () => {
             <Typography>Рейтинг:</Typography>
             {currentProduct.rating ?  
              <Rating name="read-only" value={currentProduct.rating} readOnly />
-              : <Typography variant="body4">Пока что никто не оставил отзыв на данный товар</Typography>}
+              : <Typography variant="body3">Пока что никто не оставил отзыв на данный товар</Typography>}
             </div>
               <div>
-            <Typography variant="body2">Выберите размер</Typography>
+            <Typography variant="body3">Размеры в наличии:</Typography>
+            <br/>
             <ButtonGroup exclusive='true'>
-            {currentProduct.SizesOfProducts?.length && 
-            currentProduct.SizesOfProducts
-            .map(el => {
+            {(currentProduct.SizesOfProducts?.length && countAll)
+             ? currentProduct.SizesOfProducts?.map(el => {
               return <ChooseSize key={uuidv4()} setSize={setSize} size={el.sizeNumber} count={el.itemsLeft}/>
-             })
+             }) : <Typography variant="body5">Данный товар закончился</Typography>
              }
              </ButtonGroup>
              </div>
@@ -166,12 +176,13 @@ const dialogClick = () => {
             </Button>
         </CardActions>
     </Card>
+    <SimilarProducts />
 </Container>
 
 
 
       <DialogContentText style={{maxWidth: '80%'}} maxWidth="xs">
-        <Button style={{marginTop: '30px'}} onClick={dialogClick}  color="inherit" variant="outlined">Назад</Button>
+        <Button style={{marginTop: '30px'}} onClick={dialogClickOk} color="inherit" variant="outlined">Назад</Button>
       </DialogContentText>
         </DialogContent>
      </Dialog>

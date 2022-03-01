@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
@@ -150,6 +150,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 function NavBar() {
+
+  const { cartProducts } = useSelector(state => state.cartReducer);
+  const { products } = useSelector(state => state.productsReducer);
+
+  console.log('cartProducts', cartProducts);
+  console.log('products', products);
 
   const navigate = useNavigate();
   const classes = useStyles();

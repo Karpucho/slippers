@@ -25,6 +25,8 @@ export default function Cart() {
   const { cartProducts } = useSelector(state => state.cartReducer);
   const { products } = useSelector(state => state.productsReducer);
 
+  const countProduct = cartProducts.map(product => product.numberOfItems).reduce((a, b) => a+ b, 0);
+
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -111,7 +113,7 @@ export default function Cart() {
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
           <IconButton aria-label="cart">
-                <StyledBadge badgeContent={19} color="primary">
+                <StyledBadge badgeContent={countProduct} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
                 </IconButton>

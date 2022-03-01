@@ -4,6 +4,7 @@ import { makeStyles } from '@mui/styles'
 import { createTheme } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductList from '../ProductList/ProductList';
+import SendOrder from './Btn.SendOrder';
 
 
 const theme = createTheme();
@@ -33,7 +34,7 @@ function TestSveta(props) {
 
   return (
     <>
-    <ProductList />
+    {/* <ProductList /> */}
     <Container sx={{mt: '1rem'}}
             style={{paddingTop: '1.5rem'}}>
 
@@ -53,6 +54,7 @@ function TestSveta(props) {
      </Dialog>
     </Box>
    </Container>
+   <SendOrder />
 </>
   );
 }

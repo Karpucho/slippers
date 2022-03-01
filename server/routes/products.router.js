@@ -29,19 +29,9 @@ router.route('/:id')
   });
 
 router.route('/edit/:id')
-  .get(async (req, res) => {
-    try {
-      const { id } = req.params;
-      const currentProduct = await Product.findOne({
-        where: { id },
-        include: ['SizesOfProducts', Category],
-      });
-      return res.json({ message: 'sucsess', currentProduct });
-    } catch (error) {
-      return res.json({ message: 'error', error: error.message });
-    }
-  })
+  .get()
   .put(async (req, res) => {
+    console.log(req.body);
     try {
       const { id } = req.params;
       const changeProduct = await Product.findOne({
@@ -56,6 +46,20 @@ router.route('/edit/:id')
     } catch (error) {
       res.json({ error: error.message });
       console.log(error);
+    }
+  });
+
+router.route('/:id')
+  .get(async (req, res) => {
+    try {
+      const { id } = req.params;
+      const currentProduct = await Product.findOne({
+        where: { id },
+        include: ['SizesOfProducts', Category],
+      });
+      return res.json({ message: 'sucsess', currentProduct });
+    } catch (error) {
+      return res.json({ message: 'error', error: error.message });
     }
   });
 module.exports = router;

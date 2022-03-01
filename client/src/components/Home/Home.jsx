@@ -5,6 +5,7 @@ import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import AdminProductList from '../AdminProductList/AdminProductList';
 import Advertising from '../Advertising/Advertising';
+import AddProduct from '../AddProduct/AddProduct';
 
 const theme = createTheme();
 
@@ -83,6 +84,7 @@ function Home(props) {
         </Container>
      </div>
   </main>
+  <AddProduct />
   <AdminProductList />
  </ThemeProvider>
   );
