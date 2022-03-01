@@ -11,9 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function ProductList({visibility}) {
-
   const { productsFilter } = useSelector(state => state.productsReducer);
-  const { sortFilter } = useSelector(state => state.productsReducer);
 
   const dispatch = useDispatch();
 

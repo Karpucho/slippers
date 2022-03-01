@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 const express = require('express');
+const path = require('path');
 const config = require('./config/config');
 
 const app = express();
@@ -10,6 +11,7 @@ const errorMiddleware = require('./middlewares/errors.middleware');
 const productsRouter = require('./routes/products.router');
 const commentsRouter = require('./routes/reviews.router');
 const cartRouter = require('./routes/cart.router');
+const addPhotoRouter = require('./routes/upload.route');
 
 const { sequelize } = require('./db/models');
 
@@ -17,6 +19,9 @@ const PORT = process.env.PORT ?? 5000;
 
 config(app);
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+app.use('/addProduct', addPhotoRouter);
 app.use('/', router);
 app.use('/products', productsRouter);
 app.use('/reviews', commentsRouter);
