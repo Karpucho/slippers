@@ -16,18 +16,9 @@ function LogoutReal(props) {
     localStorage.removeItem("userData");
     dispatch(logoutUserAC());
     alert("Вы успешно вышли из системы!");
+    navigate('/')
   };
 
-  // useEffect(()=> {
-  //   fetch('http://localhost:5000/api/logout', {
-  //     credentials: 'include',
-  //   })
-  //   .then( res => res.json())
-  //   .then(data => window.alert(data.message))
-  //   .catch(console.error())
-
-  //   navigate('/')
-  // }
   return (
     <MenuItem onClick={logout}>
       <ListItemIcon>

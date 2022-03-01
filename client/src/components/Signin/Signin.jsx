@@ -25,14 +25,21 @@ export default function SignIn({ setDialogOpen }) {
 
   //требует проверки
   // const { user:success} = useSelector((state) => state?.usersReducer);
-  // console.log('signin user',success?.success)
+  const { user:success} = useSelector((state) => state?.usersReducer);
+
+  if (success) {
+    navigate('/profle')
+  } else {
+    
+  }
+  console.log('signin user',success)
 
   // useEffect(() => {
   //   if (success) {
   //     navigate('/profile');
   //     // alert('Успешный вход');
   //   } else {
-  //     alert(success?.message);
+  //     alert('нахуй бля!!!');
   //   }
   // }, [dispatch, success, navigate]);
 
@@ -51,7 +58,7 @@ export default function SignIn({ setDialogOpen }) {
 
   const onSubmit = (data) => {
     // console.log('data',data);
-    // alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
     const user = {
       email: data.email,
       password: data.password,
