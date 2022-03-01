@@ -9,6 +9,7 @@ function AddProduct(props) {
   const inputName = useRef()
   const inputPrice = useRef()
   const inputGender = useRef()
+  const inputPhoto = useRef()
   const inputDescription = useRef()
 
   const sendFile = React.useCallback(async (event) => {
@@ -20,7 +21,7 @@ function AddProduct(props) {
       const data = new FormData();
       data.append('productPhoto', img);
 
-      fetch('/addProduct', {
+      fetch('/addProduct/photo', {
         method: 'POST',
         body: data,
     })
@@ -38,14 +39,15 @@ function AddProduct(props) {
     const newProduct = {
       name: inputName.current.value,
       price: inputPrice.current.value,
+      photo: inputPhoto.current.value,
       gender: inputGender.current.value,
       description: inputDescription.current.value,
     }
 
     
-    fetch('http://localhost:5000/addProduct',
+    fetch('http://localhost:5000/addProduct/',
     {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
@@ -82,17 +84,19 @@ function AddProduct(props) {
       <TextField inputRef={inputPrice} style={{ minWidth: '500px', maxWidth: '700px'}}
       id="outlined-number"  
       label="Цена"
-      multiline
       type="number"
+      InputLabelProps={{
+        shrink: true,
+      }}
       />
 
-       <TextField onChange={ e => setImg(e.target.files[0])} style={{ minWidth: '500px', maxWidth: '700px'}}
+       <TextField inputRef={inputPhoto} onChange={ e => setImg(e.target.files[0])} style={{ minWidth: '500px', maxWidth: '700px'}}
           id="outlined-number"
           type="file"
-          InputLabelProps={{
-            shrink: true,
-          }}
+          defaultValue={photo}
         />
+
+<Button onClick={() => {sendFile()}} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Одобрить фото</Button>
 
       <TextField inputRef={inputGender} style={{ minWidth: '500px', maxWidth: '700px'}}
       id="outlined-textarea"
@@ -106,7 +110,7 @@ function AddProduct(props) {
           multiline
           rows={4}
         />
-      <Button onClick={() => {sendFile(); addNewProduct()}} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Создать</Button>
+      <Button onClick={() => {addNewProduct()}} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Создать</Button>
       </form>
 </Box>
 </Container>

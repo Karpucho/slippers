@@ -14,13 +14,12 @@ router.route('/')
     }
   })
   .post(async (req, res) => {
+    const { rating, authorName, text } = req.body;
     try {
       const newOrder = await Comment.create({
-        userId: Number(req.params.id),
-        productId: req.body.currentProduct,
-        sizeId: req.body.needSize,
-        numberOfItems: req.body.count,
-        status: 'activ',
+        authorName,
+        text,
+        rating,
       });
       console.log('Всё гуд, прикинь');
       return res.status(202).json({ message: 'sucsess', newOrder });

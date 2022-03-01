@@ -6,6 +6,8 @@ function ChooseSize({size, count, setSize}) {
 
   const [color, setColor] = useState('black');
 
+  
+
   const chooseSize = (event) => {
     setColor('green');
     event.preventDefault();
@@ -18,6 +20,7 @@ function ChooseSize({size, count, setSize}) {
     <>
     
     {(+count > 0) && <Button onClick={chooseSize} style={{color: `${color}`, padding: '0px'}} variant="outlined" >{size}</Button>}
+
 
    </>
 
