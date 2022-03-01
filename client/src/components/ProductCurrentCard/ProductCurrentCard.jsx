@@ -9,8 +9,9 @@ import { initCurrentProductCardAC } from '../../redux/actionCreators/productsAC'
 import './ProductCurrentCard.css'
 import { useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating';
-
+import ProductList from '../ProductList/ProductList';
 import { updateProductInStokAC } from '../../redux/actionCreators/productsAC';
+import {Box, Dialog, DialogContent, DialogContentText } from '@mui/material'
 
 
 
@@ -91,18 +92,34 @@ function ProductCurrentCard() {
     .catch(error => error.message)
 }, [dispatch, params.id]);
 
+const [dialogOpen, setDialogOpen] = React.useState(true);
+const { User } = useSelector(state => state.usersReducer)
+
+const dialogClick = () => {
+  setDialogOpen(Boolean(User));
+}
+
 
   return (
-    <Container 
-            style={{padding: '8rem'}}
+    <>
+    <ProductList />
+
+    <Container sx={{mt: '1rem'}}
+            style={{paddingTop: '1.5rem'}}>
+
+    <Box mr={3}>
+    <Dialog style={{align:"center"}} open={dialogOpen} >
+        <DialogContent  align="center">
+
+
+
+        <Container 
+            style={{padding: '2rem'}}
         >
     <Card 
-    style={{ height: '85vh' }}
+    style={{ height: '85%' }}
     className="motion"
     >
-
-       <Button size="small" variant="outlined" style={{marginLeft: '90%', marginTop: '5px', marginBottom: '5px'}} onClick={()=>  {navigate('/products')}}>Назад</Button>
-
         <CardMedia
             image={currentProduct.photo}
             component="img"
@@ -130,13 +147,6 @@ function ProductCurrentCard() {
              <Rating name="read-only" value={currentProduct.rating} readOnly />
               : <Typography variant="body4">Пока что никто не оставил отзыв на данный товар</Typography>}
             </div>
-              
-              {/* <ToggleButtonGroup
-                color="standard"
-                exclusive
-                // onChange={handleChange}
-              > */}
-             
               <div>
             <Typography variant="body2">Выберите размер</Typography>
             <ButtonGroup exclusive='true'>
@@ -147,20 +157,29 @@ function ProductCurrentCard() {
              })
              }
              </ButtonGroup>
-             
              </div>
              </div>
         </CardContent>
-        
-        
         <CardActions>
-          
             <Button variant="outlined" onClick={addProductBacket}>
                 В корзину
             </Button>
         </CardActions>
     </Card>
 </Container>
+
+
+
+      <DialogContentText style={{maxWidth: '80%'}} maxWidth="xs">
+        <Button style={{marginTop: '30px'}} onClick={dialogClick}  color="inherit" variant="outlined">Назад</Button>
+      </DialogContentText>
+        </DialogContent>
+     </Dialog>
+    </Box>
+   </Container>
+
+
+</>
 
   );
 }

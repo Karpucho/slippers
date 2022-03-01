@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import { Container,  Box, Button, Dialog, DialogTitle, DialogContent, DialogContentText} from '@mui/material'
+import { Container,  Box, Button, Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { createTheme } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { initRewiewsListAC } from '../../redux/actionCreators/reviewsAC';
-import { useNavigate } from 'react-router-dom';
 import ProductList from '../ProductList/ProductList';
 
 
@@ -24,51 +22,23 @@ const useStyles = makeStyles({
 
 function TestSveta(props) {
 
+  const [dialogOpen, setDialogOpen] = React.useState(true);
+  const { User } = useSelector(state => state.usersReducer)
 
-  const [dialogOpen, setDialogOpen] = React.useState(false);
-
-  const dialogClickOpen = () => {
-    setDialogOpen(true);
-  }
-  const dialogClickClose = () => {
-    setDialogOpen(false);
+  const dialogClick = () => {
+    setDialogOpen(Boolean(User));
   }
   const classes = useStyles();
 
-  const {comment} = useSelector(state => state.reviewsReducer);
-
-  console.log('Смотри сюда',comment);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-      fetch('http://localhost:5000/reviews', {
-        credentials: 'include',
-      })
-      .then(data => data.json())
-      .then(data => {console.log('reviews!', data.comment)
-      dialogClickOpen();
-    return data
-  })
-      .then(data => {
-        console.log(data);
-        if(data.message === 'sucsess') {
-          dispatch(initRewiewsListAC(data.comment))
-        } else if (data.message === 'nopComments') {
-          console.log('noComments');
-        } else (console.log(data.error))})
-      .catch(error => error.message)
-  }, [dispatch]);
-
-  const navigate = useNavigate();
 
   return (
     <>
     <ProductList />
     <Container sx={{mt: '1rem'}}
             style={{paddingTop: '1.5rem'}}>
-   <Box mr={3}>
-    <Dialog style={{align:"center"}} open={dialogOpen} onClose={dialogClickClose}  >
+
+    <Box mr={3}>
+    <Dialog style={{align:"center"}} open={dialogOpen} >
         <DialogContent  align="center">
           <DialogTitle>
            Чтобы сделать заказ,
@@ -77,7 +47,7 @@ function TestSveta(props) {
           </DialogTitle>
       <DialogContentText style={{maxWidth: '80%'}} maxWidth="xs">
        
-        <Button style={{marginTop: '30px'}} onClick={dialogClickClose}  color="inherit" variant="outlined">Войти или создать аккаунт</Button>
+        <Button style={{marginTop: '30px'}} onClick={dialogClick}  color="inherit" variant="outlined">Войти или создать аккаунт</Button>
       </DialogContentText>
         </DialogContent>
      </Dialog>

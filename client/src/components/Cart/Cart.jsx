@@ -36,14 +36,22 @@ export default function Cart() {
   }));
 
   const [state, setState] = React.useState({right: false});
+  const { User } = useSelector(state => state.usersReducer)
 
   const toggleDrawer = (anchor, open) => (event) => {
     if(event
-      && event.target.textContent === 'Оформить заказ') {
+      && event.target.textContent === 'Оформить заказ'
+      && Boolean(User)) {
         setState({ ...state, [anchor]: open });
-        navigate('/test');
-        return;
-      }
+        return navigate('/profile');
+
+      } else if (event
+        && event.target.textContent === 'Оформить заказ'
+        && !Boolean(User)) {
+          setState({ ...state, [anchor]: open });
+          return navigate('/test');
+
+        }
     setState({ ...state, [anchor]: open });
   };
 
