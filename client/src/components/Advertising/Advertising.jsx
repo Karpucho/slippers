@@ -4,7 +4,7 @@ import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import slide1 from "../Slider/slide1.jpeg"
-import slide2 from "../Slider/slide2.jpeg"
+import slide2 from "../Info/thaiPhoto.jpeg"
 // import slide3 from "../img/slide3.jpg"
 // import slide4 from "../img/slide4.jpg"
 // import slide5 from "../img/slide5.jpg"
@@ -51,7 +51,9 @@ const useStyles = makeStyles({
   },
   mainFeaturesPostContent: {
     position: "relative",
-    padding: theme.spacing(9),
+    alignItems: 'rigth',
+    padding: theme.spacing(1),
+    marginBottom: theme.spacing(12),
     marginTop: theme.spacing(12),
     color: 'white',
   }
@@ -96,7 +98,7 @@ const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
   return (
     <ThemeProvider theme={theme}>
       
-    <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide2})`, marginTop: '62px'}}>
+    <Paper  className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide2})`, marginTop: '62px'}}>
     <Container maxWidth="md">
       <div className={classes.overlay}/>
       <Grid container>
