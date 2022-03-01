@@ -17,22 +17,6 @@ router.route('/')
 //   }
 // })
 
-// router.post('/', async (req, res) => {
-//   const order = req.body;
-//   const { userId } = req;
-
-//   const newOrder = await Order.create({
-//     user_id: userId,
-//   });
-//   try {
-//     order.forEach(async el => {
-//       await OrderItem.create({
-//         order_id: newOrder.id,
-//         item_id: el.id,
-//         count: el.count,
-//       });
-//     });
-
   .post(async (req, res) => {
     try {
       const order = req.body.cartProducts;

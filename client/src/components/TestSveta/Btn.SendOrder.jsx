@@ -22,7 +22,7 @@ function SendOrder(props) {
 .then(data => {
   if (data.message === 'sucsess') {
     localStorage.clear();
-    // dispatch(clearProductCartAC());
+    dispatch(clearProductCartAC());
     return console.log('Успех');
   } else if (data.message === 'error'){
     console.log(data.error)

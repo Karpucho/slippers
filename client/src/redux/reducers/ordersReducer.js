@@ -1,7 +1,7 @@
-import { DELETE_ORDER, INIT_ORDERS, ADD_ORDER } from '../actionTypes/ordersAT';
+import { DELETE_ORDER, INIT_ORDERS, ADD_ORDER } from '../actionsTypes/ordersAT';
 const initialState = { orders: [] };
 
-export const orderReducer = (state = initialState, action) => {
+export const ordersReducer = (state = initialState, action) => {
   switch (action.type) {
     case INIT_ORDERS:
       return { ...state, orders: action.payload };
