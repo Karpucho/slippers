@@ -44,7 +44,6 @@ export const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         sortFilter: state.products.sort((prev, next) => {
-         if (action.payload === 'none') return state.products
          if (action.payload === 'up') return prev.price - next.price;
          if (action.payload === 'down') return next.price - prev.price;
          if (action.payload === 'upRating') return prev.rating - next.rating;
