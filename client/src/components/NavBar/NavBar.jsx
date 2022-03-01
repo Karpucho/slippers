@@ -221,11 +221,10 @@ function NavBar() {
         }}
       >
 
-        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Розница</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
          {/* <Box m={3}>

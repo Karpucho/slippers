@@ -11,19 +11,33 @@ import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
+
+
+import AddingReviews from "../AddingReviews/AddingReviews";
+
+import Slider from "../Slider/Slider";
+import EditCardForm from '../EditCardForm/EditCardForm'
+import Wholesale from "../Wholesale/Wholesale";
+import Admin from "../Admin/Admin";
+
 import EditCardForm from '../EditCardForm/EditCardForm'
 import Signin from "../Signin/Signin"
 import Signup from "../Signup/Signup";
+
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
       <NavBar/>
-      
+
+
+      <Slider/>
+
+
         <div style={{ marginTop: '4%' }}>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
@@ -32,6 +46,11 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/info" element={<Info/>} />
+
+          <Route path="/addreviews" element={<AddingReviews/>} />
+          <Route path="/wholesale" element={<Wholesale/>} />
+          <Route path="/admin" element={<Admin/>} />
+
         </Routes>
         </div>
         <Footer/>

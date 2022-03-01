@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-function Reviews(props) {
+function ReviewsList(props) {
 
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
@@ -144,4 +144,4 @@ function Reviews(props) {
   );
 }
 
-export default Reviews;
+export default ReviewsList;
