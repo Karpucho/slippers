@@ -4,14 +4,14 @@ const userConroller = require('../controllers/users.controller');
 const authMiddleware = require('../middlewares/auth.middleware')
 
 router.post(
-  '/registration',
+  '/signup',
   body('email').isEmail(),
   body('password').isLength({ min: 5 }),
 
   userConroller.register,
 );
 
-router.post('/login', userConroller.login);
+router.post('/signin', userConroller.login);
 router.get('/logout', userConroller.logout); // поменял запрос на get
 // активация аккаунта по ссылке
 router.get('/activate/:link', userConroller.activate);
