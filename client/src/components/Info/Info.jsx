@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Container, FormControl, Typography, Box, Grid, TextField } from '@mui/material';
+import { Paper, Container, FormControl, Typography, Box, Grid, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
@@ -9,6 +9,8 @@ import brands from './brand.png'
 import Input from '@mui/material/Input';
 import PropTypes from 'prop-types';
 import { IMaskInput } from 'react-imask';
+import slide1 from "./thaiPhoto.jpeg"
+
 
 const ariaLabel = { 'aria-label': 'description' };
 const theme = createTheme();
@@ -81,6 +83,7 @@ TextMaskCustom.propTypes = {
 };
 
 
+
 function Info(props) {
 
   const [values, setValues] = React.useState({
@@ -98,7 +101,29 @@ function Info(props) {
 
   return (
     <ThemeProvider theme={theme}>
-    <Advertising/>
+      
+      <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide1})`, marginTop: '62px'}}>
+      <Container maxWidth="md">
+        <div className={classes.overlay}/>
+        <Grid container>
+          <Grid item md={6}>
+  
+            <div className={classes.mainFeaturesPostContent}>
+              <Typography component="h1" color="inherit" variant="h3" gutterBottom>
+                Tapcomania
+              </Typography>
+              <Typography component="h5"variant="h5" color="inherit" paragraph>
+                Оптово-розничная продажа домашней и летней обуви
+                             по всей России !
+              </Typography>
+              <Button variant="outlined" color="inherit">
+                О нас
+              </Button>
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
+     </Paper>
     <main>
      <div>
         <Container style={{marginTop: '30px'}} maxWidth="md">
@@ -179,7 +204,7 @@ function Info(props) {
           <br />
           tapkomania23@yandex.ru
           </Typography>
-
+            <hr style={{width:'70%', marginTop: '60px'}} />
           <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>
           Наши торговые марки:
           </Typography>
