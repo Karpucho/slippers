@@ -10,6 +10,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { CurrencyYenTwoTone } from '@mui/icons-material';
+import { Typography } from '@material-ui/core';
+import { Box } from '@mui/system';
 
 export default function ProductList({visibility}) {
   const { productsFilter } = useSelector(state => state.productsReducer);
@@ -21,6 +23,8 @@ export default function ProductList({visibility}) {
 
   // const [containerSex, setContainerSex] = useState('')
   // const [containerPrice, setContainerPrice] = useState('')
+
+  const [genderText, setText] = useState("Все товары");
 
 
   const dispatch = useDispatch();
@@ -49,11 +53,15 @@ export default function ProductList({visibility}) {
 
     <Advertising/>
     <Container
-            sx={{
-                mt: '1rem'
-            }}
-            style={{paddingTop: '7rem'}}
+            style={{paddingTop: '1rem'}}
         >
+          
+              <Box  ml={'520px'}>
+              {genderText === 'male'? <Typography variant='h4'> Мужское </Typography>:''}
+              {genderText === 'female'? <Typography variant='h4'> Женское </Typography>:''}
+              {genderText === 'kid'? <Typography variant='h4'> Детское </Typography>:''}
+              {genderText === 'Все товары'? <Typography variant='h4'> Все товары </Typography>:''}
+              </Box>
 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-standard-label">Пол</InputLabel>
         <Select
@@ -61,7 +69,7 @@ export default function ProductList({visibility}) {
           id="demo-simple-select-standard"
           // value={age}
           label="Gender"
-           onChange={(event)=>dispatch(filterProductsListAC(event.target.value))}
+           onChange={(event)=>{dispatch(filterProductsListAC(event.target.value));setText(event.target.value)}}
          
         >
           <MenuItem value="none">

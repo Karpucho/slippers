@@ -117,9 +117,6 @@ function Info(props) {
                 Оптово-розничная продажа домашней и летней обуви
                              по всей России !
               </Typography>
-              <Button variant="outlined" color="inherit">
-                О нас
-              </Button>
             </div>
           </Grid>
         </Grid>
@@ -127,13 +124,12 @@ function Info(props) {
      </Paper>
     <main>
      <div>
-        <Container style={{marginTop: '30px'}} maxWidth="md">
-        <Typography variant='h6' align="center" color="textSecondary" paragraph>
-          
-        УВАЖАЕМЫЕ ЛЮБИТЕЛИ КАЧЕСТВЕННОЙ ОБУВИ!
+        <Container style={{marginTop: '50px'}} maxWidth="md">
+        <Typography variant='h6' align="center" color="textPrimary" paragraph>
+        Уважаемые любители качественной обуви!
       <br />
       Мы всегда ждём Вас в нашем магазине по адресу: 
-      <Typography variant='h6' align="center" color="textPrimary">
+      <Typography variant='h6' align="center" color="textSecondary">
       г. Краснодар, улица Вишняковой 144, Т.Ц. Гранд Паркинг №2, магазин № 13.
       </Typography>
 

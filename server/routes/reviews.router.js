@@ -6,6 +6,7 @@ router.route('/')
   .get(async (req, res) => {
     try {
       const comment = await Comment.findAll({
+        order: [['createdAt', 'desc']],
       });
       if (comment.length > 0) return res.json({ message: 'sucsess', comment });
       return res.json({ message: 'noComments' });
