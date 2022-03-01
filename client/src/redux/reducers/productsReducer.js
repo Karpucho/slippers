@@ -34,13 +34,17 @@ export const productsReducer = (state = initialState, action) => {
     case FILTER_PRODUCTS_LIST:
       return {
         ...state,
-        productsFilter: state.products.filter(product => product.gender === action.payload),
+        productsFilter: state.products.filter(product => {
+          if (action.payload === 'none') { return state.products }
+          else { return product.gender === action.payload}
+        }),
       };
 
     case SORT_PRODUCTS_LIST:
       return {
         ...state,
         sortFilter: state.products.sort((prev, next) => {
+         if (action.payload === 'none') return state.products
          if (action.payload === 'up') return prev.price - next.price;
          if (action.payload === 'down') return next.price - prev.price;
          if (action.payload === 'upRating') return prev.rating - next.rating;

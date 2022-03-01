@@ -65,7 +65,7 @@ export default function ProductList({visibility}) {
          
         >
           <MenuItem value="none">
-            <em>None</em>
+            <em>По умолчанию</em>
           </MenuItem>
           <MenuItem value='male'>Мужское</MenuItem>
           <MenuItem value='female'>Женское</MenuItem>
@@ -84,7 +84,7 @@ export default function ProductList({visibility}) {
           onChange={(event) => dispatch(sortProductsListAC(event.target.value))}
 
         >
-          <MenuItem value="">
+          <MenuItem value="none">
             <em>По умолчанию</em>
           </MenuItem>
           <MenuItem value='up'>По возрастанию цены</MenuItem>
