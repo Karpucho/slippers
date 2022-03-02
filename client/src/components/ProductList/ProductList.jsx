@@ -6,23 +6,12 @@ import { Grid, Container} from '@material-ui/core';
 import Advertising from '../Advertising/Advertising';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { CurrencyYenTwoTone } from '@mui/icons-material';
 
 export default function ProductList({visibility}) {
   const { productsFilter } = useSelector(state => state.productsReducer);
-  const { sortFilter } = useSelector(state => state.productsReducer);
-
-
-  const refContainerSex = useRef();
-  const refContainerPrice = useRef();
-
-  // const [containerSex, setContainerSex] = useState('')
-  // const [containerPrice, setContainerPrice] = useState('')
-
-
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,16 +26,10 @@ export default function ProductList({visibility}) {
           console.log('noproducts');
         } else (console.log(data.error))})
       .catch(error => error.message)
-
-
   }, [dispatch]);
-
-
 
   return (
     <>
-
-
     <Advertising/>
     <Container
             sx={{
@@ -54,18 +37,16 @@ export default function ProductList({visibility}) {
             }}
             style={{paddingTop: '7rem'}}
         >
-<FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-standard-label">Пол</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          // value={age}
           label="Gender"
            onChange={(event)=>dispatch(filterProductsListAC(event.target.value))}
-         
         >
           <MenuItem value="none">
-            <em>None</em>
+            <em>По умолчанию</em>
           </MenuItem>
           <MenuItem value='male'>Мужское</MenuItem>
           <MenuItem value='female'>Женское</MenuItem>
@@ -78,13 +59,10 @@ export default function ProductList({visibility}) {
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          // value={age}
-          label="Sort"
-     
+          label="Sort"     
           onChange={(event) => dispatch(sortProductsListAC(event.target.value))}
-
         >
-          <MenuItem value="">
+          <MenuItem value="none">
             <em>По умолчанию</em>
           </MenuItem>
           <MenuItem value='up'>По возрастанию цены</MenuItem>
@@ -94,11 +72,12 @@ export default function ProductList({visibility}) {
         </Select>
       </FormControl>
     <Grid container spacing={2}>
-    {(productsFilter?.length) ? productsFilter.map(product => (
-              <ProductCard  key={product.id} product={product}/>
-          )) : <></>}
-   </Grid>
-   </Container>
+    {(productsFilter?.length) ? 
+      productsFilter.map(product => (
+     <ProductCard  key={product.id} product={product}/>
+      )) : <></>}
+    </Grid>
+    </Container>
    </>
   );
 }

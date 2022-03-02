@@ -17,9 +17,12 @@ import { styled, alpha } from '@mui/material/styles';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import SignIn from "../Signin/Signin";
 import SearchBar from "@bit/nsebhastian.react_fusejs.search-bar";
-
+import { initProductsListAC } from '../../redux/actionCreators/productsAC'
+// import Login from "../Login/Login";
+import SignIn from "../Signin/Signin";
+import LogoutReal from "../LogoutReal/LogoutReal";
+// import Logout from '../'
 
 const theme = createTheme();
 
@@ -153,8 +156,8 @@ function NavBar() {
   const { cartProducts } = useSelector(state => state.cartReducer);
   const { products } = useSelector(state => state.productsReducer);
 
-  console.log('cartProducts', cartProducts);
-  console.log('products', products);
+  // console.log('cartProducts', cartProducts);
+  // console.log('products', products);
 
   const navigate = useNavigate();
   const classes = useStyles();
@@ -238,9 +241,9 @@ function NavBar() {
             
             <StyledInputBase
               // placeholder="Search…"
-              placeholder={placeholder}
+              // placeholder={placeholder}
               inputProps={{ 'aria-label': 'search' }}
-              onChange={onChangeSearch}
+              // onChange={onChangeSearch}
               type="text"
             />
           </Search>
@@ -320,12 +323,7 @@ function NavBar() {
           </ListItemIcon>
           Настройки
         </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Выйти
-        </MenuItem>
+    <LogoutReal/>
       </Menu>
         </Toolbar>
      </Container>

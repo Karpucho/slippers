@@ -20,9 +20,9 @@ async function changeUser(req, res) {
   try {
     const { id: userId } = req.params;
     await userService.updateUser(userId, req.body);
-    const user = await userService.getUserById(userId);
+    const userData = await userService.getUserById(userId);
     res.status(200).json({
-      user,
+      userData,
       message: "данные юзера обновлены",
     });
   } catch (error) {
@@ -36,7 +36,8 @@ async function changeUser(req, res) {
 async function getProducts(req, res) {
   try {
     const { id: userId } = req.params;
-    const userProducts = await userService.getUserProduc(userId)
+    // console.log(userId, 'userId');
+    const userProducts = await userService.getUserProductService(userId);
     res.status(200).json({
       userProducts,
       message: "userProducts найдены!",
@@ -52,5 +53,5 @@ async function getProducts(req, res) {
 module.exports = {
   getUser,
   changeUser,
-  getProducts
+  getProducts,
 };

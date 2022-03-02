@@ -8,6 +8,7 @@ export const initProductsListAC = (payload = []) => {
   };
 };
 
+// моё тут начинается (Игорь)
 export const filterProductsListAC = (payload = []) => {
   return {
     type: FILTER_PRODUCTS_LIST,
@@ -21,6 +22,7 @@ export const sortProductsListAC = (payload = []) => {
     payload,
   };
 };
+// моё тут кончается
 
 export const updateProductInStokAC = (payload) => {
   return {
