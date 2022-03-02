@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Category } = require('../db/models');
+const { Product, SizesOfProduct } = require('../db/models');
 
 router.route('/')
   .get(async (req, res) => {
@@ -29,20 +29,56 @@ router.route('/:id')
   });
 
 router.route('/edit/:id')
-  .get()
-  .put(async (req, res) => {
-    console.log(req.body);
+  .get(async (req, res) => {
     try {
       const { id } = req.params;
-      const changeProduct = await Product.findOne({
+      const currentProduct = await Product.findOne({
         where: { id },
+        include: 'SizesOfProducts',
       });
-      changeProduct.set(req.body);
-      await changeProduct.save();
-      res.json({
-        message: 'vse norm',
-        changeProduct,
+      return res.json({ message: 'sucsess', currentProduct });
+    } catch (error) {
+      return res.json({ message: 'error', error: error.message });
+    }
+  })
+
+  .put(async (req, res) => {
+    console.log(req.body);
+
+    const { id } = req.params;
+
+    const {
+      name, price, photo, gender, description,
+    } = req.body.updatedProduct;
+
+    const neededProduct = await Product.findOne({
+      where: { id },
+    });
+
+    try {
+      const updatedProduct = await neededProduct.update({
+        name,
+        price,
+        photo: `http://localhost:5000/images/${photo.slice(12)}`,
+        gender,
+        description,
       });
+
+      const { sizes } = req.body;
+
+      sizes.forEach(async (el) => {
+        await SizesOfProduct.update(
+          { itemsLeft: Number(Object.values(el)[0]) },
+          {
+            where: {
+              productId: updatedProduct.dataValues.id,
+              sizeNumber: Number(Object.keys(el)[0]),
+            },
+          },
+        );
+      });
+
+      res.status(201).json({ m: 'ok' });
     } catch (error) {
       res.json({ error: error.message });
       console.log(error);
@@ -55,7 +91,7 @@ router.route('/:id')
       const { id } = req.params;
       const currentProduct = await Product.findOne({
         where: { id },
-        include: ['SizesOfProducts', Category],
+        include: 'SizesOfProducts',
       });
       return res.json({ message: 'sucsess', currentProduct });
     } catch (error) {
