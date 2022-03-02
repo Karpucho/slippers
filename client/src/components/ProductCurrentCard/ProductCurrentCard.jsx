@@ -80,7 +80,10 @@ const { User } = useSelector(state => state.usersReducer)
 const dialogClick = () => {
   setDialogOpen(Boolean(User));
 }
-
+const dialogClickClose = () => {
+  setDialogOpen(false);
+  navigate(-1);
+}
 const dialogClickOk =() => {
   setDialogOpen(Boolean(User));
   navigate(-1)
@@ -95,7 +98,7 @@ const dialogClickOk =() => {
             style={{paddingTop: '1.5rem'}}>
 
     <Box mr={3}>
-    <Dialog style={{align:"center"}} open={dialogOpen} >
+    <Dialog style={{align:"center"}} open={dialogOpen} onClose={dialogClickClose}>
         <DialogContent  align="center">
 
 

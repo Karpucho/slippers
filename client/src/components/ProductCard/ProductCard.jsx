@@ -2,19 +2,19 @@ import { Link } from 'react-router-dom';
 import './ProductCard.css';
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavoritProduct} from '../../redux/actionCreators/favoriteAC'
+// import { addFavoritProduct} from '../../redux/actionCreators/favoriteAC'
 
 
 
 export default function ProductCard({product}) {
 
   const dispatch = useDispatch()
-  const {currentFavProd} = useSelector(state => state.favoritesReducer)
+  // const {currentFavProd} = useSelector(state => state.favoritesReducer)
 
-  const addFavorites = () => {
-    const favProd = {...currentFavProd}
-    dispatch(addFavoritProduct(favProd))
-  }
+  // const addFavorites = () => {
+  //   const favProd = {...currentFavProd}
+  //   dispatch(addFavoritProduct(favProd))
+  // }
   
   return (
 
@@ -42,7 +42,8 @@ export default function ProductCard({product}) {
             <Typography variant="body1">Цена: {product.price} руб.</Typography>
         </CardContent>
         <CardActions>
-            <Button onClick={()=> addFavorites()}
+            <Button 
+            // onClick={()=> addFavorites()}
                 variant="text"
             >
                 В избранное

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import { Container, Typography, Paper, Grid } from '@mui/material';
-import slide1 from "./slide1.jpeg"
-import slide2 from "./slide2.jpeg"
+import slide1 from "../Info/imgFrom.jpeg"
+import slide2 from "../Info/thaiPhoto.jpeg"
 // import slide3 from "../img/slide3.jpg"
 // import slide4 from "../img/slide4.jpg"
 // import slide5 from "../img/slide5.jpg"

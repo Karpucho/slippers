@@ -25,9 +25,12 @@ function TestSveta(props) {
 
   const [dialogOpen, setDialogOpen] = React.useState(true);
   const { User } = useSelector(state => state.usersReducer)
-
+  console.log('user', User);
   const dialogClick = () => {
     setDialogOpen(Boolean(User));
+  }
+  const dialogClickClose = () => {
+    setDialogOpen(false);
   }
   const classes = useStyles();
 
@@ -39,7 +42,7 @@ function TestSveta(props) {
             style={{paddingTop: '1.5rem'}}>
 
     <Box mr={3}>
-    <Dialog style={{align:"center"}} open={dialogOpen} >
+    <Dialog style={{align:"center"}} open={dialogOpen} onClose={dialogClickClose} >
         <DialogContent  align="center">
           <DialogTitle>
            Чтобы сделать заказ,

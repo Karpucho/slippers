@@ -73,7 +73,6 @@ useEffect(() => {
           <Route path="/wholesale" element={<Wholesale/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/info" element={<Info/>} />
-
         </Routes>
         </div>
         <Footer/>

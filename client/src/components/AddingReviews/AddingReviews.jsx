@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { TextField, Box, Rating, Container, Button, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom'
+
 const labels = {
   0.5: 0.5,
   1: 1,
@@ -28,7 +29,7 @@ function AddingReviews(props) {
     const inputText = useRef();
 
     function addNewComment(event) {
-      event.preventDefault();
+      // event.preventDefault();
 
       const newComment = {
         rating: rating,
@@ -50,12 +51,13 @@ function AddingReviews(props) {
       })
         .then(res => res.json())
         .catch(error => console.log(error));
+        navigate(-1)
     }
 
   return (
 
-  <Container style={{marginTop: '150px'}}>
-    <Button  variant="outlined" onClick={()=>{navigate(-1)}}  color="inherit"> Назад</Button>
+  <Container style={{marginTop: '150px', marginLeft: '150px'}}>
+    <Button  variant="outlined" size="small" style={{marginBottom: '50px'}} onClick={()=>{navigate(-1)}}  color="inherit">  Назад</Button>
     <Box
   sx={{
     width: 400,
@@ -106,7 +108,7 @@ function AddingReviews(props) {
           placeholder="Отзыв:"
           // defaultValue="Default Value"
         />
-      <Button onClick={addNewComment} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Оставить отзыв</Button>
+      <Button onClick={() => addNewComment()} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Оставить отзыв</Button>
       </form>
 </Box>
 </Container>

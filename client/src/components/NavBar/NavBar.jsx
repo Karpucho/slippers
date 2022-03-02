@@ -317,13 +317,18 @@ function NavBar() {
           </ListItemIcon>
           Add another account
         </MenuItem> */}
-        <MenuItem>
+        {/* <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Настройки
+        </MenuItem> */}
+        <MenuItem>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Выйти
         </MenuItem>
-    <LogoutReal/>
       </Menu>
         </Toolbar>
      </Container>

@@ -65,6 +65,7 @@ function Reviews(props) {
             style={{paddingTop: '1.5rem'}}>
 
               <div>
+
               <Container  sx={{ p: 3 }} maxWidth="sm">
                 <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
                   Отзывы
@@ -77,8 +78,8 @@ function Reviews(props) {
               </Typography>
               <Box sx={{ '& button': { m: 1 } }}>
                <Button  variant="outlined" onClick={()=>{navigate('/addreviews')}}  color="inherit">ОСТАВИТЬ ОТЗЫВ</Button>
-               <Button variant="outlined" color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
-               <Button variant="outlined"  color="inherit">ОТЗЫВ НА GOOGLE</Button>
+               <Button to variant="outlined" target="_blank" href='https://yandex.ru/maps/org/tapkomaniya_yug/66063787262/reviews/?ll=38.999504%2C45.021155&mode=search&sctx=ZAAAAAgBEAAaKAoSCVmdnKG4y0JAEUwnOCWJ2ktAEhIJAAAAAIABpT8RAHBfguZejj8iBgABAgMEBSgKOABA1QFIAWI8cmVsZXZfcmFua2luZ19oZWF2eV9yZWxldl9zZXJwX2Zvcm11bGE9MC42MDpsM19mbWw4NDAwNjZfZXhwYjxyZWxldl9yYW5raW5nX2hlYXZ5X3JlbGV2X21hcHNfZm9ybXVsYT0wLjYwOmwzX2ZtbDg0MDA2Nl9leHBqAnJ1nQHNzEw9oAEAqAEAvQFcNFL5wgEFg%2BGUhATqAQDyAQD4AQCCAhnRgtCw0L%2FQutC%2B0LzQsNC90LjRjy3RjtCzigIAkgIAmgIMZGVza3RvcC1tYXBz&sll=38.999504%2C45.021155&sspn=0.004403%2C0.001999&tab=reviews&text=%D1%82%D0%B0%D0%BF%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F-%D1%8E%D0%B3&z=18.22' color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
+               <Button variant="outlined" target="_blank" href="https://www.google.ru/maps/place/%D0%A2%D0%B0%D0%BF%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F-%D0%AE%D0%B3/@45.021658,38.999233,15z/data=!4m5!3m4!1s0x0:0x7adb46b7ae607a25!8m2!3d45.0214375!4d38.9990577"  color="inherit">ОТЗЫВ НА GOOGLE</Button>
               </Box>
               </Container>
               </div>
@@ -99,9 +100,8 @@ function Reviews(props) {
         </DialogContent>
         
      </Dialog>
-
-
     </Box>
+    
     <Grid container spacing={2}>
     {(comment?.length)? comment.map(comment => (
               <ReviewsCard  key={comment.id} reviews={comment}/>
@@ -110,33 +110,6 @@ function Reviews(props) {
    </Container>
    
    </>
-    // <div style={{ marginTop: '4%' }}>
-    //   <Container className={classes.cardGrid} maxWidth={"md"}>
-    //   <h1>reviews</h1>
-    //     <Grid container spacing={4}>
-    //       {cards.map((el) => (
-    //         <Grid  item key={el} xs={12} sm={6} md={4}>
-    //           <Card className={"classes.card"}>
-    //             {/* <CardMedia 
-    //             className={classes.cardMedia}
-    //             image="http://source.unsplash.com/random"
-    //             title="Image Title"
-    //             /> */}
-    //             <CardContent className={classes.cardContent}>
-    //               <Typography variant="h5" gutterBottom>
-    //                 Post
-    //               </Typography>
-    //               <Typography>
-    //                 Post, Tapcomania TapcomaniaPost, Tapcomania TapcomaniaPost, Tapcomania Tapcomania
-    //               </Typography> 
-    //             </CardContent>
-                
-    //           </Card>
-    //         </Grid>
-    //       ))}
-    //     </Grid>
-    //   </Container>
-    // </div>
   );
 }
 
