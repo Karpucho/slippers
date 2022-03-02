@@ -3,12 +3,8 @@ import { Container, Typography, Paper, Grid } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import slide1 from "../Slider/slide1.jpeg"
-import slide2 from "../Info/thaiPhoto.jpeg"
-// import slide3 from "../img/slide3.jpg"
-// import slide4 from "../img/slide4.jpg"
-// import slide5 from "../img/slide5.jpg"
-import "../Slider/slider.css"
+import slide1 from "../Info/imgFrom.jpeg"
+
 
 const theme = createTheme();
 
@@ -61,8 +57,8 @@ const useStyles = makeStyles({
 
 
 const img = [
-  <img alt="" key={slide1} src={slide1} />,
-  <img alt="" key={slide2} src={slide2} />,
+  <img alt="" key={'small'} src={''} />,
+  <img alt="" key={''} src={''} />,
   // <img key={slide3} src={slide3} />,
   // <img key={slide4} src={slide4} />,
   // <img key={slide5} src={slide5} />,
@@ -98,23 +94,23 @@ const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
   return (
     <ThemeProvider theme={theme}>
       
-    <Paper  className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide2})`, marginTop: '62px'}}>
+    <Paper  className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide1})`, marginTop: '62px'}}>
     <Container maxWidth="md">
       <div className={classes.overlay}/>
       <Grid container>
         <Grid item md={6}>
 
           <div className={classes.mainFeaturesPostContent}>
-            <Typography component="h1" color="inherit" variant="h3" gutterBottom>
+            <Typography component="h1"style={{color: 'white'}} variant="h3" gutterBottom>
               Tapcomania
             </Typography>
-            <Typography component="h5"variant="h5" color="inherit" paragraph>
-              Оптово-розничная продажа домашней и летней обуви
+            <Typography component="h5"variant="h5" style={{color: 'white'}} paragraph>
+              Оптово-розничная продажа обуви
                            по всей России !
             </Typography>
-            <Button variant="outlined" color="inherit">
-              О нас
-            </Button>
+            <Button href='/info' variant="outlined" color="inherit">
+                О нас
+              </Button>
           </div>
         </Grid>
       </Grid>

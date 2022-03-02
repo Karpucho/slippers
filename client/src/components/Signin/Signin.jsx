@@ -15,41 +15,21 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {useEffect} from 'react'
+import { useEffect } from "react";
+
 
 const theme = createTheme();
 
 export default function SignIn({ setDialogOpen }) {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-
-  //требует проверки
-  // const { user:success} = useSelector((state) => state?.usersReducer);
-
-  // const { user:success} = useSelector((state) => state?.usersReducer);
-
-  // if (success) {
-  //   navigate('/profle')
-  // } else {
-    
-  // }
-  // console.log('signin user',success)
-
-  // useEffect(() => {
-  //   if (success) {
-  //     navigate('/profile');
-  //     // alert('Успешный вход');
-  //   } else {
-  //     alert('нахуй бля!!!');
-  //   }
-  // }, [dispatch, success, navigate]);
-
+ 
   const {
     register,
     control,
-    formState: { errors, 
-      isSubmitted 
-    },
+    formState: { errors,
+      //  isSubmitted
+       },
     handleSubmit,
   } = useForm({
     defaultValues: {
@@ -59,14 +39,18 @@ export default function SignIn({ setDialogOpen }) {
 
   const onSubmit = (data) => {
     // console.log('data',data);
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     const user = {
       email: data.email,
       password: data.password,
     };
-    dispatch({ type: "FETCH_LOGIN_USER", payload: user });
+    dispatch({
+      type: "FETCH_LOGIN_USER",
+      payload: user,
+      // navigate: navigate("/pro"),
+    });
     // console.log(isSubmitted)
-    if (isSubmitted) setDialogOpen(false);
+    // if (isSubmitted)
     
   };
 
@@ -88,7 +72,12 @@ export default function SignIn({ setDialogOpen }) {
           <Typography component="h1" variant="h5">
             Войти
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
+          <Box
+            component="form"
+            noValidate
+            sx={{ mt: 1 }}
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <TextField
               margin="normal"
               {...register("email", {
@@ -103,12 +92,10 @@ export default function SignIn({ setDialogOpen }) {
               autoComplete="email"
               autoFocus
             />
- 
-              {errors?.email && (
-                <p>
-                  {errors?.email?.message || "Введите действительную почту"}
-                </p>
-              )}
+
+            {errors?.email && (
+              <p>{errors?.email?.message || "Введите действительную почту"}</p>
+            )}
 
             <TextField
               margin="normal"
@@ -127,13 +114,11 @@ export default function SignIn({ setDialogOpen }) {
               id="password"
               autoComplete="current-password"
             />
-            
-              {errors?.password && (
-                <p>
-                  {errors?.password?.message || "Введи нормальную почту"}
-                </p>
-              )}
-           
+
+            {errors?.password && (
+              <p>{errors?.password?.message || "Введи нормальную почту"}</p>
+            )}
+
             <FormControlLabel
               // control={<Checkbox  Controller name="checkbox" control={control} color="primary"/>}
               control={
@@ -147,11 +132,11 @@ export default function SignIn({ setDialogOpen }) {
             />
 
             <Button
-              type="submit"
+              type="click"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleSubmit(onSubmit)}
+              onClick={()=> setDialogOpen(false)}
             >
               Войти
             </Button>
@@ -169,7 +154,6 @@ export default function SignIn({ setDialogOpen }) {
             </Grid>
           </Box>
         </Box>
-        
       </Container>
     </ThemeProvider>
   );

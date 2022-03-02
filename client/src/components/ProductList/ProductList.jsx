@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initProductsListAC, filterProductsListAC, sortProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../ProductCard/ProductCard'
@@ -9,9 +9,22 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import { CurrencyYenTwoTone } from '@mui/icons-material';
+import { Typography } from '@material-ui/core';
+import { Box } from '@mui/system';
+
+  // const refContainerSex = useRef();
+  // const refContainerPrice = useRef();
+
+  // const [containerSex, setContainerSex] = useState('')
+  // const [containerPrice, setContainerPrice] = useState('')
+
+
 export default function ProductList({visibility}) {
+
+  const [genderText, setText] = useState("Все товары");
   const { productsFilter } = useSelector(state => state.productsReducer);
- 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,18 +45,28 @@ export default function ProductList({visibility}) {
     <>
     <Advertising/>
     <Container
-            sx={{
-                mt: '1rem'
-            }}
-            style={{paddingTop: '7rem'}}
+            style={{paddingTop: '1rem'}}
         >
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          
+              <Box  ml={'520px'}>
+              {genderText === 'male'? <Typography variant='h4'> Мужское </Typography>:''}
+              {genderText === 'female'? <Typography variant='h4'> Женское </Typography>:''}
+              {genderText === 'kid'? <Typography variant='h4'> Детское </Typography>:''}
+              {genderText === 'Все товары'? <Typography variant='h4'> Все товары </Typography>:''}
+              </Box>
+
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-standard-label">Пол</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
           label="Gender"
-           onChange={(event)=>dispatch(filterProductsListAC(event.target.value))}
+
+          //  onChange={(event)=>{dispatch(filterProductsListAC(event.target.value));setText(event.target.value)}}
+         
+
+           onChange={(event)=> {dispatch(filterProductsListAC(event.target.value));setText(event.target.value)}}
+
         >
           <MenuItem value="none">
             <em>По умолчанию</em>

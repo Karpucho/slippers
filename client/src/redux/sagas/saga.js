@@ -33,8 +33,9 @@ function* postUserWorker(action) {
 }
 
 function* loginUserAsync(action) {
+  // console.log(action);
   const user = yield call(fetchData, {
-    url: "/login",
+    url: "/signin",
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
@@ -46,6 +47,7 @@ function* loginUserAsync(action) {
   yield put(loginUserAC(user));
   if (user.success) {
     localStorage.setItem("user", JSON.stringify(user));
+    window.location('/nest')
   } 
 }
 
@@ -64,7 +66,7 @@ function* putUserWorker(action) {
 
 function* getUserProductsWorker(action) {
   const userProducts = yield call(fetchData, {
-    url: `/users/${action.payload.id}`,
+    url: `/users/order/${action.payload.id}`,
     // headers: {
     //   "Content-Type": "Application/json",
     // },

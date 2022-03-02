@@ -1,11 +1,14 @@
 const router = require('express').Router();
-const { Product, SizesOfProduct } = require('../db/models');
+
+const { Product } = require('../db/models');
+
 
 router.route('/')
   .get(async (req, res) => {
     try {
       const products = await Product.findAll({
         where: { status: 'active' },
+
         include: 'SizesOfProducts',
       });
       if (products.length > 0) return res.json({ message: 'sucsess', products });

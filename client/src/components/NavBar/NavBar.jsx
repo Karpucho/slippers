@@ -17,10 +17,12 @@ import { styled, alpha } from '@mui/material/styles';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+// import SearchBar from "@bit/nsebhastian.react_fusejs.search-bar";
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
-import Login from "../Login/Login";
+// import Login from "../Login/Login";
 import SignIn from "../Signin/Signin";
-
+import LogoutReal from "../LogoutReal/LogoutReal";
+// import Logout from '../'
 
 const theme = createTheme();
 
@@ -154,8 +156,8 @@ function NavBar() {
   const { cartProducts } = useSelector(state => state.cartReducer);
   const { products } = useSelector(state => state.productsReducer);
 
-  console.log('cartProducts', cartProducts);
-  console.log('products', products);
+  // console.log('cartProducts', cartProducts);
+  // console.log('products', products);
 
   const navigate = useNavigate();
   const classes = useStyles();
@@ -196,21 +198,7 @@ function NavBar() {
   const dialogClickClose = () => {
     setDialogOpen(false);
   }
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetch('http://localhost:5000/products', {
-      credentials: 'include',
-    })
-    .then(data => data.json())
-    .then(data => {
-      if(data.message === 'sucsess') {
-        dispatch(initProductsListAC(data.products))
-      } else if (data.message === 'noproducts') {
-        console.log('noproducts');
-      } else (console.log(data.error))})
-    .catch(error => error.message)
-}, [dispatch]);
 
   return (
 <ThemeProvider theme={theme}>
@@ -250,9 +238,13 @@ function NavBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
+            
             <StyledInputBase
-              placeholder="Search…"
+              // placeholder="Search…"
+              // placeholder={placeholder}
               inputProps={{ 'aria-label': 'search' }}
+              // onChange={onChangeSearch}
+              type="text"
             />
           </Search>
         {/* <Typography sx={{ minWidth: 100 }}>Contact</Typography>
@@ -325,12 +317,12 @@ function NavBar() {
           </ListItemIcon>
           Add another account
         </MenuItem> */}
-        <MenuItem>
+        {/* <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Настройки
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />
@@ -345,7 +337,7 @@ function NavBar() {
         <DialogTitle  id="from-dialog-title">Авторизация</DialogTitle>
         <DialogContent className={classes.inputContainer}>
           {/* <DialogContentText>Авторизация</DialogContentText> */}
-          <SignIn/>
+          <SignIn setDialogOpen={setDialogOpen}/>
           {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
           <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
 

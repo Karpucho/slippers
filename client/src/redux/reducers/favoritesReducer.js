@@ -1,4 +1,4 @@
-import { DELETE_FAVORITE, ADD_FAVORITE, INIT_FAVORITE } from '../actionsTypes/basketAT';
+import { DELETE_FAVORITE, ADD_FAVORITE, INIT_FAVORITE } from '../actionsTypes/favoriteProductsAT';
 
 const initialState = {
   favoriteProducts: JSON.parse(localStorage.getItem('favorite')) ?? [],

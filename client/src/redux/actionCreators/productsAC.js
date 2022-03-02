@@ -1,5 +1,5 @@
 
-import { INIT_PRODUCTS_LIST, FILTER_PRODUCTS_LIST, SORT_PRODUCTS_LIST, ADD_PRODUCT, CHANGE_PRODUCT_STATUS, UPDATE_PRODUCT_IN_STOK, DELETE_PRODUCT,  UPDATE_PRODUCT, INIT_CURRENT_PRODUCT_CARD} from '../actionsTypes/productsAT';
+import { INIT_PRODUCTS_LIST, RETURN_PRODUCT_IN_STOK, RETURN_ORDER_IN_STOK, FILTER_PRODUCTS_LIST, SORT_PRODUCTS_LIST, ADD_PRODUCT, CHANGE_PRODUCT_STATUS, UPDATE_PRODUCT_IN_STOK, DELETE_PRODUCT,  UPDATE_PRODUCT, INIT_CURRENT_PRODUCT_CARD} from '../actionsTypes/productsAT';
 
 export const initProductsListAC = (payload = []) => {
   return {
@@ -31,6 +31,13 @@ export const updateProductInStokAC = (payload) => {
   };
 };
 
+export const returnProductInStokAC = (payload) => {
+  return {
+    type: RETURN_PRODUCT_IN_STOK,
+    payload,
+  };
+};
+
 export const addNewProductAC = (payload = {}) => {
   return {
     type: ADD_PRODUCT,
@@ -55,6 +62,13 @@ export const updateProductCardAC = (payload = {}) => {
 export const initCurrentProductCardAC = (payload = {}) => {
   return {
     type: INIT_CURRENT_PRODUCT_CARD,
+    payload,
+  };
+};
+
+export const returnOrderCardAC = (payload = {}) => {
+  return {
+    type: RETURN_ORDER_IN_STOK,
     payload,
   };
 };
