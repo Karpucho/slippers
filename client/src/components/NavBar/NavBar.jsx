@@ -18,8 +18,10 @@ import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
-import Login from "../Login/Login";
+// import Login from "../Login/Login";
 import SignIn from "../Signin/Signin";
+import LogoutReal from "../LogoutReal/LogoutReal";
+// import Logout from '../'
 
 
 const theme = createTheme();
@@ -331,12 +333,7 @@ function NavBar() {
           </ListItemIcon>
           Настройки
         </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Выйти
-        </MenuItem>
+    <LogoutReal/>
       </Menu>
         </Toolbar>
      </Container>

@@ -30,16 +30,16 @@ export default function Signup() {
     handleSubmit,
   } = useForm();
 
+  // console.log('register', register);
+
   const onSubmit = (data) => {
- 
     const body = {
       role: data.role,
       email: data.email,
       password: data.password,
     };
    
-    
-    if(register.email===register.passwordConfirm) {
+    if(data.email===data.passwordConfirm) {
       dispatch({ type: "FETCH_CREATE_USER", payload: body });
       alert('все нармальна!');
       navigate('/products')
@@ -67,7 +67,7 @@ export default function Signup() {
           <Typography component="h1" variant="h5">
           Зарегься чтобы мы доставили тапочки
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
+          <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit(onSubmit)}>
           <TextField
               margin="normal"
               {...register("role", {

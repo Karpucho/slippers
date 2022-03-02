@@ -39,6 +39,7 @@ class UserController {
 
   async login(req, res, next) {
     try {
+      console.log('req', req.body)
       // вытасикиваем данные из тела запроса
       const { email, password } = req.body;
       // вытваем из юзер сервиса и передадим майл и апроль
@@ -57,6 +58,7 @@ class UserController {
       next(error);
     }
   }
+
 
   async logout(req, res, next) {
     try {
