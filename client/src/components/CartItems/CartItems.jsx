@@ -6,6 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove'
 import CloseIcon from '@mui/icons-material/Close';
 import { addProductCartAC,  removeProductCartAC, deleteProductCartAC } from '../../redux/actionCreators/cartAC';
+import { updateProductInStokAC, returnProductInStokAC, returnOrderCardAC } from '../../redux/actionCreators/productsAC'
 
 
 function CartItems({orders }) {
@@ -14,6 +15,21 @@ function CartItems({orders }) {
   const dispatch = useDispatch();
   const { products } = useSelector(state => state.productsReducer);
   const needProduct = products.find(el => el.id === orders.product);
+
+  const addProduct = () => {
+    dispatch(addProductCartAC(orders));
+    dispatch(updateProductInStokAC(orders))
+  }
+
+  const minusProduct = () => {
+    dispatch(removeProductCartAC(orders))
+    dispatch(returnProductInStokAC(orders))
+  }
+
+  const removeOrder = () => {
+    dispatch(deleteProductCartAC(orders))
+    dispatch(returnOrderCardAC(orders))
+  }
 
 
   return (
@@ -38,9 +54,9 @@ function CartItems({orders }) {
         </CardContent>
         <CardActions>
           
-       <button><AddIcon onClick={() => dispatch(addProductCartAC(orders))}/></button>
-       <button><RemoveIcon onClick={() => dispatch(removeProductCartAC(orders))}/></button>
-       <button><CloseIcon onClick={() => dispatch(deleteProductCartAC(orders))}/></button>
+       <button><AddIcon onClick={addProduct}/></button>
+       <button><RemoveIcon onClick={minusProduct}/></button>
+       <button><CloseIcon onClick={removeOrder}/></button>
        </CardActions>
        <CardContent style={{ padding: '5px'}}>
             <Typography

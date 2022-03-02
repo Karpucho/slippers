@@ -1,4 +1,4 @@
-import { INIT_REVIEWS_LIST, ADD_REVIEWS, DELETE_REVIEWS } from "../actionsTypes/rewiewsAT";
+import { INIT_REVIEWS_LIST, ADD_REVIEWS } from "../actionsTypes/rewiewsAT";
 
 const initialState = { comment: [], currentComment: {}};
 

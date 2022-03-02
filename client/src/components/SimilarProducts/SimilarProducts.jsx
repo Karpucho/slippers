@@ -27,7 +27,7 @@ function SimilarProducts(props) {
 
   return (
     <div className="">
-      <h3>Похожие товары</h3>
+      <h3>Также рекомендуем</h3>
       <Grid container
             direction="row"
             justifyContent="flex-start"
