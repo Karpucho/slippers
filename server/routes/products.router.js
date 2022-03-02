@@ -7,6 +7,8 @@ router.route('/')
   .get(async (req, res) => {
     try {
       const products = await Product.findAll({
+        where: { status: 'active' },
+
         include: 'SizesOfProducts',
       });
       if (products.length > 0) return res.json({ message: 'sucsess', products });
@@ -92,12 +94,38 @@ router.route('/:id')
     try {
       const { id } = req.params;
       const currentProduct = await Product.findOne({
-        where: { id },
+        where: {
+          id,
+          status: 'active',
+        },
         include: 'SizesOfProducts',
       });
       return res.json({ message: 'sucsess', currentProduct });
     } catch (error) {
       return res.json({ message: 'error', error: error.message });
+    }
+  })
+  .put(async (req, res) => {
+    const { id } = req.params;
+
+    const neededProduct = await Product.findOne({
+      where: { id },
+    });
+
+    try {
+      if (neededProduct.status === 'active') {
+        await neededProduct.update({
+          status: 'deleted',
+        });
+      } else {
+        await neededProduct.update({
+          status: 'active',
+        });
+      }
+      res.status(201).json(neededProduct);
+    } catch (error) {
+      res.json({ error: error.message });
+      console.log(error);
     }
   });
 module.exports = router;

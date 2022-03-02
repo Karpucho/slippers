@@ -7,7 +7,7 @@ import { makeStyles } from "@mui/styles"
 
 const useStyles = makeStyles({
   gridContainer: {
-    paddingLeft: '40px',
+    paddingLeft: '60px',
     paddingRight: '40px',
   }
 
@@ -19,16 +19,18 @@ function AdminProductList(props) {
 
 
   return (
-    <Grid>
-      <h3>Все товары</h3>
+    <>
+    <h3>Все товары</h3>
+    <Grid container spacing={10}>
         {products?.length && products.map(product => (
-          <Grid item xs={11} className={classes.gridContainer}>
-            <div key={product.id} >
-              <AdminCard key={product.id} product={product}/>
+          <Grid  key={product.id} item xs={3} >
+            <div >
+              <AdminCard product={product}/>
             </div>
             </Grid>  
           ))}
     </Grid>
+    </>
   );
 }
 

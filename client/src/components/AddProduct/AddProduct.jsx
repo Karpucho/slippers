@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { TextField, Box, Rating, Container, Button, Typography } from '@mui/material';
+import { TextField, Box, Container, Button, Typography } from '@mui/material';
+
 
 
 function AddProduct(props) {
@@ -23,11 +24,7 @@ function AddProduct(props) {
   const input43 = useRef()
 
   const sendFile = React.useCallback(async (event) => {
-    // event.preventDefault();
-
-
-
-    try {
+      try {
       const data = new FormData();
       data.append('productPhoto', img);
 
@@ -57,9 +54,9 @@ function AddProduct(props) {
     const sizes = [
      {35:input35.current.value},
      {36:input36.current.value},
-      {37:input37.current.value},
-    {38:input38.current.value},
-    {39:input39.current.value},
+     {37:input37.current.value},
+     {38:input38.current.value},
+     {39:input39.current.value},
      {40:input40.current.value},
      {41:input41.current.value},
      {42:input42.current.value} ,
@@ -121,7 +118,8 @@ function AddProduct(props) {
 
 <Button onClick={() => {sendFile()}} style={{marginLeft: '10px', marginTop: '10px'}}  color="inherit" variant="outlined">Одобрить фото</Button>
 
-      <TextField inputRef={inputGender} style={{ minWidth: '500px', maxWidth: '700px'}}
+
+<TextField inputRef={inputGender} style={{ minWidth: '500px', maxWidth: '700px'}}
       id="outlined-textarea"
       label="Пол"
       multiline
@@ -138,7 +136,7 @@ function AddProduct(props) {
          Задайтe количество доступных пар обуви для каждого из размеров:
       </Typography>
 
-      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       <TextField inputRef={input35} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
       label="35"
@@ -147,6 +145,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
       <TextField inputRef={input36} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -156,6 +155,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
        <TextField inputRef={input37} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -165,6 +165,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
        <TextField inputRef={input38} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -174,6 +175,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
       <TextField inputRef={input39} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -183,6 +185,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
        <TextField inputRef={input40} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -192,6 +195,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
       <TextField inputRef={input41} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -201,6 +205,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
        <TextField inputRef={input42} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -210,6 +215,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
       <TextField inputRef={input43} style={{ minWidth: '100px', maxWidth: '150px'}}
       id="outlined-number"  
@@ -219,6 +225,7 @@ function AddProduct(props) {
       InputLabelProps={{
         shrink: true,
       }}
+      InputProps={{ inputProps: { min: 0} }}
       />
       </div>
 
