@@ -8,6 +8,7 @@ import ProductList from "../ProductList/ProductList";
 import Home from "../Home/Home";
 import ProductCurrentCard from '../../components/ProductCurrentCard/ProductCurrentCard'
 import Profile from "../Profile/Profile";
+import TestSveta from '../TestSveta/TestSveta'
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
@@ -34,7 +35,6 @@ function App() {
 
       <Slider/>
 
-
         <div style={{ marginTop: '4%' }}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -45,14 +45,12 @@ function App() {
           <Route path="/products/edit/:id" element={<EditCardForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
-
           <Route path="/info" element={<Info/>} />
-
-
           <Route path="/addreviews" element={<AddingReviews/>} />
+          <Route path="/test" element={<TestSveta/>} />
           <Route path="/wholesale" element={<Wholesale/>} />
           <Route path="/admin" element={<Admin/>} />
-
+          <Route path="/info" element={<Info/>} />
         </Routes>
         </div>
         <Footer/>

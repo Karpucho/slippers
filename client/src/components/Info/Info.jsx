@@ -4,14 +4,9 @@ import { Paper, Container, FormControl, Typography, Box, Grid, TextField } from 
 import Button from '@mui/material/Button';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
-import Advertising from '../Advertising/Advertising';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import brands from './brand.png'
-import Input from '@mui/material/Input';
-import PropTypes from 'prop-types';
-import { IMaskInput } from 'react-imask';
 import slide1 from "./thaiPhoto.jpeg"
-
+import ConnectionForm from '../ConnectionForm/ConnectionForm';
 
 const ariaLabel = { 'aria-label': 'description' };
 const theme = createTheme();
@@ -62,47 +57,13 @@ const useStyles = makeStyles({
 });
 
 
-const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
-  const { onChange, ...other } = props;
-  return (
-    <IMaskInput
-      {...other}
-      mask="+7(#00) 000-0000"
-      definitions={{
-        '#': /[1-9]/,
-      }}
-      inputRef={ref}
-      onAccept={(value) => onChange({ target: { name: props.name, value } })}
-      overwrite
-    />
-  );
-});
-
-TextMaskCustom.propTypes = {
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
-
-
 
 function Info(props) {
 
-  const [values, setValues] = React.useState({
-    textmask: '()',
-    numberformat: '1320',
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
   const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
-      
       <Paper className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide1})`, marginTop: '62px'}}>
       <Container maxWidth="md">
         <div className={classes.overlay}/>
@@ -114,7 +75,7 @@ function Info(props) {
                 Tapcomania
               </Typography>
               <Typography component="h5"variant="h5" color="inherit" paragraph>
-                Оптово-розничная продажа домашней и летней обуви
+                Оптово-розничная продажа  обуви
                              по всей России !
               </Typography>
             </div>
@@ -124,21 +85,24 @@ function Info(props) {
      </Paper>
     <main>
      <div>
-        <Container style={{marginTop: '50px'}} maxWidth="md">
-        <Typography variant='h6' align="center" color="textPrimary" paragraph>
+        <Container style={{marginTop: '50px'}} maxWidth="lg">
+        <Box>
+        <Typography variant='h6' align="left" color="textPrimary" paragraph>
         Уважаемые любители качественной обуви!
+        <br />
+        <br />
+        Мы всегда ждём Вас в нашем магазине по адресу: 
+        <br />
+        г. Краснодар, улица Вишняковой 144, Т.Ц. Гранд Паркинг №2, магазин № 13.
       <br />
-      Мы всегда ждём Вас в нашем магазине по адресу: 
-      <Typography variant='h6' align="center" color="textSecondary">
-      г. Краснодар, улица Вишняковой 144, Т.Ц. Гранд Паркинг №2, магазин № 13.
-      </Typography>
-
-
+      <br />
+      Всем гостям дарим теплый прием и скидку 10% от цен на сайте.
           </Typography >
+        </Box>
 <Box style={{display: 'flex', flexDirection: 'row', marginTop: '30px'}}>
           <YMaps>
   <Map
-    style={{width:'580px', height:'400px'}}
+    style={{width:'630px', height:'360px', marginRight: '40px'}}
     defaultState={{
       center: [45.021155, 38.999504],
       zoom: 16,
@@ -156,67 +120,39 @@ function Info(props) {
     />
   </Map>
 </YMaps>
-<Box ml={3} style={{display: 'flex',flexDirection: 'column', justifyContent:"space-between"}}>
-  <Typography pb={3} variant='h5' color="textSecondary">
-    Для связи
-  </Typography>
-  <Input   placeholder="Имя" inputProps={ariaLabel} />
-  {console.log(ariaLabel)}
-  <br />
-  <FormControl  variant="standard">
-        {/* <InputLabel htmlFor="formatted-text-mask-input">react-imask</InputLabel> */}
-        <Input
-          value={values.textmask}
-          onChange={handleChange}
-          name="textmask"
-          id="formatted-text-mask-input"
-          inputComponent={TextMaskCustom}
-        />
-      </FormControl>
-      <br />
-  <Input  placeholder="E-mail" inputProps={ariaLabel} />
-  <br />
-  <TextField style={{ minWidth: '300px', maxWidth: '700px'}}
-          id="outlined-multiline-static"
-          // label="Multiline"
-          multiline
-          rows={3}
-          placeholder="Сообщение"
-          // defaultValue="Default Value"
-        />
-  
-  </Box>
+<Typography variant='h5' style={{marginTop: '60px'}} align="left" color="textPrimary" gutterBottom>
+          Наши контакты
+          <br />
+          <br />
+          8-918-323-33-03 Дмитрий
+          <br />
+          <br />
+          8-918-33-93-769 Сергей - оптовые продажи 
+          <br />
+          <br />
+          E-mail:
+          tapkomania23@yandex.ru
+          </Typography>
 </Box>
 {/* <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>
             Наши контакты:
           </Typography> */}
-          <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textPrimary" gutterBottom>
-          Телефоны:
-          <br />
-          8-918-123-33-03 Дмитрий ( оптово-розничные продажи )
-          <br />
-          8-918-43-93-769 Сергей ( оптовые продажи )
-          <br />
-          E-mail:
-          <br />
-          tapkomania23@yandex.ru
-          </Typography>
-            <hr style={{width:'70%', marginTop: '60px'}} />
-          <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>
+            {/* <hr style={{width:'70%', marginTop: '60px'}} /> */}
+          {/* <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>
           Наши торговые марки:
-          </Typography>
+          </Typography> */}
           {/* <div style={{marginTop: '10px', marginBottom: '50px', maxWidth: "50px"}}>
             <img src={brands} alt="" />
           </div> */}
-          <Typography variant='h6' align="center" color="textPrimary">
+          {/* <Typography variant='h6' align="center" color="textPrimary">
           Sahab & Gambol & Cania (Thailand)
-          </Typography>
-          <Typography variant='h6' align="center" color="textSecondary" paragraph>
+          </Typography> */}
+          {/* <Typography variant='h6' align="center" color="textSecondary" paragraph>
 Обувь этих марок обладает отличными характеристиками и незаменима для повседневного использования, как в поездке на курорт, так и в городской среде, и даже в качестве домашних тапочек. Высококачественные материалы с высоким содержанием натурального каучука придают этой обуви оптимальную эластичность и прочность. Продукция славится среди потребителей тем, что носится по несколько сезонов, не боится воды, хорошо подходят для пляжа, бассейна, дома и повседневной эксплуатации, оставаясь при этом удобной и красивой.
 Новинки коллекции Sahab & Gambol & Cania 2021 порадуют Вас яркими и стильными моделями, а ассортимент приятно удивит.
 Теперь Вы можете заказать обувь Сахаб, Гэмбол или Кания оптом и в                                      розницу от надежного поставщика на Юге России !
       Приятных покупок !
-          </Typography>
+          </Typography> */}
           <div>
           <Grid container spacing={2} justify="center">
               <Grid>

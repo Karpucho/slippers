@@ -3,7 +3,6 @@ import { TextField, Box, Rating, Container, Button, Typography } from '@mui/mate
 import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom'
 
-
 const labels = {
   0.5: 0.5,
   1: 1,
@@ -58,7 +57,7 @@ function AddingReviews(props) {
   return (
 
   <Container style={{marginTop: '150px', marginLeft: '150px'}}>
-    <Button  variant="outlined" size="small" style={{marginBottom: '50px'}} onClick={()=>{navigate(-1)}}  color="inherit"> Назад</Button>
+    <Button  variant="outlined" size="small" style={{marginBottom: '50px'}} onClick={()=>{navigate(-1)}}  color="inherit">  Назад</Button>
     <Box
   sx={{
     width: 400,

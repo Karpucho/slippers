@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
-// import { useParams } from 'react-router-dom';
 import './ProductCard.css';
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
 
@@ -38,13 +36,6 @@ export default function ProductCard({product}) {
         <CardActions>
             <Button
                 variant="text"
-                // onClick={() =>
-                //     setOrder({
-                //         id: product.id,
-                //         name: product.name,
-                //         price: product.price,
-                //     })
-                // }
             >
                 В избранное
             </Button>

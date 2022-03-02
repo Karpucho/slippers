@@ -5,6 +5,7 @@ import {  LocalActivity } from '@mui/icons-material/'
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ConnectionForm from '../ConnectionForm/ConnectionForm';
 
 const useStyles = makeStyles({
   root: {
@@ -26,10 +27,10 @@ function Footer(props) {
   }
 
   return (
-    <div  style={{ marginTop: '8%', marginBottom: '2%'}}>
-      <footer style={{alignItems: 'center'}}>
-        <hr />
-        <BottomNavigation
+    <div  style={{ marginTop: '100px', paddingBottom: '2%',paddingTop: '50px' , backgroundColor: "rgba(219, 219, 219, 0.91)", paddingLeft: "50px"}}>
+      <ConnectionForm/>
+      <footer>
+        {/* <BottomNavigation
         value={value}
         onChange={handleChange}
         className={classes.root}
@@ -49,14 +50,15 @@ function Footer(props) {
           value="recents"
           icon={<LocationOnIcon/>}
           />
-        </BottomNavigation>
+        </BottomNavigation> */}
+                <hr style={{marginTop: "50px",}} />
         <Box 
               sx={{
-                width: "auto",
-                maxWidth: "600px",
-                height: "auto",
+                // width: "auto",
+                maxWidth: "1000px",
+                // height: "auto",
                 margin: "auto",
-                paddingTop: "50px"
+                paddingTop: "20px"
                 // bgcolor: 'primary.dark',
                 // '&:hover': {
                 //   backgroundColor: 'primary.main',
@@ -64,7 +66,7 @@ function Footer(props) {
                 // },
               }}
         >
-        <Typography  align="center" color="textSecondary">
+        <Typography  align="left" color="textSecondary">
         Любое использование либо копирование материалов или подборки материалов сайта, элементов дизайна и оформления допускается лишь с разрешения правообладателя и только со ссылкой на источник: tapkomania23.ru . Юридическая информация: ИП Кудрявцева Ирина Станиславовна ОГРНИП 304230925900039 ИНН 230900021505
         </Typography>
         </Box>

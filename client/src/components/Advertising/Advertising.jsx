@@ -3,7 +3,7 @@ import { Container, Typography, Paper, Grid } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import slide1 from "../Info/homePhoto.jpeg"
+import slide1 from "../Info/imgFrom.jpeg"
 
 
 const theme = createTheme();

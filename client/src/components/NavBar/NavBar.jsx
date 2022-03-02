@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
 import { AppBar, Container, Toolbar, IconButton, Typography, Box, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from '@mui/material';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
@@ -16,7 +17,10 @@ import { styled, alpha } from '@mui/material/styles';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import { initProductsListAC } from '../../redux/actionCreators/productsAC'
+import Login from "../Login/Login";
 import SignIn from "../Signin/Signin";
+
 
 const theme = createTheme();
 
@@ -147,6 +151,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function NavBar() {
 
+  const { cartProducts } = useSelector(state => state.cartReducer);
+  const { products } = useSelector(state => state.productsReducer);
+
+  console.log('cartProducts', cartProducts);
+  console.log('products', products);
+
   const navigate = useNavigate();
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -167,14 +177,6 @@ function NavBar() {
 
   const open = Boolean(anchorEl);
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
 
   const [anchor, setAnchor] = React.useState(null);
   
@@ -194,6 +196,21 @@ function NavBar() {
   const dialogClickClose = () => {
     setDialogOpen(false);
   }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch('http://localhost:5000/products', {
+      credentials: 'include',
+    })
+    .then(data => data.json())
+    .then(data => {
+      if(data.message === 'sucsess') {
+        dispatch(initProductsListAC(data.products))
+      } else if (data.message === 'noproducts') {
+        console.log('noproducts');
+      } else (console.log(data.error))})
+    .catch(error => error.message)
+}, [dispatch]);
 
   return (
 <ThemeProvider theme={theme}>
@@ -308,12 +325,12 @@ function NavBar() {
           </ListItemIcon>
           Add another account
         </MenuItem> */}
-        <MenuItem>
+        {/* <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Настройки
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />
