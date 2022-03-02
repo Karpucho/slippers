@@ -31,23 +31,6 @@ function ProductCurrentCard() {
   const countAll = currentProduct.SizesOfProducts?.map(el => el.itemsLeft).reduce((a, b) => a + b);
 
 
- // переместить на страницу корзины потом
- // пока юзер не зарег - данные проверяются в локал и отправ в стейт,
- // как только зарег - данные в БД
-  // useEffect(() => {
-  //   if (currentUser.id) {
-  //     fetch(`http://localhost:5000/cart/${currentUser.id}`)
-  //     .then(data => data.json())
-  //     .then(data => {
-  //       if(data.message === 'sucsess') {
-  //         dispatch(initProductCartAC(data.userOrders))
-  //       } else if (data.message === 'noOrders') {
-  //         console.log('noOrders');
-  //       } else (console.log(data.error))})
-  //     .catch(error => error.message)
-  //   } 
-  // }, [cartProducts, currentUser.id, dispatch]);
-
   const addProductBacket = () => {
     if (currentUser?.id) {
       
@@ -70,18 +53,12 @@ function ProductCurrentCard() {
         return console.log('Выберете размер!')}
       const newOrder = { product: currentProduct.id, size: needSize, numberOfItems: 1 };
       dispatch(addProductCartAC(newOrder));
-      // dispatch(updateProductInStokAC(newOrder))
+      dispatch(updateProductInStokAC(needSize))
 
       }
 
   }
-    
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartProducts));
-  }, [cartProducts]);
    
-
-
   useEffect(() => {
     const id = Number(params.id);
     fetch(`http://localhost:5000/products/${id}`, {

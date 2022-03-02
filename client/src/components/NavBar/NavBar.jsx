@@ -17,9 +17,8 @@ import { styled, alpha } from '@mui/material/styles';
 import { grey, yellow } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import { initProductsListAC } from '../../redux/actionCreators/productsAC'
-import Login from "../Login/Login";
-
+import SignIn from "../Signin/Signin";
+import SearchBar from "@bit/nsebhastian.react_fusejs.search-bar";
 
 
 const theme = createTheme();
@@ -196,21 +195,7 @@ function NavBar() {
   const dialogClickClose = () => {
     setDialogOpen(false);
   }
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetch('http://localhost:5000/products', {
-      credentials: 'include',
-    })
-    .then(data => data.json())
-    .then(data => {
-      if(data.message === 'sucsess') {
-        dispatch(initProductsListAC(data.products))
-      } else if (data.message === 'noproducts') {
-        console.log('noproducts');
-      } else (console.log(data.error))})
-    .catch(error => error.message)
-}, [dispatch]);
 
   return (
 <ThemeProvider theme={theme}>
@@ -235,11 +220,10 @@ function NavBar() {
         }}
       >
 
-        <MenuItem onClick={()=>  {navigate('/home');handleClose()}}>Главная</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/products');handleClose()}}>Розница</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Оптом</MenuItem>
+        <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem>
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
          {/* <Box m={3}>
@@ -251,9 +235,13 @@ function NavBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
+            
             <StyledInputBase
-              placeholder="Search…"
+              // placeholder="Search…"
+              placeholder={placeholder}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={onChangeSearch}
+              type="text"
             />
           </Search>
         {/* <Typography sx={{ minWidth: 100 }}>Contact</Typography>
@@ -346,40 +334,7 @@ function NavBar() {
         <DialogTitle  id="from-dialog-title">Авторизация</DialogTitle>
         <DialogContent className={classes.inputContainer}>
           {/* <DialogContentText>Авторизация</DialogContentText> */}
-          {/* <TextField 
-          autoFocus
-          margin="dense"
-          id="email"
-          label="Email Adresse"
-          type="email"
-          fillWidth
-          autocomplete="off"
-          />
-          <TextField 
-          margin="dense"
-          id="name"
-          label="Ваше Имя"
-          type="name"
-          fillWidth
-          autocomplete="off"
-          />
-          <TextField 
-          autocomplete="off"
-          margin="dense"
-          id="pass"
-          label="Пароль"
-          type="password"
-          fillWidth
-          />
-          <TextField 
-          autocomplete="off"
-          margin="dense"
-          id="secondPass"
-          label="Подтвердите ароль"
-          type="password"
-          fillWidth
-          /> */}
-          <Login/>
+          <SignIn/>
           {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
           <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
 
@@ -391,6 +346,5 @@ function NavBar() {
 </ThemeProvider>
   );
 }
-
+//требует проверки
 export default NavBar;
-

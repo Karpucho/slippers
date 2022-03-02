@@ -22,7 +22,8 @@ const useStyles = makeStyles({
   }
 });
 
-function Reviews(props) {
+function ReviewsList(props) {
+
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
@@ -35,6 +36,8 @@ function Reviews(props) {
   const classes = useStyles();
 
   const {comment} = useSelector(state => state.reviewsReducer);
+
+  console.log('Смотри сюда',comment);
 
   const dispatch = useDispatch();
 
@@ -65,7 +68,7 @@ function Reviews(props) {
             style={{paddingTop: '1.5rem'}}>
 
               <div>
-              <Container  sx={{ p: 3 }} maxWidth="sm">
+              <Container style={{ display: 'flex',flexDirection: 'column', justifyContent: 'center', align:"center"}}  sx={{ p: 3 }} maxWidth="sm">
                 <Typography variant='h4' align="center" color="textPrimary" gutterBottom>
                   Отзывы
                 </Typography>
@@ -75,14 +78,17 @@ function Reviews(props) {
               <Typography variant='h6' align="center" color="textSecondary" gutterBottom>
                 Спасибо за Ваше мнение !
               </Typography>
-              <Box sx={{ '& button': { m: 1 } }}>
-               <Button  variant="outlined" onClick={()=>{navigate('/addreviews')}}  color="inherit">ОСТАВИТЬ ОТЗЫВ</Button>
-               <Button variant="outlined" color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
-               <Button variant="outlined"  color="inherit">ОТЗЫВ НА GOOGLE</Button>
-              </Box>
+              {/* <Box component="span" maxWidth="sm" sx={{ p: 2 }}> */}
+               {/* <Button onClick={() => {dialogClickOpen()}} variant="outlined" color="inherit">Оставить отзыв на нашем сайте</Button> */}
+               <Button  variant="outlined" onClick={()=>{navigate('/addreviews')}} style={{margin: '20px 170px 0px 170px'}} color="inherit">ОСТАВИТЬ ОТЗЫВ</Button>
+               <Button variant="outlined" style={{margin: '20px 170px 0px 170px'}} color="inherit">ОТЗЫВ НА ЯНДЕКС</Button>
+               <Button variant="outlined" style={{margin: '20px 170px 20px 170px'}} color="inherit">ОТЗЫВ НА GOOGLE</Button>
+              {/* </Box> */}
               </Container>
               </div>
-
+              {/* <div style={width='560px',height='800px',overflow='hidden'position='relative';"}><iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/226327670406?comments"></iframe>
+<a href="https://yandex.ru/maps/org/usadba_izmaylovo/226327670406/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0">Усадьба Измайлово на карте Москвы — Яндекс.Карты</a>
+</div> */}
                   <Box mr={3}>
     <Dialog style={{align:"center"}} open={dialogOpen} onClose={dialogClickClose}  >
         <DialogContent  align="center">
@@ -90,7 +96,7 @@ function Reviews(props) {
           Отзывы
           </DialogTitle>
       <DialogContentText style={{maxWidth: '80%'}} maxWidth="xs">
-        Выполните авторизацию или регистрацию,
+        Выполните автоизацию или регистрацию,
         <br />
         чтобы ставить оценки и писать отзывы.
         <br />
@@ -100,7 +106,7 @@ function Reviews(props) {
         
      </Dialog>
 
-
+     
     </Box>
     <Grid container spacing={2}>
     {(comment?.length)? comment.map(comment => (
@@ -110,34 +116,7 @@ function Reviews(props) {
    </Container>
    
    </>
-    // <div style={{ marginTop: '4%' }}>
-    //   <Container className={classes.cardGrid} maxWidth={"md"}>
-    //   <h1>reviews</h1>
-    //     <Grid container spacing={4}>
-    //       {cards.map((el) => (
-    //         <Grid  item key={el} xs={12} sm={6} md={4}>
-    //           <Card className={"classes.card"}>
-    //             {/* <CardMedia 
-    //             className={classes.cardMedia}
-    //             image="http://source.unsplash.com/random"
-    //             title="Image Title"
-    //             /> */}
-    //             <CardContent className={classes.cardContent}>
-    //               <Typography variant="h5" gutterBottom>
-    //                 Post
-    //               </Typography>
-    //               <Typography>
-    //                 Post, Tapcomania TapcomaniaPost, Tapcomania TapcomaniaPost, Tapcomania Tapcomania
-    //               </Typography> 
-    //             </CardContent>
-                
-    //           </Card>
-    //         </Grid>
-    //       ))}
-    //     </Grid>
-    //   </Container>
-    // </div>
   );
 }
 
-export default Reviews;
+export default ReviewsList;

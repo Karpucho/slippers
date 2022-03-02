@@ -9,7 +9,7 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case INIT_PRODUCT_CART:
-      return { ...state, products: action.payload };
+      return { ...state, cartProducts: action.payload };
 
     case ADD_PRODUCT_CART:
       const copyCart = [...state.cartProducts];
@@ -55,7 +55,7 @@ export const cartReducer = (state = initialState, action) => {
           && (product.size === action.payload.size)) {
           return product.id !== action.payload.id;
           } return product;
-        }),
+        })
       };
 
     case CLEAR_CART:
