@@ -27,11 +27,8 @@ router
         status: 'active',
       });
 
-      // console.log(newProduct);
 
       const { sizes } = req.body;
-      // console.log('sizeeeeeees', sizes);
-      // console.log('fsdfsfsdfsfsfsdfds', newProduct.dataValues.id);
 
       sizes.forEach(async (el) => {
         await SizesOfProduct.create({
@@ -39,7 +36,6 @@ router
           sizeNumber: Number(Object.keys(el)[0]),
           itemsLeft: Number(Object.values(el)[0]),
         });
-        // console.log(needSize);
       });
 
 
