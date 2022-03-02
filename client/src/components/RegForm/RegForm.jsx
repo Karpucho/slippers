@@ -23,7 +23,7 @@ function RegForm(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h3> Зарегься чтобы мы доставили тапочки</h3>
+      <h3> Регистрация</h3>
       <label>
         Email
         <input
