@@ -30,38 +30,57 @@ function AddressForm(props) {
       type="text"
       {...register("name", {
         minLength: {
-          value: 2,
-          message: "name не должны быть короче 2 символов",
+          value: 3,
+          message: "ФИО не должны быть короче 3 символов",
         },
       })}
       required
       fullWidth
       id="name"
-      label="Укажите ФИО для "
+      label="Укажите ФИО для получения посылки"
       autoComplete="name"
       autoFocus
     />
     <div style={{ height: 40 }}>
-      {errors?.name && <p>{errors?.name?.message || "введи норм имя!"}</p>}
+      {errors?.name && <p>{errors?.name?.message || "введи действительное имя!"}</p>}
     </div>
     <TextField
       margin="normal"
       type="text"
-      {...register("", {
+      {...register("Почтовый адрес доставки", {
         minLength: {
           value: 2,
-          message: "name не должны быть короче 2 символов",
+          message: "Введите действительный адрес доставки",
         },
       })}
       required
       fullWidth
-      id="name"
-      label="Введите свое имя"
-      autoComplete="name"
+      id="address"
+      label="Почтовый адрес доставки"
+      autoComplete="address"
       autoFocus
     />
     <div style={{ height: 40 }}>
-      {errors?.name && <p>{errors?.name?.message || "введи норм имя!"}</p>}
+      {errors?.address && <p>{errors?.address?.message || "Введите действительный адрес доставки!"}</p>}
+    </div>
+    <TextField
+      margin="normal"
+      type="text"
+      {...register("phone", {
+        minLength: {
+          value: 11,
+          message: "номер телефона не может быть меньше 11",
+        },
+      })}
+      required
+      fullWidth
+      id="phone"
+      label="введи действительный телефон для связи!"
+      autoComplete="phone"
+      autoFocus
+    />
+    <div style={{ height: 40 }}>
+      {errors?.phone && <p>{errors?.phone?.message || "введи действительный телефон для связи!"}</p>}
     </div>
     <Button
             type="submit"
@@ -69,7 +88,7 @@ function AddressForm(props) {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Изменить свои данные
+            Сохранить
           </Button>
     </form>
   );

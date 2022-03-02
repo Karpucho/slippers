@@ -87,7 +87,13 @@ function Profile(props) {
             </Grid>
           </Grid>
         </div>
-        
+        <Grid container spacing={3}>
+            <Grid item s={8}>
+              <Typography component="h1" variant="h6">
+                Заполнить данные для доставки{" "}
+              </Typography>
+            </Grid>
+          </Grid>
           < AddressForm/>
 
         <form onSubmit={handleSubmit(onSubmit)}>
