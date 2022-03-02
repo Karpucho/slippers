@@ -39,7 +39,7 @@ export default function Signup() {
       password: data.password,
     };
    
-    if(data.email===data.passwordConfirm) {
+    if(data.password===data.passwordConfirm) {
       dispatch({ type: "FETCH_CREATE_USER", payload: body });
       alert('все нармальна!');
       navigate('/products')
