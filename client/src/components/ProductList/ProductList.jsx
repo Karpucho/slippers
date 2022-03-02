@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initProductsListAC, filterProductsListAC, sortProductsListAC } from '../../redux/actionCreators/productsAC'
 import ProductCard from '../ProductCard/ProductCard'

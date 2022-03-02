@@ -25,7 +25,7 @@ export default function Cart() {
   const { cartProducts } = useSelector(state => state.cartReducer);
   const { products } = useSelector(state => state.productsReducer);
 
-  const countProduct = cartProducts.map(product => product.numberOfItems).reduce((a, b) => a+ b, 0);
+  const countProduct = cartProducts.map(product => product.numberOfItems).reduce((a, b) => a + b, 0);
 
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -51,7 +51,7 @@ export default function Cart() {
         && event.target.textContent === 'Оформить заказ'
         && !Boolean(User)) {
           setState({ ...state, [anchor]: open });
-          return navigate('/');
+          return navigate('/signin');
 
         }
     setState({ ...state, [anchor]: open });
@@ -106,6 +106,23 @@ export default function Cart() {
 
     </Box>
   );
+
+   // переместить на страницу корзины потом
+ // пока юзер не зарег - данные проверяются в локал и отправ в стейт,
+ // как только зарег - данные в БД
+  // useEffect(() => {
+  //   if (currentUser.id) {
+  //     fetch(`http://localhost:5000/cart/${currentUser.id}`)
+  //     .then(data => data.json())
+  //     .then(data => {
+  //       if(data.message === 'sucsess') {
+  //         dispatch(initProductCartAC(data.userOrders))
+  //       } else if (data.message === 'noOrders') {
+  //         console.log('noOrders');
+  //       } else (console.log(data.error))})
+  //     .catch(error => error.message)
+  //   } 
+  // }, [cartProducts, currentUser.id, dispatch]);
 
   return (
     <div>

@@ -13,15 +13,11 @@ function ChooseSize({size, count, setSize}) {
     event.preventDefault();
     const btn = event.target.closest('button');
     setSize(btn.textContent);
-    
   }
 
   return (
     <>
-    
     {(+count > 0) && <Button onClick={chooseSize} style={{color: `${color}`, padding: '0px'}} variant="outlined" >{size}</Button>}
-
-
    </>
 
   );
