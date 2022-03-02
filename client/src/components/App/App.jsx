@@ -11,12 +11,7 @@ import Profile from "../Profile/Profile";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import Info from "../Info/Info";
-
-
-
 import AddingReviews from "../AddingReviews/AddingReviews";
-
-
 import Slider from "../Slider/Slider";
 import EditCardForm from '../EditCardForm/EditCardForm'
 import Wholesale from "../Wholesale/Wholesale";
@@ -30,11 +25,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
       <NavBar/>
-
-
       <Slider/>
-
-
         <div style={{ marginTop: '4%' }}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -45,14 +36,10 @@ function App() {
           <Route path="/products/edit/:id" element={<EditCardForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reviews" element={<Reviews />} />
-
           <Route path="/info" element={<Info/>} />
-
-
           <Route path="/addreviews" element={<AddingReviews/>} />
           <Route path="/wholesale" element={<Wholesale/>} />
           <Route path="/admin" element={<Admin/>} />
-
         </Routes>
         </div>
         <Footer/>
