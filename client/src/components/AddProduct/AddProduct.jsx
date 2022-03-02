@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { TextField, Box, Rating, Container, Button, Typography } from '@mui/material';
+import { TextField, Box, Container, Button, Typography } from '@mui/material';
 
 
 function AddProduct(props) {
@@ -57,9 +57,9 @@ function AddProduct(props) {
     const sizes = [
      {35:input35.current.value},
      {36:input36.current.value},
-      {37:input37.current.value},
-    {38:input38.current.value},
-    {39:input39.current.value},
+     {37:input37.current.value},
+     {38:input38.current.value},
+     {39:input39.current.value},
      {40:input40.current.value},
      {41:input41.current.value},
      {42:input42.current.value} ,

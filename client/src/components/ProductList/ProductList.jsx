@@ -15,7 +15,6 @@ export default function ProductList({visibility}) {
   const { productsFilter } = useSelector(state => state.productsReducer);
   const { sortFilter } = useSelector(state => state.productsReducer);
 
-
   const refContainerSex = useRef();
   const refContainerPrice = useRef();
 

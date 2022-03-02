@@ -21,12 +21,13 @@ function AdminProductList(props) {
   return (
     <Grid>
       <h3>Все товары</h3>
-        {products?.length && products.map(product => (
-          <Grid item xs={11} className={classes.gridContainer}>
-            <div key={product.id} >
-              <AdminCard key={product.id} product={product}/>
+         {products?.length && products.map(product => (
+        
+          <Grid item xs={4} className={classes.gridContainer}>
+            <div  >
+              <AdminCard product={product}/>
             </div>
-            </Grid>  
+             </Grid>  
           ))}
     </Grid>
   );
