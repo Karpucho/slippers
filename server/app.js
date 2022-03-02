@@ -4,10 +4,10 @@ dotenv.config();
 const express = require('express');
 const path = require('path');
 const config = require('./config/config');
+const errorMiddleware = require('./middlewares/errors.middleware');
 
 const app = express();
 const router = require('./routes/index');
-const errorMiddleware = require('./middlewares/errors.middleware');
 const productsRouter = require('./routes/products.router');
 const commentsRouter = require('./routes/reviews.router');
 const cartRouter = require('./routes/cart.router');
@@ -25,7 +25,6 @@ app.use('/addProduct', addPhotoRouter);
 app.use('/', router);
 app.use('/products', productsRouter);
 app.use('/reviews', commentsRouter);
-
 app.use('/cart', cartRouter);
 
 app.use(errorMiddleware);

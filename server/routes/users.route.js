@@ -19,4 +19,4 @@ router.get('/activate/:link', userConroller.activate);
 router.get('/refresh', userConroller.refresh);
 router.get('/users', authMiddleware, userConroller.getUsers);
 
-module.exports = router
+module.exports = router;

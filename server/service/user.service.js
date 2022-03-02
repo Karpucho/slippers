@@ -31,7 +31,7 @@ class UserService {
       activationLink,
     });
     // отправляем юзеру на почту письмо с активацией
-    await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
+    await mailService.sendActivationMail(email, `${process.env.API_URL}/activate/${activationLink}`);
 
     // формируем  data transfer object
     // eslint-disable-next-line max-len
