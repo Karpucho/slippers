@@ -15,22 +15,8 @@ const useStyles = makeStyles({
 
 function AdminProductList(props) {
   const { products } = useSelector(state => state.productsReducer);
-  const dispatch = useDispatch();
   const classes = useStyles();
 
-  useEffect(() => {
-    fetch('/products', {
-      credentials: 'include',
-    })
-    .then(data => data.json())
-    .then(data => {
-      if(data.message === 'sucsess') {
-        dispatch(initProductsListAC(data.products))
-      } else if (data.message === 'noproducts') {
-        console.log('noproducts');
-      } else (console.log(data.error))})
-    .catch(error => error.message)
-}, [dispatch]);
 
   return (
     <Grid>

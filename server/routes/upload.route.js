@@ -1,36 +1,49 @@
 const router = require('express').Router();
 const fileMiddleware = require('../middlewares/file.middleware');
-const { Product } = require('../db/models');
-
-let idProduct;
+const { Product, SizesOfProduct } = require('../db/models');
 
 router
-  .post('/', fileMiddleware.single('productPhoto'), async (req, res) => {
+  .post('/photo', fileMiddleware.single('productPhoto'), async (req, res) => {
     try {
-      console.log(req.file);
-      const newProduct = await Product.create({
-        photo: `http://localhost:5000/${req.file.path}`,
-      });
-      newProduct.id = idProduct;
-      console.log('idProduct', idProduct);
-
-      res.status(201).json(newProduct);
+      if (req.file) {
+        res.json(req.file);
+      }
     } catch (e) {
       console.log(e);
     }
   })
-  .put('/', async (req, res) => {
-    console.log(req.body);
+  .post('/', async (req, res) => {
+    const {
+      name, price, photo, gender, description,
+    } = req.body.newProduct;
+
     try {
-      const newProduct = await Product.findOne({
-        where: { idProduct },
+      const newProduct = await Product.create({
+        name,
+        price,
+        photo: `http://localhost:5000/images/${photo.slice(12)}`,
+        gender,
+        description,
+        status: 'active',
       });
-      newProduct.set(req.body);
-      await newProduct.save();
-      res.json({
-        message: 'vse norm',
-        newProduct,
+
+      // console.log(newProduct);
+
+      const { sizes } = req.body;
+      // console.log('sizeeeeeees', sizes);
+      // console.log('fsdfsfsdfsfsfsdfds', newProduct.dataValues.id);
+
+      sizes.forEach(async (el) => {
+        await SizesOfProduct.create({
+          productId: newProduct.dataValues.id,
+          sizeNumber: Number(Object.keys(el)[0]),
+          itemsLeft: Number(Object.values(el)[0]),
+        });
+        // console.log(needSize);
       });
+
+
+      res.status(201).json({ m: 'jj' });
     } catch (error) {
       res.json({ error: error.message });
       console.log(error);
