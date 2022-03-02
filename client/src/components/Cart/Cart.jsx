@@ -51,7 +51,7 @@ export default function Cart() {
         && event.target.textContent === 'Оформить заказ'
         && !Boolean(User)) {
           setState({ ...state, [anchor]: open });
-          return navigate('/test');
+          return navigate('/');
 
         }
     setState({ ...state, [anchor]: open });

@@ -1,22 +1,35 @@
 import { Container, Typography, Grid, Button, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ProductCard from "../ProductCard/ProductCard";
+import CartItems from '../CartItems/CartItems'
+import { v4 as uuidv4 } from 'uuid';
+import {initProductCartAC} from '../../redux/actionCreators/cartAC'
+import AddressForm from "./AddressForm";
 
-// import Cart from '../Cart/Cart'
 
 function Profile(props) {
   const theme = createTheme();
 
   const { user } = useSelector((state) => state.usersReducer?.user.userData);
-  console.log("user selector profile", user);
+  // console.log("user selector profile", user);
   // const {userProducts} = useSelector(state => state.usersReducer?.userProducts)
+  const { cartProducts } = useSelector((state) => state.cartReducer);
+  console.log("userproducts selector profile", cartProducts);
+
   // console.log('userproducts selector profile', userProducts);
   // const {favoriteProducts} = useSelector(state => state.favoriteProducts)
   // console.log('favoriteProducts selector profile', favoriteProducts);
-
+  
+  // const test = JSON.parse(localStorage.getItem('cart'))
   const dispatch = useDispatch();
+
+  // useEffect(()=> {
+  //  dispatch(initProductCartAC(test))
+  // }, [dispatch])
+
   const id = user.id;
   // console.log('userId', id);
   const {
@@ -57,22 +70,26 @@ function Profile(props) {
           )
           : <p>Список избранных товаров пуст</p>
           } */}
-          {/* <h3>История покупок</h3>
-        {userProducts ? (
-          userProducts?.map((product, el) => {
-            return ( 
-              <Cart key={product.id} product={product}  />
-            );
-          })
-        ) : 
-        (<p>Пустая корзина</p>) 
-      }  */}
+          <h3>Корзина товаров</h3>
+          {cartProducts.map((orders) => {
+                      
+                        return <CartItems key={uuidv4()} 
+                        orders={orders}/>
+                      })}
+          {/* ) : (
+            <p>Пустая корзина</p>
+          ) */}
           <Grid container spacing={3}>
             <Grid item s={8}>
-              <Typography component="h1" variant="h6">Изменить свой профиль </Typography>
+              <Typography component="h1" variant="h6">
+                Изменить свой профиль{" "}
+              </Typography>
             </Grid>
           </Grid>
         </div>
+        
+          < AddressForm/>
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             margin="normal"

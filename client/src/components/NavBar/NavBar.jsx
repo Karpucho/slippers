@@ -156,8 +156,8 @@ function NavBar() {
   const { cartProducts } = useSelector(state => state.cartReducer);
   const { products } = useSelector(state => state.productsReducer);
 
-  console.log('cartProducts', cartProducts);
-  console.log('products', products);
+  // console.log('cartProducts', cartProducts);
+  // console.log('products', products);
 
   const navigate = useNavigate();
   const classes = useStyles();
