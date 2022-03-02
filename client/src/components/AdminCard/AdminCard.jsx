@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -17,23 +18,22 @@ import { Link } from 'react-router-dom'
 import { deleteProductAC } from '../../redux/actionCreators/productsAC'
 
 
-
-
 const useStyles = makeStyles({
   photoSize: {
     maxHeight: '140px',
   },
-  flexDirection:{
-    flexDirection:"column"
-  },
-
 });
 
 export default function ActionAreaCard({product}) {
+
+  const [prodStatus, setProdStatus] = useState(product.status);  
+
+
   const classes = useStyles();
   const navigate =useNavigate();
 
   const dispatch = useDispatch();
+
   const fetchDeleteProduct = () => {
     fetch(`/products/${product.id}`, {
       method: 'PUT'
@@ -52,10 +52,10 @@ export default function ActionAreaCard({product}) {
   };
 
   return (
-    <Card className={classes.flexDirection} sx={{ maxWidth: 1200, maxHeight: 1000}}>
+    <Card  sx={{ maxWidth: 1200, maxHeight: 1000}}>
       <CardActionArea>
       <Paper variant="outlined">
-        <img className={classes.photoSize} src="https://werdum-army.ru/wp-content/uploads/2018/10/tapki-armeyskie-kupit-optom-v-spb-.jpeg" />
+        <img className={classes.photoSize} src={product.photo} />
       </Paper>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -64,22 +64,39 @@ export default function ActionAreaCard({product}) {
           <Typography variant="body2" color="text.secondary">
             {product.description}  
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.status}  
-          </Typography>
+            {prodStatus==='deleted'? <Typography sx={{color: 'red'}}>
+              {prodStatus}
+            </Typography>
+            :
+            <Typography sx={{color: 'green'}}>
+              {prodStatus}
+            </Typography>
+          }  
         </CardContent>
         <Stack direction="row" spacing={1}>
+      <div style={{display: 'flex', flexDirection: 'column', paddingLeft:'50px'}}>
       <Chip
+        spacing={5}
+        style={{marginTop: '5px', marginBottom: '5px'}}
         label="РЕДАКТИРОВАТЬ"
         onClick={handleClick}
         deleteIcon={<DoneIcon />}
       />
-      <Chip
-        label="УДАЛИТЬ"
-        onClick={fetchDeleteProduct}
+      <Chip 
+        style={{marginTop: '5px', marginBottom: '5px'}} 
+        label="ИЗМЕНИТЬ СТАТУС"
+        onClick={() => {
+          fetchDeleteProduct();
+          if(prodStatus === 'deleted') {
+            setProdStatus('active')
+          } else {
+            setProdStatus('deleted')
+          }
+        }}
         deleteIcon={<DeleteIcon />}
         variant="outlined"
       />
+      </div>
     </Stack>
       </CardActionArea>
     </Card>
