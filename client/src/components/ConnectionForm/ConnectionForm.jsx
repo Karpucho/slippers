@@ -49,7 +49,7 @@ function ConnectionForm(props) {
     Для связи
   </Typography>
   <Input   placeholder="Имя" inputProps={ariaLabel} />
-  {console.log(ariaLabel)}
+  {/* {console.log(ariaLabel)} */}
   <br />
   <FormControl  variant="standard">
         {/* <InputLabel htmlFor="formatted-text-mask-input">react-imask</InputLabel> */}

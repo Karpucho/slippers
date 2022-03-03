@@ -19,6 +19,8 @@ import Admin from "../Admin/Admin";
 import Signin from "../Signin/Signin"
 import Signup from "../Signup/Signup";
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
+import { loginUserAC, authAC } from '../../redux/actionCreators/usersAC'
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'
 
@@ -48,6 +50,15 @@ function App() {
 useEffect(() => {
   localStorage.setItem('cart', JSON.stringify(cartProducts));
 }, [cartProducts]);
+
+useEffect(() => {
+  fetch('http://localhost:5000/auth', {
+    credentials: 'include',
+  })
+    .then(res => res.json())
+    .then(data => dispatch(authAC(data)))
+    .catch(err => console.log(err.message))
+}, [dispatch])
 
   return (
     <Provider store={store}>

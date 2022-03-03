@@ -42,13 +42,12 @@ function* loginUserAsync(action) {
     },
     body: JSON.stringify(action.payload),
   });
-  console.log('saga', user);
 
   yield put(loginUserAC(user));
-  if (user.success) {
-    localStorage.setItem("user", JSON.stringify(user));
-    window.location('/nest')
-  } 
+  // if (user.success) {
+  //   localStorage.setItem("user", JSON.stringify(user));
+  //   window.location('/nest')
+  // } 
 }
 
 function* putUserWorker(action) {
