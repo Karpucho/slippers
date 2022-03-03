@@ -5,6 +5,7 @@ import {
   LOGOUT_USER,
   GET_USER_ORDERS,
   AUTH_USER,
+  ORDER_USER,
 } from "../actionsTypes/userAT";
 
 const initialState = {
@@ -25,6 +26,8 @@ export function usersReducer(state = initialState, action) {
     case LOGOUT_USER:
       return { ...state, user: null };
     case GET_USER_ORDERS:
+      return { ...state, userProducts: action.payload };
+    case ORDER_USER:
       return { ...state, userProducts: action.payload };
     default:
       return state;

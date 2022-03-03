@@ -20,7 +20,7 @@ function AddressForm(props) {
       address: data.address,
       phone: data.phone,
     };
-    dispatch();
+    dispatch({type:'FETCH_ORDER_SEND', payload:body});
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -46,7 +46,7 @@ function AddressForm(props) {
     <TextField
       margin="normal"
       type="text"
-      {...register("Почтовый адрес доставки", {
+      {...register("address", {
         minLength: {
           value: 2,
           message: "Введите действительный адрес доставки",
