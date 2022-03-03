@@ -1,62 +1,46 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const { Product } = require('../db/models');
+const { Product } = require("../db/models");
 
+router.route("/").get(async (req, res) => {
+  try {
+    const products = await Product.findAll({
+      where: { status: "active" },
 
-router.route('/')
-  .get(async (req, res) => {
+      include: "SizesOfProducts",
+    });
+    if (products.length > 0) return res.json({ message: "sucsess", products });
+    return res.json({ message: "noproducts" });
+  } catch (error) {
+    return res.json({ message: "error", error: error.message });
+  }
+});
 
-    
+router.route("/:id").get(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const currentProduct = await Product.findOne({
+      where: { id },
+      include: "SizesOfProducts",
+    });
+    return res.json({ message: "sucsess", currentProduct });
+  } catch (error) {
+    return res.json({ message: "error", error: error.message });
+  }
+});
 
-    function parseJwt(token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => `%${(`00${c.charCodeAt(0).toString(16)}`).slice(-2)}`).join(''));
-      // console.log(JSON.parse(jsonPayload), 'ТОКЕН');
-      return JSON.parse(jsonPayload);
-    }
-    const token = req.cookies.refreshToken;
-    console.log(parseJwt(token), 'ТОКЕН2');
-
-
-    try {
-      const products = await Product.findAll({
-        // where: { status: 'active' },
-
-        include: 'SizesOfProducts',
-      });
-      if (products.length > 0) return res.json({ message: 'sucsess', products });
-      return res.json({ message: 'noproducts' });
-    } catch (error) {
-      return res.json({ message: 'error', error: error.message });
-    }
-  });
-
-router.route('/:id')
+router
+  .route("/edit/:id")
   .get(async (req, res) => {
     try {
       const { id } = req.params;
       const currentProduct = await Product.findOne({
         where: { id },
-        include: 'SizesOfProducts',
+        include: "SizesOfProducts",
       });
-      return res.json({ message: 'sucsess', currentProduct });
+      return res.json({ message: "sucsess", currentProduct });
     } catch (error) {
-      return res.json({ message: 'error', error: error.message });
-    }
-  });
-
-router.route('/edit/:id')
-  .get(async (req, res) => {
-    try {
-      const { id } = req.params;
-      const currentProduct = await Product.findOne({
-        where: { id },
-        include: 'SizesOfProducts',
-      });
-      return res.json({ message: 'sucsess', currentProduct });
-    } catch (error) {
-      return res.json({ message: 'error', error: error.message });
+      return res.json({ message: "error", error: error.message });
     }
   })
 
@@ -65,9 +49,7 @@ router.route('/edit/:id')
 
     const { id } = req.params;
 
-    const {
-      name, price, photo, gender, description,
-    } = req.body.updatedProduct;
+    const { name, price, photo, gender, description } = req.body.updatedProduct;
 
     const neededProduct = await Product.findOne({
       where: { id },
@@ -92,31 +74,32 @@ router.route('/edit/:id')
               productId: updatedProduct.dataValues.id,
               sizeNumber: Number(Object.keys(el)[0]),
             },
-          },
+          }
         );
       });
 
-      res.status(201).json({ m: 'ok' });
+      res.status(201).json({ m: "ok" });
     } catch (error) {
       res.json({ error: error.message });
       console.log(error);
     }
   });
 
-router.route('/:id')
+router
+  .route("/:id")
   .get(async (req, res) => {
     try {
       const { id } = req.params;
       const currentProduct = await Product.findOne({
         where: {
           id,
-          status: 'active',
+          status: "active",
         },
-        include: 'SizesOfProducts',
+        include: "SizesOfProducts",
       });
-      return res.json({ message: 'sucsess', currentProduct });
+      return res.json({ message: "sucsess", currentProduct });
     } catch (error) {
-      return res.json({ message: 'error', error: error.message });
+      return res.json({ message: "error", error: error.message });
     }
   })
   .put(async (req, res) => {
@@ -127,13 +110,13 @@ router.route('/:id')
     });
 
     try {
-      if (neededProduct.status === 'active') {
+      if (neededProduct.status === "active") {
         await neededProduct.update({
-          status: 'deleted',
+          status: "deleted",
         });
       } else {
         await neededProduct.update({
-          status: 'active',
+          status: "active",
         });
       }
       res.status(201).json(neededProduct);
