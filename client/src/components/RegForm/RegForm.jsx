@@ -17,7 +17,6 @@ function RegForm(props) {
       password: data.password,
       role: data.role,
     };
-
     dispatch({type: "FETCH_CREATE_USER", payload: body})
   };
 

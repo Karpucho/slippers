@@ -3,7 +3,7 @@ import {
   loginUserAC,
   createUserAC,
   updateUserAC,
-  // getUserProductsAC,
+  logoutUserAC,
   orderUserAC
 } from "../actionCreators/usersAC";
 
@@ -101,19 +101,18 @@ function* putUserWorker(action) {
 //   yield put(updateProductCardAC(product));
 // }
 
-// function* getCurrentProductWorker(action) {
-//   const cuurentProd = yield call(fetchData, {
-//     url: `/products/edit/${action.payload}`,
-//     method: "GET",
-//   });
-//   yield put(initCurrentProductCardAC(cuurentProd));
-// }
+function* logoutWorker(action) {
+  yield call(fetchData, {
+    url: '/logout',
+  });
+  yield put(logoutUserAC());
+}
 
 export function* globalWatcher() {
   yield takeEvery("FETCH_CREATE_USER", postUserWorker);
   yield takeEvery("FETCH_UPDATE_USER", putUserWorker);
   // yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
-  // yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
+  yield takeEvery("FETCH_LOGOUT_USER", logoutWorker);
   yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
   // yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
   yield takeEvery('FETCH_ORDER_SEND', orderSendWorker)

@@ -36,7 +36,7 @@ function EditCardForm(props) {
 
   useEffect(() => {
     const id = Number(params.id);
-    fetch(`http://localhost:5000/products/edit/${id}`, {
+    fetch(`/products/edit/${id}`, {
       credentials: 'include',
     })
     .then(data => data.json())
@@ -91,7 +91,7 @@ function EditCardForm(props) {
       const data = new FormData();
       data.append('productPhoto', img);
 
-      fetch('http://localhost:5000/addProduct/photo', {
+      fetch('/addProduct/photo', {
         method: 'POST',
         body: data,
     })

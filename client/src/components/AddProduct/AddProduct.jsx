@@ -28,7 +28,7 @@ function AddProduct(props) {
       const data = new FormData();
       data.append('productPhoto', img);
 
-      fetch('http://localhost:5000/addProduct/photo', {
+      fetch('/addProduct/photo', {
         method: 'POST',
         body: data,
     })
@@ -65,7 +65,7 @@ function AddProduct(props) {
   
 
     
-    fetch('http://localhost:5000/addProduct/',
+    fetch('/addProduct/',
     {
       method: 'POST',
       headers: {
