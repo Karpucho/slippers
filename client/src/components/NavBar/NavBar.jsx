@@ -226,13 +226,9 @@ function NavBar() {
         <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
         <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
         <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem>
+        {/* <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem> */}
       </Menu>
       <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
-         {/* <Box m={3}>
-           <Button className={classes.buttons} onClick={() => navigate('/signin')} color="inherit" variant="outlined">log in</Button>
-         </Box>
-         <Button  onClick={() => navigate('/signup')} color="inherit" variant="outlined">sign up</Button> */}
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Search>
             <SearchIconWrapper>
@@ -240,15 +236,10 @@ function NavBar() {
             </SearchIconWrapper>
             
             <StyledInputBase
-              // placeholder="Search…"
-              // placeholder={placeholder}
               inputProps={{ 'aria-label': 'search' }}
-              // onChange={onChangeSearch}
               type="text"
             />
           </Search>
-        {/* <Typography sx={{ minWidth: 100 }}>Contact</Typography>
-        <Typography sx={{ minWidth: 100 }}>Profile</Typography> */}
         <Tooltip title="Account settings">
           
           <IconButton
@@ -311,18 +302,6 @@ function NavBar() {
           <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
-        {/* <MenuItem>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem> */}
-        {/* <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Настройки
-        </MenuItem> */}
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />
@@ -340,9 +319,7 @@ function NavBar() {
           <SignIn setDialogOpen={setDialogOpen}/>
           {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
           <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
-
         </DialogContent>
-        
      </Dialog>
     </Box>
     </AppBar>

@@ -99,7 +99,7 @@ function Info(props) {
       Всем гостям дарим теплый прием и скидку 10% от цен на сайте.
           </Typography >
         </Box>
-<Box style={{display: 'flex', flexDirection: 'row', marginTop: '30px'}}>
+<Box style={{display: 'flex', flexDirection: 'row', marginTop: '30px', marginBottom: '50px'}}>
           <YMaps>
   <Map
     style={{width:'630px', height:'360px', marginRight: '40px'}}
