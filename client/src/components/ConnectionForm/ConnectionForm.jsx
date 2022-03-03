@@ -2,6 +2,7 @@ import React from 'react';
 import { Paper, Container, FormControl, Typography, Box, Input, TextField } from '@mui/material';
 import { IMaskInput } from 'react-imask';
 import PropTypes from 'prop-types';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -42,7 +43,9 @@ function ConnectionForm(props) {
   };
 
   return (
-<Box ml={3}  style={{display: 'flex',flexDirection: 'column', justifyContent:"space-between",  minWidth: '300px', maxWidth: '700px'}}>
+    <>
+      <InstagramIcon/>
+<Box ml={17}  style={{display: 'flex',flexDirection: 'column', justifyContent:"space-between",  minWidth: '300px', maxWidth: '700px'}}>
   <Typography pb={3} variant='h5' color="textSecondary">
     Для связи
   </Typography>
@@ -56,6 +59,7 @@ function ConnectionForm(props) {
           onChange={handleChange}
           name="textmask"
           id="formatted-text-mask-input"
+          placeholder="Телефон"
           inputComponent={TextMaskCustom}
         />
       </FormControl>
@@ -70,8 +74,8 @@ function ConnectionForm(props) {
           placeholder="Сообщение"
           // defaultValue="Default Value"
         />
-  
   </Box>
+  </>
   );
 }
 

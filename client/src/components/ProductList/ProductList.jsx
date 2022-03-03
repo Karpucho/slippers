@@ -94,7 +94,7 @@ export default function ProductList({visibility}) {
           <MenuItem value='downRating'>По убыванию рейтинга</MenuItem>
         </Select>
       </FormControl>
-    <Grid container spacing={2}>
+    <Grid container spacing={5}>
     {(productsFilter?.length) ? 
       productsFilter.map(product => (
      <ProductCard  key={product.id} product={product}/>
