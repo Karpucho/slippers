@@ -31,7 +31,7 @@ class UserService {
       activationLink,
     });
     // отправляем юзеру на почту письмо с активацией
-    console.log(newUser, 'До почты');
+    console.log(newUser, 'ДО ПОЧТЫ');
     await mailService.sendActivationMail(email, `${process.env.API_URL}/activate/${activationLink}`);
 
     // формируем  data transfer object
