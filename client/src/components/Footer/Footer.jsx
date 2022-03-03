@@ -1,11 +1,18 @@
 import React from 'react';
 import { Typography, BottomNavigation, BottomNavigationAction, Box } from '@mui/material'
 import {makeStyles, ThemeProvider}  from '@mui/styles';
-import {  LocalActivity } from '@mui/icons-material/'
-import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from '@mui/icons-material/Email';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+// import {  LocalActivity } from '@mui/icons-material/'
+// import CallIcon from '@mui/icons-material/Call';
+// import EmailIcon from '@mui/icons-material/Email';
+// import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ConnectionForm from '../ConnectionForm/ConnectionForm';
+// import InstagramIcon from '@mui/icons-material/Instagram';
+// import TelegramIcon from '@mui/icons-material/Telegram';
+// import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import ContactNav from '../ContactNav/ContactNav';
+import SuccessAlertMessage from '../AlertMessage/SuccessAlertMessage';
+import ErrorAlertMessage from '../AlertMessage/ErrorAlertMessage';
+import InfoAlertMessage from '../AlertMessage/InfoAlertMessage';
 
 const useStyles = makeStyles({
   root: {
@@ -27,30 +34,14 @@ function Footer(props) {
   }
 
   return (
-    <div  style={{ width: '100%',marginTop: '200px', paddingBottom: '2%',paddingTop: '50px' , backgroundColor: "rgba(219, 219, 219, 0.91)", paddingLeft: "50px", display: "flex", flexDirection: "column"}}>
+    <>
+    <ContactNav/>
+    <SuccessAlertMessage/>
+    <ErrorAlertMessage/>
+    <InfoAlertMessage/>
+    <div  style={{ width: '100%',marginTop: '20px', paddingBottom: '2%',paddingTop: '50px' , backgroundColor: "rgba(219, 219, 219, 0.91)", paddingLeft: "50px", display: "flex", flexDirection: "column"}}>
       <ConnectionForm/>
       <footer>
-        {/* <BottomNavigation
-        value={value}
-        onChange={handleChange}
-        className={classes.root}
-        >
-          <BottomNavigationAction
-          lable="Recents"
-          value="recents"
-          icon={<CallIcon/>}
-          />
-                    <BottomNavigationAction
-          lable="Recents"
-          value="recents"
-          icon={<EmailIcon/>}
-          />
-                    <BottomNavigationAction
-          lable="Recents"
-          value="recents"
-          icon={<LocationOnIcon/>}
-          />
-        </BottomNavigation> */}
                 <hr style={{marginTop: "50px",}} />
         <Box 
               sx={{
@@ -79,6 +70,7 @@ function Footer(props) {
         </Box>
       </footer>
     </div>
+    </>
   );
 }
 

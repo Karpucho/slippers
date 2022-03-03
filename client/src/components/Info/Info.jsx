@@ -7,6 +7,7 @@ import { createTheme } from '@mui/material/styles';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import slide1 from "./thaiPhoto.jpeg"
 import ConnectionForm from '../ConnectionForm/ConnectionForm';
+import EmailIcon from '@mui/icons-material/Email';
 
 const ariaLabel = { 'aria-label': 'description' };
 const theme = createTheme();
@@ -130,8 +131,8 @@ function Info(props) {
           8-918-33-93-769 Сергей - оптовые продажи 
           <br />
           <br />
-          E-mail:
-          tapkomania23@yandex.ru
+          <EmailIcon size={'lg'} style={{paddingRight: '10px'}}/>
+             tapkomania23@yandex.ru
           </Typography>
 </Box>
 {/* <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>

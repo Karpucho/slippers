@@ -2,12 +2,11 @@ const router = require('express').Router();
 
 const { Product } = require('../db/models');
 
-
 router.route('/')
   .get(async (req, res) => {
     try {
       const products = await Product.findAll({
-        where: { status: 'active' },
+        // where: { status: 'active' },
 
         include: 'SizesOfProducts',
       });
