@@ -6,22 +6,22 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ProductCard from "../ProductCard/ProductCard";
 import CartItems from '../CartItems/CartItems'
 import { v4 as uuidv4 } from 'uuid';
-import {initProductCartAC} from '../../redux/actionCreators/cartAC'
+import { initProductCartAC } from '../../redux/actionCreators/cartAC'
 import AddressForm from "./AddressForm";
 
 
 function Profile(props) {
   const theme = createTheme();
 
-  const { user } = useSelector((state) => state.usersReducer?.user.userData);
-  // console.log("user selector profile", user);
+  const { user } = useSelector((state) => state.usersReducer);
+  console.log("user selector profile", user);
   // const {userProducts} = useSelector(state => state.usersReducer?.userProducts)
   const { cartProducts } = useSelector((state) => state.cartReducer);
 
   // console.log('userproducts selector profile', userProducts);
   // const {favoriteProducts} = useSelector(state => state.favoriteProducts)
   // console.log('favoriteProducts selector profile', favoriteProducts);
-  
+
   // const test = JSON.parse(localStorage.getItem('cart'))
   const dispatch = useDispatch();
 
@@ -71,10 +71,9 @@ function Profile(props) {
           } */}
           <h3>Корзина товаров</h3>
           {cartProducts.map((orders) => {
-                      
-                        return <CartItems key={uuidv4()} 
-                        orders={orders}/>
-                      })}
+            return <CartItems key={orders.product}
+              orders={orders} />
+          })}
           {/* ) : (
             <p>Пустая корзина</p>
           ) */}
@@ -87,13 +86,13 @@ function Profile(props) {
           </Grid>
         </div>
         <Grid container spacing={3}>
-            <Grid item s={8}>
-              <Typography component="h1" variant="h6">
-                Заполнить данные для доставки{" "}
-              </Typography>
-            </Grid>
+          <Grid item s={8}>
+            <Typography component="h1" variant="h6">
+              Заполнить данные для доставки{" "}
+            </Typography>
           </Grid>
-          < AddressForm/>
+        </Grid>
+        < AddressForm />
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField

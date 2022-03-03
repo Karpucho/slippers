@@ -1,8 +1,15 @@
-import { LOGIN_USER, CREATE_USER,UPDATE_USER, GET_USER_ORDERS, LOGOUT_USER } from "../actionsTypes/userAT";
+import { LOGIN_USER, CREATE_USER,UPDATE_USER, AUTH_USER, GET_USER_ORDERS, LOGOUT_USER } from "../actionsTypes/userAT";
 
 export const loginUserAC = (payload) => {
   return {
     type: LOGIN_USER,
+    payload,
+  };
+};
+
+export const authAC = (payload) => {
+  return {
+    type: AUTH_USER,
     payload,
   };
 };

@@ -4,6 +4,7 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   GET_USER_ORDERS,
+  AUTH_USER,
 } from "../actionsTypes/userAT";
 
 const initialState = {
@@ -13,6 +14,8 @@ const initialState = {
 
 export function usersReducer(state = initialState, action) {
   switch (action.type) {
+    case AUTH_USER:
+      return { ...state, user: action.payload }
     case CREATE_USER:
       return { ...state, user: action.payload };
     case UPDATE_USER:

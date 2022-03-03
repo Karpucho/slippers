@@ -14,6 +14,7 @@ function CartItems({orders }) {
 
   const dispatch = useDispatch();
   const { products } = useSelector(state => state.productsReducer);
+
   const needProduct = products.find(el => el.id === orders.product);
 
   const addProduct = () => {
@@ -31,6 +32,7 @@ function CartItems({orders }) {
     dispatch(returnOrderCardAC(orders))
   }
 
+  if (!needProduct) return <></>;
 
   return (
     <ListItem style={{ padding: '5px'}}>
@@ -71,3 +73,7 @@ function CartItems({orders }) {
 }
 
 export default CartItems;
+
+function Cmp() {
+ 
+}
