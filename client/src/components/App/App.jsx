@@ -19,7 +19,7 @@ import Admin from "../Admin/Admin";
 import Signin from "../Signin/Signin"
 import Signup from "../Signup/Signup";
 import { initProductsListAC } from '../../redux/actionCreators/productsAC'
-import { loginUserAC } from '../../redux/actionCreators/usersAC'
+import { loginUserAC, authAC } from '../../redux/actionCreators/usersAC'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'
@@ -56,7 +56,7 @@ useEffect(() => {
     credentials: 'include',
   })
     .then(res => res.json())
-    .then(data => dispatch(loginUserAC(data)))
+    .then(data => dispatch(authAC(data)))
     .catch(err => console.log(err.message))
 }, [dispatch])
 

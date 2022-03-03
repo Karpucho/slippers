@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 const { Product } = require('../db/models');
 
-
 router.route('/')
   .get(async (req, res) => {
     try {
