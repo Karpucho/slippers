@@ -19,7 +19,7 @@ const { sequelize } = require('./db/models');
 const PORT = process.env.PORT ?? 5000;
 
 config(app);
-
+app.use(express.static(path.resolve('../client/build')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/auth', checkUserRouter);
