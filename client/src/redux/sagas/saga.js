@@ -3,7 +3,7 @@ import {
   loginUserAC,
   createUserAC,
   updateUserAC,
-  getUserProductsAC,
+  // getUserProductsAC,
   orderUserAC
 } from "../actionCreators/usersAC";
 
@@ -28,9 +28,9 @@ function* postUserWorker(action) {
     body: JSON.stringify(action.payload),
   });
   yield put(createUserAC(newUser));
-  if(newUser.success) {
-    localStorage.setItem('user', JSON.stringify(newUser))
-  }
+  // if(newUser.success) {
+  //   localStorage.setItem('user', JSON.stringify(newUser))
+  // }
 }
 
 function* loginUserAsync(action) {
@@ -41,6 +41,7 @@ function* loginUserAsync(action) {
     headers: {
       "Content-Type": "Application/json",
     },
+    credentials: "include",
     body: JSON.stringify(action.payload),
   });
 
@@ -77,16 +78,15 @@ function* putUserWorker(action) {
 }
 
 
-function* getUserProductsWorker(action) {
-  const userProducts = yield call(fetchData, {
-    url: `/users/order/${action.payload.id}`,
-    // headers: {
-    //   "Content-Type": "Application/json",
-    // },
-  });
-  yield put(getUserProductsAC(userProducts));
-}
-
+// function* getUserProductsWorker(action) {
+//   const userProducts = yield call(fetchData, {
+//     url: `/users/order/${action.payload.id}`,
+//     // headers: {
+//     //   "Content-Type": "Application/json",
+//     // },
+//   });
+//   yield put(getUserProductsAC(userProducts));
+// }
 
 
 // function* putProductWorker(action) {
@@ -115,6 +115,6 @@ export function* globalWatcher() {
   // yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
   // yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
   yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
-  yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
+  // yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
   yield takeEvery('FETCH_ORDER_SEND', orderSendWorker)
 }

@@ -40,7 +40,7 @@ class UserController {
   async sendToAdmin(req, res, next) {
     try {
       const { name, address, phone } = req.body;
-      const userData = await userService.sendToAdmin(name, address, phone);
+      await userService.sendToAdmin(name, address, phone);
 
       return res.json({
         // userData,

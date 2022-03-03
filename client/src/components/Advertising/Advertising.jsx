@@ -56,39 +56,39 @@ const useStyles = makeStyles({
 });
 
 
-const img = [
-  <img alt="" key={'small'} src={''} />,
-  <img alt="" key={''} src={''} />,
-  // <img key={slide3} src={slide3} />,
-  // <img key={slide4} src={slide4} />,
-  // <img key={slide5} src={slide5} />,
-]
+// const img = [
+//   <img alt="" key={'small'} src={''} />,
+//   <img alt="" key={''} src={''} />,
+//   // <img key={slide3} src={slide3} />,
+//   // <img key={slide4} src={slide4} />,
+//   // <img key={slide5} src={slide5} />,
+// ]
 
 function Advertising(props) {
 
     // Индекс текущего слайда
-const [activeIndex, setActiveIndex] = useState(0);
+// const [activeIndex, setActiveIndex] = useState(0);
  
 // Хук Effect
-useEffect(() => {
-    // Запускаем интервал
-    const interval = setInterval(() => {
-        // Меняем состояние
-        setActiveIndex((current) => {
-            // Вычисляем индекс следующего слайда, который должен вывестись
-            const res = current === img.length - 1 ? 0 : current + 1
-            // Возвращаем индекс
-            return res
-        })
-    }, 3000)
-    // Выключаем интервал
-    return () => clearInterval()
-}, [])
+// useEffect(() => {
+//     // Запускаем интервал
+//     const interval = setInterval(() => {
+//         // Меняем состояние
+//         setActiveIndex((current) => {
+//             // Вычисляем индекс следующего слайда, который должен вывестись
+//             const res = current === img.length - 1 ? 0 : current + 1
+//             // Возвращаем индекс
+//             return res
+//         })
+//     }, 3000)
+//     // Выключаем интервал
+//     return () => clearInterval(interval)
+// }, [])
  
 // Вычисляем индекс предыдущего слайда
-const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1
-// Вычисляем индекс следующего слайда
-const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
+// const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1
+// // Вычисляем индекс следующего слайда
+// const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
 
   const classes = useStyles();
   return (

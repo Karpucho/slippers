@@ -3,7 +3,6 @@ import {
   UPDATE_USER,
   LOGIN_USER,
   LOGOUT_USER,
-  GET_USER_ORDERS,
   AUTH_USER,
   ORDER_USER,
 } from "../actionsTypes/userAT";
@@ -25,8 +24,6 @@ export function usersReducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case LOGOUT_USER:
       return { ...state, user: null };
-    case GET_USER_ORDERS:
-      return { ...state, userProducts: action.payload };
     case ORDER_USER:
       return { ...state, userProducts: action.payload };
     default:
