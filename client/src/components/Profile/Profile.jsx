@@ -17,7 +17,6 @@ function Profile(props) {
   // console.log("user selector profile", user);
   // const {userProducts} = useSelector(state => state.usersReducer?.userProducts)
   const { cartProducts } = useSelector((state) => state.cartReducer);
-  console.log("userproducts selector profile", cartProducts);
 
   // console.log('userproducts selector profile', userProducts);
   // const {favoriteProducts} = useSelector(state => state.favoriteProducts)

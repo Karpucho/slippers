@@ -7,7 +7,7 @@ import {
 } from "../actionsTypes/userAT";
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem("user")) ?? null,
+  user: {},
   userProducts: [],
 };
 
