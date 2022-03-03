@@ -16,9 +16,9 @@ function AddressForm(props) {
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
     const body = {
-      email: data.email,
-      password: data.password,
-      role: data.role,
+      name: data.name,
+      address: data.address,
+      phone: data.phone,
     };
     dispatch();
     // console.log(body);
