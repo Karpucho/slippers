@@ -129,11 +129,11 @@ export default function Cart() {
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-          <IconButton aria-label="cart">
+          {/* <IconButton aria-label="cart">
                 <StyledBadge badgeContent={countProduct} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
-                </IconButton>
+                </IconButton> */}
           </Button>
           <Drawer
             anchor={anchor}

@@ -20,7 +20,7 @@ import { Box } from '@mui/system';
   // const [containerPrice, setContainerPrice] = useState('')
 
 
-export default function ProductList({visibility}) {
+export default function ProductList() {
 
   const [genderText, setText] = useState("Все товары");
   const { productsFilter } = useSelector(state => state.productsReducer);
