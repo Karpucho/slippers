@@ -19,7 +19,7 @@ function AddressForm(props) {
       address: data.address,
       phone: data.phone,
     };
-    dispatch();
+    dispatch({type:'FETCH_ORDER_SEND', payload:body});
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

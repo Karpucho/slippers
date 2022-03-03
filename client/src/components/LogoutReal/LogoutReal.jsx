@@ -13,10 +13,9 @@ function LogoutReal(props) {
 
   const logout = (e) => {
     e.preventDefault();
-    localStorage.removeItem("user");
     dispatch(logoutUserAC());
     alert("Вы успешно вышли из системы!");
-    navigate('/')
+    navigate('/info')
   };
 
   return (

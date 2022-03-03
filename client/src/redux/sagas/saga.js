@@ -78,7 +78,8 @@ function* putUserWorker(action) {
 
 function* orderSendWorker(action) {
   const status = yield call(fetchData,{
-    url:'/order',    
+    url:'/order', 
+    me   
   })
   yield put(orderUserAC(status))
 }
