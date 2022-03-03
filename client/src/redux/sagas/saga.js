@@ -3,7 +3,8 @@ import {
   loginUserAC,
   createUserAC,
   updateUserAC,
-  getUserProductsAC
+  getUserProductsAC,
+  orderUserAC
 } from "../actionCreators/usersAC";
 
 // import {
@@ -48,6 +49,19 @@ function* loginUserAsync(action) {
   //   localStorage.setItem("user", JSON.stringify(user));
   //   window.location('/nest')
   // } 
+}
+
+
+function* orderSendWorker(action) {
+  const status = yield call(fetchData,{
+    url:'/order',
+    method: "POST",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+    body: JSON.stringify(action.payload),
+  })
+  yield put(orderUserAC(status))
 }
 
 function* putUserWorker(action) {
@@ -102,4 +116,5 @@ export function* globalWatcher() {
   // yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
   yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
   yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
+  yield takeEvery('FETCH_ORDER_SEND', orderSendWorker)
 }
