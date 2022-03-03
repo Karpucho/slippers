@@ -39,7 +39,6 @@ class UserController {
 
   async login(req, res, next) {
     try {
-      console.log('req', req.body)
       // вытасикиваем данные из тела запроса
       const { email, password } = req.body;
       // вытваем из юзер сервиса и передадим майл и апроль
@@ -79,7 +78,11 @@ class UserController {
       // из строки запроса получаем ссылку активации
       const activateLink = req.params.link;
       // обращаемся к юзеру сервису и передаем туда ссылку
-      await userService.activate(activateLink);
+      const userWithToken = await userService.activate(activateLink);
+      res.cookie("refreshToken", userWithToken.refreshToken, {
+        maxAge: 1000 * 60 * 60 * 24 * 30,
+        httpOnly: true,
+      });
       return res.redirect(process.env.CLIENT_URL);
     } catch (error) {
       next(error);

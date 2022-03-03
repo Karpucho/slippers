@@ -1,8 +1,15 @@
-import { LOGIN_USER, CREATE_USER,UPDATE_USER, GET_USER_ORDERS, LOGOUT_USER } from "../actionsTypes/userAT";
+import { LOGIN_USER, CREATE_USER,UPDATE_USER, AUTH_USER, GET_USER_ORDERS, LOGOUT_USER, ORDER_USER } from "../actionsTypes/userAT";
 
 export const loginUserAC = (payload) => {
   return {
     type: LOGIN_USER,
+    payload,
+  };
+};
+
+export const authAC = (payload) => {
+  return {
+    type: AUTH_USER,
     payload,
   };
 };
@@ -21,16 +28,16 @@ export const updateUserAC = (payload) => {
   };
 };
 
-export const getUserProductsAC = (payload) => {
-  return {
-    type: GET_USER_ORDERS,
-    payload,
-  };
-};
-
 export const logoutUserAC = (payload) => {
   return {
     type: LOGOUT_USER,
     payload,
   };
+}
+
+export const orderUserAC = (payload) => {
+  return {
+    type: ORDER_USER,
+    payload,
+  }
 }

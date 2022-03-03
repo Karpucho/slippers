@@ -3,7 +3,8 @@ import {
   loginUserAC,
   createUserAC,
   updateUserAC,
-  getUserProductsAC
+  // getUserProductsAC
+  orderUserAC,
 } from "../actionCreators/usersAC";
 
 // import {
@@ -40,9 +41,9 @@ function* loginUserAsync(action) {
     headers: {
       "Content-Type": "Application/json",
     },
+    credentials: "include",
     body: JSON.stringify(action.payload),
   });
-  console.log('saga', user);
 
   yield put(loginUserAC(user));
   // if (user.success) {
@@ -64,17 +65,23 @@ function* putUserWorker(action) {
 }
 
 
-function* getUserProductsWorker(action) {
-  const userProducts = yield call(fetchData, {
-    url: `/users/order/${action.payload.id}`,
-    // headers: {
-    //   "Content-Type": "Application/json",
-    // },
-  });
-  yield put(getUserProductsAC(userProducts));
+// function* getUserProductsWorker(action) {
+//   const userProducts = yield call(fetchData, {
+//     url: `/users/order/${action.payload.id}`,
+//     // headers: {
+//     //   "Content-Type": "Application/json",
+//     // },
+//   });
+//   yield put(getUserProductsAC(userProducts));
+// }
+
+
+function* orderSendWorker(action) {
+  const status = yield call(fetchData,{
+    url:'/order',    
+  })
+  yield put(orderUserAC(status))
 }
-
-
 
 // function* putProductWorker(action) {
 //   const product = yield call(fetchData, {
@@ -102,5 +109,6 @@ export function* globalWatcher() {
   // yield takeEvery("FETCH_UPDATE_PRODUCT", putProductWorker);
   // yield takeEvery("FETCH_CURRENT_PRODUCT", getCurrentProductWorker);
   yield takeEvery("FETCH_LOGIN_USER", loginUserAsync);
-  yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
+  // yield takeEvery('FETCH_USER_PRODUCTS', getUserProductsWorker)
+  yield takeEvery('FETCH_ORDER_SEND', orderSendWorker)
 }
