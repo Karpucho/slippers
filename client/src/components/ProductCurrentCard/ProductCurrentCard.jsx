@@ -34,7 +34,7 @@ function ProductCurrentCard() {
   const addProductBacket = () => {
     if (currentUser?.id) {
       
-      fetch(`http://localhost:5000/cart/${currentUser.id}`, {
+      fetch(`/cart/${currentUser.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({currentProduct, needSize}),
@@ -61,7 +61,7 @@ function ProductCurrentCard() {
    
   useEffect(() => {
     const id = Number(params.id);
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`/products/${id}`, {
       credentials: 'include',
     })
     .then(data => data.json())

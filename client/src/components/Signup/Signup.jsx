@@ -17,10 +17,10 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Signup() {
-  //требует проверки
+
   const theme = createTheme();
   const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.userReducer);
+
   const navigate = useNavigate();
 
   const {
@@ -30,7 +30,7 @@ export default function Signup() {
     handleSubmit,
   } = useForm();
 
-  // console.log('register', register);
+
 
   const onSubmit = (data) => {
     const body = {

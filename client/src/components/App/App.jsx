@@ -24,16 +24,14 @@ import { loginUserAC, authAC } from "../../redux/actionCreators/usersAC";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
+
+
 function App() {
   const { cartProducts } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
-
-  const [posts, setPosts] = useState([]);
-  const [query, setQuery] = useState();
-  const [page, setPage] = useState(1);
-  const [pageQty, setPageQty] = useState(0);
+  
   useEffect(() => {
-      fetch("http://localhost:5000/products", {
+    fetch("products", {
       credentials: "include",
     })
       .then((data) => data.json())
@@ -45,23 +43,7 @@ function App() {
         } else console.log(data.error);
       })
       .catch((error) => error.message);
-  }, [query, page]);
-
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/products", {
-  //     credentials: "include",
-  //   })
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       if (data.message === "sucsess") {
-  //         dispatch(initProductsListAC(data.products));
-  //       } else if (data.message === "noproducts") {
-  //         console.log("noproducts");
-  //       } else console.log(data.error);
-  //     })
-  //     .catch((error) => error.message);
-  // }, [dispatch]);
+  }, [dispatch]);
 
   // const {favoriteProducts} = useSelector(state => state.favoritesReducer);
 
@@ -75,7 +57,7 @@ function App() {
   // }, [favoriteProducts]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/auth", {
+    fetch("/auth", {
       credentials: "include",
     })
       .then((res) => res.json())

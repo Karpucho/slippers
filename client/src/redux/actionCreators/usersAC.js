@@ -31,7 +31,6 @@ export const updateUserAC = (payload) => {
 export const logoutUserAC = (payload) => {
   return {
     type: LOGOUT_USER,
-    payload,
   };
 }
 

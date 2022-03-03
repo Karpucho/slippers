@@ -21,22 +21,7 @@ function Profile(props) {
   if (!user) return <></>;
   if (!cartProducts) return <></>;
 
-  // console.log("user selector profile", user);
-  // const {userProducts} = useSelector(state => state.usersReducer?.userProducts)
-
-  // console.log('userproducts selector profile', userProducts);
-  // const {favoriteProducts} = useSelector(state => state.favoriteProducts)
-  // console.log('favoriteProducts selector profile', favoriteProducts);
-
-  // const test = JSON.parse(localStorage.getItem('cart'))
-
-  // useEffect(()=> {
-  //  dispatch(initProductCartAC(test))
-  // }, [dispatch])
-
   const id = user.id;
-  // console.log('userId', id);
- 
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data));

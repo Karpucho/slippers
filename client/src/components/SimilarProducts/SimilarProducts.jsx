@@ -12,7 +12,7 @@ function SimilarProducts(props) {
   const { currentProduct } = useSelector(state => state.productsReducer);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products', {
+    fetch('/products', {
       credentials: 'include',
     })
     .then(data => data.json())

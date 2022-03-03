@@ -302,12 +302,10 @@ function NavBar() {
           <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Выйти
-        </MenuItem>
+       
+        
+          <LogoutReal />
+    
       </Menu>
         </Toolbar>
      </Container>
