@@ -27,9 +27,9 @@ function* postUserWorker(action) {
     body: JSON.stringify(action.payload),
   });
   yield put(createUserAC(newUser));
-  if(newUser.success) {
-    localStorage.setItem('user', JSON.stringify(newUser))
-  }
+  // if(newUser.success) {
+  //   localStorage.setItem('user', JSON.stringify(newUser))
+  // }
 }
 
 function* loginUserAsync(action) {
@@ -45,10 +45,10 @@ function* loginUserAsync(action) {
   console.log('saga', user);
 
   yield put(loginUserAC(user));
-  if (user.success) {
-    localStorage.setItem("user", JSON.stringify(user));
-    window.location('/nest')
-  } 
+  // if (user.success) {
+  //   localStorage.setItem("user", JSON.stringify(user));
+  //   window.location('/nest')
+  // } 
 }
 
 function* putUserWorker(action) {

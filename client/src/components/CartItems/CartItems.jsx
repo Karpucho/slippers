@@ -31,6 +31,9 @@ function CartItems({orders }) {
     dispatch(returnOrderCardAC(orders))
   }
 
+    if(!needProduct)
+      return <></> 
+    
 
   return (
     <ListItem style={{ padding: '5px'}}>

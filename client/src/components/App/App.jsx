@@ -46,10 +46,17 @@ function App() {
 }, [dispatch]);
 
   const { cartProducts } = useSelector(state => state.cartReducer);
+  // const {favoriteProducts} = useSelector(state => state.favoritesReducer);
 
 useEffect(() => {
   localStorage.setItem('cart', JSON.stringify(cartProducts));
 }, [cartProducts]);
+
+
+// useEffect(() => {
+//   // console.log(favoriteProducts);
+//   localStorage.setItem('favorite', JSON.stringify(favoriteProducts));
+// }, [favoriteProducts]);
 
 useEffect(() => {
   fetch('http://localhost:5000/auth', {
