@@ -44,13 +44,13 @@ export default function Cart() {
   const toggleDrawer = (anchor, open) => (event) => {
     if(event
       && event.target.textContent === 'Оформить заказ'
-      && Boolean(user)) {
+      && Boolean(user.isActivated)) {
         setState({ ...state, [anchor]: open });
         return navigate('/profile');
 
       } else if (event
         && event.target.textContent === 'Оформить заказ'
-        && !Boolean(user)) {
+        && !Boolean(user.isActivated)) {
           setState({ ...state, [anchor]: open });
           return navigate('/signin');
 

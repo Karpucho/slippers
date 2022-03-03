@@ -20,7 +20,6 @@ function AddressForm(props) {
       phone: data.phone,
     };
     dispatch();
-    // console.log(body);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
