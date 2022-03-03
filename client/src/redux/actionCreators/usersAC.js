@@ -1,4 +1,4 @@
-import { LOGIN_USER, CREATE_USER,UPDATE_USER, AUTH_USER,  LOGOUT_USER, ORDER_USER } from "../actionsTypes/userAT";
+import { LOGIN_USER, CREATE_USER,UPDATE_USER, ORDER_USER, AUTH_USER, LOGOUT_USER } from "../actionsTypes/userAT";
 
 export const loginUserAC = (payload) => {
   return {
@@ -41,3 +41,5 @@ export const orderUserAC = (payload) => {
     payload,
   }
 }
+
+

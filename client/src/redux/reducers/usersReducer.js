@@ -4,7 +4,7 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   AUTH_USER,
-  ORDER_USER
+  ORDER_USER,
 } from "../actionsTypes/userAT";
 
 const initialState = {

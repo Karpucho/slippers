@@ -3,8 +3,8 @@ import {
   loginUserAC,
   createUserAC,
   updateUserAC,
-  // getUserProductsAC
-  orderUserAC,
+  // getUserProductsAC,
+  orderUserAC
 } from "../actionCreators/usersAC";
 
 // import {
@@ -52,6 +52,19 @@ function* loginUserAsync(action) {
   // } 
 }
 
+
+function* orderSendWorker(action) {
+  const status = yield call(fetchData,{
+    url:'/order',
+    method: "POST",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+    body: JSON.stringify(action.payload),
+  })
+  yield put(orderUserAC(status))
+}
+
 function* putUserWorker(action) {
   const user = yield call(fetchData, {
     url: `/users/${action.payload.id}`,
@@ -75,14 +88,6 @@ function* putUserWorker(action) {
 //   yield put(getUserProductsAC(userProducts));
 // }
 
-
-function* orderSendWorker(action) {
-  const status = yield call(fetchData,{
-    url:'/order', 
-    me   
-  })
-  yield put(orderUserAC(status))
-}
 
 // function* putProductWorker(action) {
 //   const product = yield call(fetchData, {
