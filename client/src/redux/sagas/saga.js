@@ -46,9 +46,10 @@ function* loginUserAsync(action) {
   });
 
   yield put(loginUserAC(user));
+  console.log(user, 'user saga');
   // if (user.success) {
   //   localStorage.setItem("user", JSON.stringify(user));
-  //   window.location('/nest')
+  
   // } 
 }
 

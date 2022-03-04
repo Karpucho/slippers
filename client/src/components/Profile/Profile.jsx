@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CartItems from '../CartItems/CartItems'
 import AddressForm from "./AddressForm";
-
+import { info, error } from "../Toast/Toast";
 
 function Profile(props) {
   const theme = createTheme();
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.usersReducer?.user.userData);
+  const { user } = useSelector((state) => state.usersReducer);
   const { cartProducts } = useSelector((state) => state.cartReducer);
   const {
     register,
@@ -24,7 +24,7 @@ function Profile(props) {
   const id = user.id;
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    info('Ваши данные успешно изменены!');
     const body = {
       email: data.email,
       password: data.password,

@@ -23,6 +23,8 @@ import { loginUserAC, authAC } from "../../redux/actionCreators/usersAC";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -71,7 +73,8 @@ function App() {
         <NavBar />
 
         <Slider />
-
+     
+        <ToastContainer />
         <div style={{ marginTop: "4%" }}>
           <Routes>
             <Route path="/" element={<Home />} />
