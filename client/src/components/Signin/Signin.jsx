@@ -49,6 +49,7 @@ export default function SignIn({ setDialogOpen }) {
     });
     info('Вы успешно вошли в систему')
     navigate('/')
+    window.location.reload()
   };
 
   return (
