@@ -1,67 +1,3 @@
-// module.exports = {
-//   up: async (queryInterface) => {
-//     await queryInterface.bulkInsert('Products', [
-//       {
-//         name: 'Nike Air Huarache', gender: 'female', description: '— перфорация в районе язычка — технология Dynamic Fit — мягкая амортизирующая подошва из пеноматериала', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/56b/1164_1748_1/56bca55b6cc9fe0ea1e8cf46fb5e4345.jpg', rating: 4, price: 1990, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'GIANVITO', gender: 'male', description: 'Шлепанцы чёрные', photo: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', rating: 5, price: 5440, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'GABBANA', gender: 'female', description: 'Сланцы SAIЫВАПРОNT BIRTH', photo: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 1, price: 3900, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'DOLCE&GABBANA', gender: 'male', description: 'Сланцы BIRTH белые', photo: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', rating: 2, price: 21240, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'KTON', gender: 'female', description: 'Сандалии чернЫВАПРОЛо-белые на липучке', photo: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1179&q=80', rating: 3, price: 20870, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'STO', gender: 'male', description: 'Сандалии чернВАПРОЛДые с клёпками', photo: 'https://images.unsplash.com/photo-1605408499391-6368c628ef42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', rating: 3, price: 11340, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'ROВВАДВТАSSI', gender: 'female', description: 'Шлепанцы бежевые', photo: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1112&q=80', rating: 5, price: 1590, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'NVITO', gender: 'male', description: 'Шлепанцы чёрные', photo: 'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', rating: 4, price: 2000, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'GAB ANA', gender: 'female', description: 'СлаВАПРОнцы SAINT BIRTH', photo: 'https://images.unsplash.com/photo-1602033693387-3531914e7185?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1029&q=80', rating: 1, price: 3900, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'DOLCE', gender: 'male', description: 'Сланцы BIФЫВАПРОRTH белые', photo: 'https://images.unsplash.com/photo-1562273138-f46be4ebdf33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', rating: 2, price: 2140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'KTON?? ММ', gender: 'female', description: 'СандаЫВАПРОЛлии черно-белые на липучке', photo: 'https://images.unsplash.com/photo-1465453869711-7e174808ace9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80', rating: 3, price: 2070, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'ВВВВВВВO', gender: 'male', description: 'Сандалии черные с клёпками', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 4, price: 1140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'OBYV', gender: 'kid', description: 'Сандалии серо-буро-малиновые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 4, price: 990, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'FROMKIDS', gender: 'kid', description: 'Шлепанцы детские', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 2, price: 2120, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'NIKE', gender: 'kid', description: 'Сланцы с липучкой', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 3, price: 666, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'ABIBAS', gender: 'kid', description: 'Сандалии с заклепками', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1488, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'SREEBOK', gender: 'kid', description: 'Шлепанцы шлепковые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 1, price: 3510, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//       {
-//         name: 'BOLSCHEVICHKA', gender: 'kid', description: 'Сланцы голубоватые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1560, status: 'active', createdAt: new Date(), updatedAt: new Date(),
-//       },
-//     ]);
-//   },
-
-//   down: async (queryInterface) => {
-//     await queryInterface.bulkDelete('Products');
-//   },
-// };
 module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('Products', [
@@ -93,28 +29,29 @@ module.exports = {
         name: 'Nike Air Max Terrascape Plus', gender: 'female', description: 'Сланцы SAINT BIRTH', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/56b/1164_1748_1/56bca55b6cc9fe0ea1e8cf46fb5e4345.jpg', rating: 1, price: 3900, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'Nike Air', gender: 'male', description: 'Сланцы BIФЫВАПРОRTH белые', photo: 'https://images.unsplash.com/photo-1562273138-f46be4ebdf33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', rating: 2, price: 2140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: 'ASICS Gel-Venture 6', gender: 'male', description: 'Сланцы GEL-Venture 6 — практичный и универсальный силуэт от ASICS Tiger. Благодаря комбинации нейлоновой сетки и износостойких материалов', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/4e4/1164_1748_1/4e4c46c7537a7dbd6a1d539393e8fbb2.jpg', rating: 2, price: 2140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'adidas Originals', gender: 'female', description: 'Сланцы черно-белые на липучке', photo: 'https://images.unsplash.com/photo-1465453869711-7e174808ace9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80', rating: 3, price: 2070, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+
+        name: 'Jordan WMNS 5 Retro Low', gender: 'female', description: 'Сланцы 5 Retro — пятая номерная модель, созданная Тинкером Хетфилдом для линейки Майкла Джордана. Впервые модель появилась в феврале 1990 года в качестве баскетбольных кроссовок.', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/f50/1164_1748_1/f500e69cdb2f69a95fb4c29958374185.jpg', rating: 3, price: 2070, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'Nike', gender: 'male', description: 'Сандалии черные с клёпками', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 4, price: 1140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: 'Nike WMNS Blazer low Platform', gender: 'male', description: 'Сандалии Кроссовки Blazer Mid — классика моделей от Nike', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/d55/1164_1748_1/d55f1701791364637ff5df60652cbefc.jpg', rating: 4, price: 1140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'Nike', gender: 'kid', description: 'Сандалии серо-буро-малиновые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 4, price: 990, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: 'Jordan 1 Mid Alt ', gender: 'kid', description: 'Сандалии 1 Mid — средняя версия первых номерных от Майкла Джордана', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/2b3/1164_1748_1/2b3ffedb429293eea70f91d09b901082.jpg', rating: 4, price: 990, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'FROMKIDS', gender: 'kid', description: 'Шлепанцы детские', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 2, price: 2120, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: 'Jordan 1 Low Alt ', gender: 'kid', description: 'Шлепанцы 1 Retro — первые номерные от короля воздуха Майкла Джордана.', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/cec/1164_1748_1/cecea3e9a41e6d305fa2636e18c85579.jpg', rating: 2, price: 2120, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'NIKE', gender: 'kid', description: 'Сланцы с липучкой', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 3, price: 666, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: 'Jordan Sky 1 (PS)', gender: 'kid', description: 'Сланцы с Jordan Sky 1 (TD) — первые номерные, адаптированные специально для детей.', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/833/1164_1748_1/833acbe53df81a9c68c5eff3565e94fe.jpg', rating: 3, price: 666, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'ABIBAS', gender: 'kid', description: 'Сандалии с заклепками', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1488, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: ' New Balance 574 Rugged Gore-Tex', gender: 'kid', description: 'Шлепанцы 574 Rugged Gore-Tex от New Balance. Классика бренда в практичном осенне-зимнем исполнении.', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/97c/1164_1748_1/97c34b4aeba0d0d768db6f400eee9f57.jpg', rating: 5, price: 1488, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-        name: 'SREEBOK', gender: 'kid', description: 'Шлепанцы шлепковые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 1, price: 3510, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+        name: 'Jordan 1 Mid SE (PS)', gender: 'kid', description: 'Шлепанцы Кроссовки 1 Mid "Slim Vortex "от Jordan в детской размерной сетке.', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/289/1164_1748_1/289560700cfd21d91e38429d5e5388fb.jpg', rating: 1, price: 3510, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
         name: 'BOLSCHEVICHKA', gender: 'kid', description: 'Сланцы голубоватые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1560, status: 'active', createdAt: new Date(), updatedAt: new Date(),
