@@ -32,7 +32,6 @@ module.exports = {
         name: 'ASICS Gel-Venture 6', gender: 'male', description: 'Сланцы GEL-Venture 6 — практичный и универсальный силуэт от ASICS Tiger. Благодаря комбинации нейлоновой сетки и износостойких материалов', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/4e4/1164_1748_1/4e4c46c7537a7dbd6a1d539393e8fbb2.jpg', rating: 2, price: 2140, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
-
         name: 'Jordan WMNS 5 Retro Low', gender: 'female', description: 'Сланцы 5 Retro — пятая номерная модель, созданная Тинкером Хетфилдом для линейки Майкла Джордана. Впервые модель появилась в феврале 1990 года в качестве баскетбольных кроссовок.', photo: 'https://sneakerhead.ru/upload/resize_cache/iblock/f50/1164_1748_1/f500e69cdb2f69a95fb4c29958374185.jpg', rating: 3, price: 2070, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
       {
@@ -55,6 +54,9 @@ module.exports = {
       },
       {
         name: 'BOLSCHEVICHKA', gender: 'kid', description: 'Сланцы голубоватые', photo: 'https://images.unsplash.com/photo-1600185365778-7875a359b924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80', rating: 5, price: 1560, status: 'active', createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'DOSTAVKADICHI', gender: 'kid', description: 'Сланцы GOLUBKOVIE', photo: 'https://cs10.pikabu.ru/post_img/2018/09/17/7/1537185182127374570.jpg', rating: 5, price: 1560, status: 'active', createdAt: new Date(), updatedAt: new Date(),
       },
     ]);
   },
