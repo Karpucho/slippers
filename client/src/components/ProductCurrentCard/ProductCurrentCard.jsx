@@ -121,21 +121,21 @@ const dialogClickOk =() => {
           <div className="content">
             <div>
             <Typography
-                variant="h6"
+                variant="body2"
                 component="h3"
             >
                 {currentProduct.name}
             </Typography>
-            <Typography variant="h6">Цена: {currentProduct.price} руб.</Typography>
+            <Typography variant="body2">Цена: {currentProduct.price} руб.</Typography>
             </div>
             <div>
-            <Typography variant="h6">Описание: {currentProduct.description}</Typography>
+            <Typography variant="body1">Описание: {currentProduct.description}</Typography>
 
             {/* {currentProduct.rating ? <Typography variant="body3">Рейтинг: {currentProduct.rating}</Typography> */}
-            <Typography>Рейтинг:</Typography>
+            {/* <Typography>Рейтинг:</Typography>
             {currentProduct.rating ?  
              <Rating name="read-only" value={currentProduct.rating} readOnly />
-              : <Typography variant="h6">Пока что никто не оставил отзыв на данный товар</Typography>}
+              : <Typography variant="h6">Пока что никто не оставил отзыв на данный товар</Typography>} */}
             </div>
               <div>
             <Typography variant="h6">Размеры в наличии:</Typography>

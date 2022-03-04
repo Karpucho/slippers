@@ -101,14 +101,13 @@ function Advertising(props) {
         <Grid item md={6}>
 
           <div className={classes.mainFeaturesPostContent}>
-            <Typography component="h1"style={{color: 'white'}} variant="h3" gutterBottom>
-              Tapcomania
+            <Typography component="h2"style={{color: 'white'}} variant="h2" gutterBottom>
+            SneakersMania
             </Typography>
-            <Typography component="h5"variant="h5" style={{color: 'white'}} paragraph>
-              Оптово-розничная продажа обуви
-                           по всей России !
+            <Typography component="h5"variant="h4" style={{color: 'white'}} paragraph>
+                           Преимущество в Качестве
             </Typography>
-            <Button href='/info' variant="outlined" color="inherit">
+            <Button size="large" href='/info' variant="outlined" color="inherit">
                 О нас
               </Button>
           </div>

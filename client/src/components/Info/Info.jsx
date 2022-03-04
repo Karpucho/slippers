@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import slide1 from "./thaiPhoto.jpeg"
+import slide1 from "./sneakers.jpeg"
 import ConnectionForm from '../ConnectionForm/ConnectionForm';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -51,7 +51,8 @@ const useStyles = makeStyles({
   },
   mainFeaturesPostContent: {
     position: "relative",
-    padding: theme.spacing(9),
+    paddingBottom: theme.spacing(9),
+    paddingLeft: theme.spacing(9),
     marginTop: theme.spacing(12),
     color: 'white',
   }
@@ -71,13 +72,13 @@ function Info(props) {
         <Grid container>
           <Grid item md={6}>
   
-            <div className={classes.mainFeaturesPostContent}>
-              <Typography component="h1" color="inherit" variant="h3" gutterBottom>
+            <div style={{marginLeft: "50px"}} className={classes.mainFeaturesPostContent}>
+              {/* <Typography component="h1" color="black" variant="h2" gutterBottom>
                 Tapcomania
-              </Typography>
-              <Typography component="h5"variant="h5" color="inherit" paragraph>
-                Оптово-розничная продажа  обуви
-                             по всей России !
+              </Typography> */}
+              <Typography component="h5"variant="h4" color="black" paragraph>
+              Оптово-розничная продажа обуви
+                           по всей России !
               </Typography>
             </div>
           </Grid>
@@ -132,7 +133,7 @@ function Info(props) {
           <br />
           <br />
           <EmailIcon size={'lg'} style={{paddingRight: '10px'}}/>
-             tapkomania23@yandex.ru
+          SneakersMania@yandex.ru
           </Typography>
 </Box>
 {/* <Typography variant='h5' style={{marginTop: '60px'}} align="center" color="textSecondary" gutterBottom>

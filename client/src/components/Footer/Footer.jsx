@@ -36,9 +36,9 @@ function Footer(props) {
   return (
     <>
     <ContactNav/>
-    <SuccessAlertMessage/>
+    {/* <SuccessAlertMessage/>
     <ErrorAlertMessage/>
-    <InfoAlertMessage/>
+    <InfoAlertMessage/> */}
     <div  style={{ width: '100%',marginTop: '20px', paddingBottom: '2%',paddingTop: '50px' , backgroundColor: "rgba(219, 219, 219, 0.91)", paddingLeft: "50px", display: "flex", flexDirection: "column"}}>
       <ConnectionForm/>
       <footer>
@@ -65,7 +65,7 @@ function Footer(props) {
         </Typography>
         <br />
         <Typography align="center" color="textSecondary">
-        © ТАПКОМАНИЯ23 2022 Все права защищены.
+        © SneakersMania 2022 Все права защищены.
         </Typography>
         </Box>
       </footer>
