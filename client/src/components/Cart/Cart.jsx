@@ -16,7 +16,10 @@ import CartItems from "../CartItems/CartItems";
 import { Typography} from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import { IconButton } from '@mui/material';
+
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { info, error } from "../Toast/Toast";
+
 
 export default function Cart() {
 
@@ -39,7 +42,7 @@ export default function Cart() {
 
   const [state, setState] = React.useState({right: false});
   const { user } = useSelector(state => state.usersReducer)
-  console.log(user.isActivated, 'ИЗАКТИВАТЕД');
+  console.log(user, 'ИЗАКТИВАТЕД');
 
   const toggleDrawer = (anchor, open) => (event) => {
     if(event
@@ -66,6 +69,12 @@ export default function Cart() {
       role="presentation"
     >
        <List sx={{width: '500px'}}>
+                  <Button 
+                  style={{display: 'flex', justifyContent: 'end'}}
+                    onClick={toggleDrawer(anchor, false)}
+                    color = "inherit" >
+                    <ArrowBackIosIcon/>
+                     </Button>
                 <ListItem>
                     <ListItemIcon>
                         <ShoppingCartIcon />

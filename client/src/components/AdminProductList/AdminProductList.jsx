@@ -16,20 +16,20 @@ const useStyles = makeStyles({
 function AdminProductList(props) {
   const { products } = useSelector(state => state.productsReducer);
   const classes = useStyles();
+  const { user } = useSelector(state => state.usersReducer)
 
 
   return (
     <>
-    <h3>Все товары</h3>
-    <Grid container spacing={10}>
+{  (user.role === 'admin') ? <><h3>Все товары</h3><Grid container spacing={10}>
         {products?.length && products.map(product => (
-          <Grid  key={product.id} item xs={3} >
-            <div >
-              <AdminCard product={product}/>
+          <Grid key={product.id} item xs={3}>
+            <div>
+              <AdminCard product={product} />
             </div>
-            </Grid>  
-          ))}
-    </Grid>
+          </Grid>
+        ))}
+      </Grid></> : <>Ты не админ!</>}
     </>
   );
 }

@@ -40,7 +40,7 @@ export default function ProductList({visibility}) {
             style={{paddingTop: '1rem'}}
         >
           
-              <Box  ml={'520px'}>
+              <Box style={{ display: 'flex', justifyContent: 'center' }}>
               {genderText === 'male'? <Typography variant='h4'> Мужское </Typography>:''}
               {genderText === 'female'? <Typography variant='h4'> Женское </Typography>:''}
               {genderText === 'kid'? <Typography variant='h4'> Детское </Typography>:''}

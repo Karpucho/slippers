@@ -56,7 +56,7 @@ export default function Signup() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container style={{ marginTop: '100px'}}  component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -70,7 +70,7 @@ export default function Signup() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-          Зарегься чтобы мы доставили тапочки
+          Регистрация
           </Typography>
           <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit(onSubmit)}>
           {/* <TextField

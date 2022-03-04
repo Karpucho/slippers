@@ -49,15 +49,16 @@ export default function SignIn({ setDialogOpen }) {
     });
     info('Вы успешно вошли в систему')
     navigate('/')
+    window.location.reload()
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container  component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
