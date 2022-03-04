@@ -1,12 +1,14 @@
-import React from 'react';
-import { Container, Typography, Grid, Button, TextField } from "@mui/material";
+import React from "react";
+import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { info } from "../Toast/Toast";
 
 
 function AddressForm(props) {
   const dispatch = useDispatch();
-
+  // const  {cartProducts}= useSelector((state)=> state.cartReducer)
+  // console.log(cartProducts.product, 'cartProdu');
   const {
     register,
     formState: { errors },
@@ -14,17 +16,25 @@ function AddressForm(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    info('Адресные данные для доставки успешно отправлены администратору');
     const body = {
-      email: data.email,
-      password: data.password,
-      role: data.role,
+      name: data.name,
+      address: data.address,
+      phone: data.phone,
+      // cartProducts:data.cartProducts
     };
-    dispatch();
-    // console.log(body);
+    dispatch({type:'FETCH_ORDER_SEND', payload:body});
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+{/*       
+      <TextField
+      type="hidden"
+      {...register("cartProducts")}
+      value = {cartProducts}
+      id="cartProducts"
+    /> */}
+ 
     <TextField
       margin="normal"
       type="text"
@@ -47,7 +57,7 @@ function AddressForm(props) {
     <TextField
       margin="normal"
       type="text"
-      {...register("Почтовый адрес доставки", {
+      {...register("address", {
         minLength: {
           value: 2,
           message: "Введите действительный адрес доставки",
@@ -95,4 +105,3 @@ function AddressForm(props) {
 }
 
 export default AddressForm;
-

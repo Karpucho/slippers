@@ -15,14 +15,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-
+import { info } from "../Toast/Toast";
 
 const theme = createTheme();
 
 export default function SignIn({ setDialogOpen }) {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  // const { user } = useSelector(state => state.userReducer);
+  // console.log('login', user);
  
   const {
     register,
@@ -38,8 +39,6 @@ export default function SignIn({ setDialogOpen }) {
   });
 
   const onSubmit = (data) => {
-    // console.log('data',data);
-    // alert(JSON.stringify(data));
     const user = {
       email: data.email,
       password: data.password,
@@ -47,11 +46,9 @@ export default function SignIn({ setDialogOpen }) {
     dispatch({
       type: "FETCH_LOGIN_USER",
       payload: user,
-      // navigate: navigate("/pro"),
     });
-    // console.log(isSubmitted)
-    // if (isSubmitted)
-    
+    info('Вы успешно вошли в систему')
+    navigate('/')
   };
 
   return (

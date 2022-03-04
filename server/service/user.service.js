@@ -27,7 +27,7 @@ class UserService {
     const newUser = await User.create({
       email,
       password: hashPass,
-      role,
+      role: 'user',
       activationLink,
     });
     // отправляем юзеру на почту письмо с активацией
@@ -46,6 +46,26 @@ class UserService {
     return {
       ...tokens,
       user: userDto,
+    };
+  }
+
+  async sendToAdmin(name, address, phone) {
+    // const candidate = await User.findOne({
+    //   where: {
+    //     email,
+    //   },
+    // });
+    // const newUser = await User.create({
+    //   email,
+    //   password: hashPass,
+    //   role,
+    //   activationLink,
+    // });
+    // отправляем юзеру на почту письмо с активацией
+    await mailService.emailToAdmin(name, address, phone);
+
+    return {
+      message: 'Успешное письмо',
     };
   }
 
@@ -71,6 +91,19 @@ class UserService {
         },
       },
     );
+
+    const userWithFlag = await User.findOne({
+      where: {
+        activationLink,
+      },
+    });
+    const userDto = new UserDto(userWithFlag);
+    const tokens = tokenService.generateTokens({ ...userDto });
+    await tokenService.saveToken(userDto.id, tokens.refreshToken);
+    return {
+      ...tokens,
+      user: userDto,
+    };
   }
 
   // функция логина

@@ -21,12 +21,10 @@ class UserController {
       const userData = await userService.register(email, password, role);
       // рефреш куку храним в куках на 30 дней из token.service
       // 1ым парам - ключ , 2ым - сам токен
-      res
-        .status(201)
-        .cookie("refreshToken", userData.refreshToken, {
-          maxAge: 1000 * 60 * 60 * 24 * 30,
-          httpOnly: true,
-        });
+      res.status(201).cookie("refreshToken", userData.refreshToken, {
+        maxAge: 1000 * 60 * 60 * 24 * 30,
+        httpOnly: true,
+      });
       return res.json({
         userData,
         success: true,
@@ -37,9 +35,23 @@ class UserController {
     }
   }
 
+  async sendToAdmin(req, res, next) {
+    try {
+      const { name, address, phone, cartProducts } = req.body;
+      await userService.sendToAdmin(name, address, phone, cartProducts);
+      console.log("back", cartProducts);
+      return res.json({
+        // userData,
+        // success: true,
+        message: "Pismo успешно",
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async login(req, res, next) {
     try {
-      console.log('req', req.body)
       // вытасикиваем данные из тела запроса
       const { email, password } = req.body;
       // вытваем из юзер сервиса и передадим майл и апроль
@@ -58,7 +70,6 @@ class UserController {
       next(error);
     }
   }
-
 
   async logout(req, res, next) {
     try {
@@ -79,7 +90,11 @@ class UserController {
       // из строки запроса получаем ссылку активации
       const activateLink = req.params.link;
       // обращаемся к юзеру сервису и передаем туда ссылку
-      await userService.activate(activateLink);
+      const userWithToken = await userService.activate(activateLink);
+      res.cookie("refreshToken", userWithToken.refreshToken, {
+        maxAge: 1000 * 60 * 60 * 24 * 30,
+        httpOnly: true,
+      });
       return res.redirect(process.env.CLIENT_URL);
     } catch (error) {
       next(error);

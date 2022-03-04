@@ -13,6 +13,7 @@ import ProductList from '../ProductList/ProductList';
 import { updateProductInStokAC } from '../../redux/actionCreators/productsAC';
 import {Box, Dialog, DialogContent, DialogContentText } from '@mui/material'
 import SimilarProducts from '../SimilarProducts/SimilarProducts';
+import { info } from '../Toast/Toast';
 
 
 
@@ -33,8 +34,8 @@ function ProductCurrentCard() {
 
   const addProductBacket = () => {
     if (currentUser?.id) {
-      
-      fetch(`http://localhost:5000/cart/${currentUser.id}`, {
+      info('Товар добавлен в корзину')
+      fetch(`/cart/${currentUser.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({currentProduct, needSize}),
@@ -45,12 +46,12 @@ function ProductCurrentCard() {
         if(data.message === 'sucsess') {
           dispatch(addProductCartAC(data.userOrders))
         } else if (data.message === 'noOrders') {
-          console.log('noOrders');
+          // console.log('noOrders');
         } else (console.log(data.error))})
       .catch(error => error.message)
     } else {
       if(!needSize) { 
-        return console.log('Выберете размер!')}
+        return info('Уточните размер')}
       const newOrder = { product: currentProduct.id, size: needSize, numberOfItems: 1 };
       dispatch(addProductCartAC(newOrder));
       dispatch(updateProductInStokAC(needSize))
@@ -61,7 +62,7 @@ function ProductCurrentCard() {
    
   useEffect(() => {
     const id = Number(params.id);
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`/products/${id}`, {
       credentials: 'include',
     })
     .then(data => data.json())
@@ -121,30 +122,30 @@ const dialogClickOk =() => {
           <div className="content">
             <div>
             <Typography
-                variant="h6"
+                variant="body2"
                 component="h3"
             >
                 {currentProduct.name}
             </Typography>
-            <Typography variant="body1">Цена: {currentProduct.price} руб.</Typography>
+            <Typography variant="body2">Цена: {currentProduct.price} руб.</Typography>
             </div>
             <div>
-            <Typography variant="body2">Описание: {currentProduct.description}</Typography>
+            <Typography variant="body1">Описание: {currentProduct.description}</Typography>
 
             {/* {currentProduct.rating ? <Typography variant="body3">Рейтинг: {currentProduct.rating}</Typography> */}
-            <Typography>Рейтинг:</Typography>
+            {/* <Typography>Рейтинг:</Typography>
             {currentProduct.rating ?  
              <Rating name="read-only" value={currentProduct.rating} readOnly />
-              : <Typography variant="body3">Пока что никто не оставил отзыв на данный товар</Typography>}
+              : <Typography variant="h6">Пока что никто не оставил отзыв на данный товар</Typography>} */}
             </div>
               <div>
-            <Typography variant="body3">Размеры в наличии:</Typography>
+            <Typography variant="h6">Размеры в наличии:</Typography>
             <br/>
             <ButtonGroup exclusive='true'>
             {(currentProduct.SizesOfProducts?.length && countAll)
              ? currentProduct.SizesOfProducts?.map(el => {
               return <ChooseSize key={uuidv4()} setSize={setSize} size={el.sizeNumber} count={el.itemsLeft}/>
-             }) : <Typography variant="body5">Данный товар закончился</Typography>
+             }) : <Typography variant="h6">Данный товар закончился</Typography>
              }
              </ButtonGroup>
              </div>

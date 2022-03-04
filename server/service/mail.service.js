@@ -35,6 +35,23 @@ class MailService {
         `,
     });
   }
+
+  async emailToAdmin(name, address, phone) {
+    await this.transporter.sendMail({
+      // кто отправляет
+      from: process.env.SMTP_USER_SHARE,
+      // кому отправляется из переменной
+      to: process.env.ADMIN_EMAIL,
+      subject: `Заказ от ${name}`,
+      text: '...',
+      html: `
+        <div>
+          <h1>Адрес: ${address}</h1>
+          <h1>Телефон: ${phone}</h1>
+        </div>
+        `,
+    });
+  }
 }
 
 module.exports = new MailService();

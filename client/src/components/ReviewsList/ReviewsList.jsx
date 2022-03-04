@@ -24,6 +24,9 @@ const useStyles = makeStyles({
 
 function ReviewsList(props) {
 
+  const { user } = useSelector((state) => state.usersReducer);
+
+  console.log(user, 'ACTIVATED');
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
@@ -42,7 +45,7 @@ function ReviewsList(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      fetch('http://localhost:5000/reviews', {
+      fetch('/reviews', {
         credentials: 'include',
       })
       .then(data => data.json())

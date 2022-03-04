@@ -4,6 +4,7 @@ import {makeStyles, ThemeProvider}  from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import slide1 from "../Info/imgFrom.jpeg"
+import ContactNav from '../ContactNav/ContactNav';
 
 
 const theme = createTheme();
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     border: 0,
     borderRadius: 2,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
     height: 35,
     padding: '0 22px',
@@ -56,44 +57,43 @@ const useStyles = makeStyles({
 });
 
 
-const img = [
-  <img alt="" key={'small'} src={''} />,
-  <img alt="" key={''} src={''} />,
-  // <img key={slide3} src={slide3} />,
-  // <img key={slide4} src={slide4} />,
-  // <img key={slide5} src={slide5} />,
-]
+// const img = [
+//   <img alt="" key={'small'} src={''} />,
+//   <img alt="" key={''} src={''} />,
+//   // <img key={slide3} src={slide3} />,
+//   // <img key={slide4} src={slide4} />,
+//   // <img key={slide5} src={slide5} />,
+// ]
 
 function Advertising(props) {
 
     // Индекс текущего слайда
-const [activeIndex, setActiveIndex] = useState(0);
+// const [activeIndex, setActiveIndex] = useState(0);
  
 // Хук Effect
-useEffect(() => {
-    // Запускаем интервал
-    const interval = setInterval(() => {
-        // Меняем состояние
-        setActiveIndex((current) => {
-            // Вычисляем индекс следующего слайда, который должен вывестись
-            const res = current === img.length - 1 ? 0 : current + 1
-            // Возвращаем индекс
-            return res
-        })
-    }, 3000)
-    // Выключаем интервал
-    return () => clearInterval()
-}, [])
+// useEffect(() => {
+//     // Запускаем интервал
+//     const interval = setInterval(() => {
+//         // Меняем состояние
+//         setActiveIndex((current) => {
+//             // Вычисляем индекс следующего слайда, который должен вывестись
+//             const res = current === img.length - 1 ? 0 : current + 1
+//             // Возвращаем индекс
+//             return res
+//         })
+//     }, 3000)
+//     // Выключаем интервал
+//     return () => clearInterval(interval)
+// }, [])
  
 // Вычисляем индекс предыдущего слайда
-const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1
-// Вычисляем индекс следующего слайда
-const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
+// const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1
+// // Вычисляем индекс следующего слайда
+// const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
 
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      
     <Paper  className={classes.mainFeaturesPost} style={{backgroundImage: `url(${slide1})`, marginTop: '62px'}}>
     <Container maxWidth="md">
       <div className={classes.overlay}/>
@@ -101,14 +101,13 @@ const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
         <Grid item md={6}>
 
           <div className={classes.mainFeaturesPostContent}>
-            <Typography component="h1"style={{color: 'white'}} variant="h3" gutterBottom>
-              Tapcomania
+            <Typography component="h2"style={{color: 'white'}} variant="h2" gutterBottom>
+            SneakersMania
             </Typography>
-            <Typography component="h5"variant="h5" style={{color: 'white'}} paragraph>
-              Оптово-розничная продажа обуви
-                           по всей России !
+            <Typography component="h5"variant="h4" style={{color: 'white'}} paragraph>
+                           Преимущество в Качестве
             </Typography>
-            <Button href='/info' variant="outlined" color="inherit">
+            <Button size="large" href='/info' variant="outlined" color="inherit">
                 О нас
               </Button>
           </div>

@@ -12,6 +12,7 @@ const productsRouter = require('./routes/products.router');
 const commentsRouter = require('./routes/reviews.router');
 const cartRouter = require('./routes/cart.router');
 const addPhotoRouter = require('./routes/upload.route');
+const checkUserRouter = require('./routes/checkUser.route');
 
 const { sequelize } = require('./db/models');
 
@@ -21,6 +22,7 @@ config(app);
 app.use(express.static(path.resolve('../client/build')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use('/auth', checkUserRouter);
 app.use('/addProduct', addPhotoRouter);
 app.use('/', router);
 app.use('/products', productsRouter);

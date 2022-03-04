@@ -13,14 +13,19 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import { info, error } from "../Toast/Toast";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 export default function Signup() {
-  //требует проверки
+
+ 
+     
   const theme = createTheme();
   const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.userReducer);
+
   const navigate = useNavigate();
 
   const {
@@ -30,21 +35,21 @@ export default function Signup() {
     handleSubmit,
   } = useForm();
 
-  // console.log('register', register);
+
 
   const onSubmit = (data) => {
     const body = {
-      role: data.role,
+      // role: data.role,
       email: data.email,
       password: data.password,
     };
    
     if(data.password===data.passwordConfirm) {
       dispatch({ type: "FETCH_CREATE_USER", payload: body });
-      alert('все нармальна!');
+      info("Для подтверждения регистрации перейдите по ссылке в письме отправленнной на Ваш e-mail");
       navigate('/products')
     } else {
-      alert('Пароли не совпадают');
+      error('Пароли не совпадают');
     }
     
   };
@@ -68,7 +73,7 @@ export default function Signup() {
           Зарегься чтобы мы доставили тапочки
           </Typography>
           <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit(onSubmit)}>
-          <TextField
+          {/* <TextField
               margin="normal"
               {...register("role", {
                 required: true,
@@ -89,7 +94,7 @@ export default function Signup() {
                 <p>
                   {errors?.role?.message || "Введите действительную почту"}
                 </p>
-              )}
+              )} */}
             <TextField
               margin="normal"
               {...register("email", {

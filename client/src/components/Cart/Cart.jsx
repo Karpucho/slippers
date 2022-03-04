@@ -7,7 +7,6 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -16,7 +15,8 @@ import { v4 as uuidv4 } from 'uuid';
 import CartItems from "../CartItems/CartItems";
 import { Typography} from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-
+import { IconButton } from '@mui/material';
+import { info, error } from "../Toast/Toast";
 
 export default function Cart() {
 
@@ -38,18 +38,21 @@ export default function Cart() {
   }));
 
   const [state, setState] = React.useState({right: false});
-  const { User } = useSelector(state => state.usersReducer)
+  const { user } = useSelector(state => state.usersReducer)
+  console.log(user.isActivated, 'ИЗАКТИВАТЕД');
 
   const toggleDrawer = (anchor, open) => (event) => {
     if(event
       && event.target.textContent === 'Оформить заказ'
-      && Boolean(User)) {
+      && Boolean(user.isActivated)) {
+        info('Вы перенаправлены в личный кабинет')
         setState({ ...state, [anchor]: open });
         return navigate('/profile');
 
       } else if (event
         && event.target.textContent === 'Оформить заказ'
-        && !Boolean(User)) {
+        && !Boolean(user.isActivated)) {
+          error('К сожалению, мы Вас не нашли в системе')
           setState({ ...state, [anchor]: open });
           return navigate('/signin');
 
@@ -123,7 +126,7 @@ export default function Cart() {
   //     .catch(error => error.message)
   //   } 
   // }, [cartProducts, currentUser.id, dispatch]);
-
+  if (!user) return <></>;
   return (
     <div>
       {['right'].map((anchor) => (

@@ -41,7 +41,7 @@ function AddingReviews(props) {
       console.log(inputName.current.value);
       console.log(inputText.current.value);
 
-      fetch('http://localhost:5000/reviews',
+      fetch('/reviews',
       {
         method: 'POST',
         headers: {

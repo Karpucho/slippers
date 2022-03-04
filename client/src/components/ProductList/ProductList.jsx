@@ -8,16 +8,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
-import { CurrencyYenTwoTone } from '@mui/icons-material';
 import { Typography } from '@material-ui/core';
 import { Box } from '@mui/system';
-
-  // const refContainerSex = useRef();
-  // const refContainerPrice = useRef();
-
-  // const [containerSex, setContainerSex] = useState('')
-  // const [containerPrice, setContainerPrice] = useState('')
 
 
 export default function ProductList({visibility}) {
@@ -28,7 +20,7 @@ export default function ProductList({visibility}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      fetch('http://localhost:5000/products', {
+      fetch('products', {
         credentials: 'include',
       })
       .then(data => data.json())
