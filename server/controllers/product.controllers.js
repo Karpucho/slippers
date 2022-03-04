@@ -1,11 +1,11 @@
-const { Product, Category } = require('../db/models');
+const { Product } = require('../db/models');
 
 const getOneProduct = async (req, res) => {
   try {
     const { id } = req.params;
     const currentProduct = await Product.findOne({
       where: { id },
-      include: ['SizesOfProducts', Category],
+      include: 'SizesOfProducts',
     });
     return res.json({ message: 'sucsess', currentProduct });
   } catch (error) {
@@ -24,7 +24,6 @@ const editProduct = async (req, res) => {
     const body = {
       name: req.body.name,
       gender: req.body.gender,
-      category: req.body.category,
       // photo: req.file,
       description: req.body.description,
       price: req.body.price,

@@ -10,14 +10,6 @@ module.exports = {
       name: {
         type: Sequelize.TEXT,
       },
-      categoryId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Categories',
-        },
-      },
       price: {
         allowNull: false,
         type: Sequelize.INTEGER,
