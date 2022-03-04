@@ -229,7 +229,7 @@ function NavBar() {
         <MenuItem style={{fontSize: '20px'}} onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
         {/* <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem> */}
       </Menu>
-      <Typography variant="h4" style={{ marginLeft: "400px"}} className={classes.title}>SneakersMania </Typography>
+      <Typography variant="h4" style={{ display: 'flex', justifyContent: 'center' }} className={classes.title}>SneakersMania </Typography>
       <img url='./SneakersMania.png'/>
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           {/* <Search>
@@ -311,7 +311,7 @@ function NavBar() {
            <div style={{fontSize: '19px'}} onClick={() => {navigate('/signup');handleClose()}}> Регистрация</div>
         </MenuItem>
         <MenuItem>
-          {/* <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div> */}
+         <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
         </MenuItem>
         <Divider />
 
@@ -337,7 +337,7 @@ function NavBar() {
           {/* <DialogContentText>Авторизация</DialogContentText> */}
           <SignIn setDialogOpen={setDialogOpen}/>
           {/* <Button onClick={dialogClickClose}  color="inherit" variant="outlined">Авторизоваться</Button> */}
-          <Button size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
+          <Button style={{marginTop: '30px', marginLeft: '20px'}} size={'small'} onClick={dialogClickClose} color="inherit" variant="outlined">Закрыть</Button>
         </DialogContent>
      </Dialog>
     </Box>

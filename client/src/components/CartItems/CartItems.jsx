@@ -63,15 +63,13 @@ function CartItems({ orders }) {
         <Typography variant="body6"> x {orders.numberOfItems} шт.</Typography>
       </CardContent>
       <CardActions>
-        <button>
+
           <AddIcon onClick={addProduct} />
-        </button>
-        <button>
+
           <RemoveIcon onClick={minusProduct} />
-        </button>
-        <button>
+
           <CloseIcon onClick={removeOrder} />
-        </button>
+
       </CardActions>
       <CardContent style={{ padding: "5px" }}>
         <Typography variant="body5" component="h5"></Typography>

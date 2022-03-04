@@ -16,6 +16,7 @@ import CartItems from "../CartItems/CartItems";
 import { Typography} from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import { IconButton } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function Cart() {
 
@@ -63,6 +64,12 @@ export default function Cart() {
       role="presentation"
     >
        <List sx={{width: '500px'}}>
+                  <Button 
+                  style={{display: 'flex', justifyContent: 'end'}}
+                    onClick={toggleDrawer(anchor, false)}
+                    color = "inherit" >
+                    <ArrowBackIosIcon/>
+                     </Button>
                 <ListItem>
                     <ListItemIcon>
                         <ShoppingCartIcon />
