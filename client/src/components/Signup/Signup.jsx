@@ -34,7 +34,7 @@ export default function Signup() {
 
   const onSubmit = (data) => {
     const body = {
-      role: data.role,
+      // role: data.role,
       email: data.email,
       password: data.password,
     };
@@ -68,7 +68,7 @@ export default function Signup() {
           Зарегься чтобы мы доставили тапочки
           </Typography>
           <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit(onSubmit)}>
-          <TextField
+          {/* <TextField
               margin="normal"
               {...register("role", {
                 required: true,
@@ -89,7 +89,7 @@ export default function Signup() {
                 <p>
                   {errors?.role?.message || "Введите действительную почту"}
                 </p>
-              )}
+              )} */}
             <TextField
               margin="normal"
               {...register("email", {
