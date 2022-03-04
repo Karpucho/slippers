@@ -64,13 +64,7 @@ function Profile(props) {
           {/* ) : (
             <p>Пустая корзина</p>
           ) */}
-          <Grid container spacing={3}>
-            <Grid item s={8}>
-              <Typography component="h1" variant="h6">
-                Изменить свой профиль{" "}
-              </Typography>
-            </Grid>
-          </Grid>
+     
         </div>
         <Grid container spacing={3}>
           <Grid item s={8}>
@@ -80,7 +74,13 @@ function Profile(props) {
           </Grid>
         </Grid>
         < AddressForm />
-
+        <Grid container spacing={3}>
+            <Grid item s={8}>
+              <Typography component="h1" variant="h6">
+                Изменить свой профиль{" "}
+              </Typography>
+            </Grid>
+          </Grid>
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             margin="normal"
