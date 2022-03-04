@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify'
+import {  toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 const natification =() => toast.error("Ошибка регистрации");
@@ -9,7 +9,7 @@ function ErorAlertMessage(props) {
   return (
     <div>
       <button onClick={natification}>вызов ErorAlertMessage</button>
-      <ToastContainer
+   
       theme = {'dark'}
       style={{marginTop: '200px'}}
       position="top-center"
@@ -21,7 +21,6 @@ function ErorAlertMessage(props) {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      />
     </div>
   );
 }

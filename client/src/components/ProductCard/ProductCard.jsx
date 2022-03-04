@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './ProductCard.css';
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
 import { useDispatch, useSelector } from 'react-redux';
-
+import { info } from "../Toast/Toast";
 import {addFavoritProduct} from '../../redux/actionCreators/favoriteAC'
 // import { addFavoritProduct} from '../../redux/actionCreators/favoriteAC'
 
@@ -17,6 +17,7 @@ export default function ProductCard({product}) {
     // const favProd = {...currentFavProd}
     localStorage.setItem("favorite", product.toString());
     dispatch(addFavoritProduct({product}))
+    info('Добавлено в избранное')
   }
 
   return (

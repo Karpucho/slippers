@@ -13,6 +13,7 @@ import ProductList from '../ProductList/ProductList';
 import { updateProductInStokAC } from '../../redux/actionCreators/productsAC';
 import {Box, Dialog, DialogContent, DialogContentText } from '@mui/material'
 import SimilarProducts from '../SimilarProducts/SimilarProducts';
+import { info } from '../Toast/Toast';
 
 
 
@@ -33,7 +34,7 @@ function ProductCurrentCard() {
 
   const addProductBacket = () => {
     if (currentUser?.id) {
-      
+      info('Товар добавлен в корзину')
       fetch(`/cart/${currentUser.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
@@ -45,12 +46,12 @@ function ProductCurrentCard() {
         if(data.message === 'sucsess') {
           dispatch(addProductCartAC(data.userOrders))
         } else if (data.message === 'noOrders') {
-          console.log('noOrders');
+          // console.log('noOrders');
         } else (console.log(data.error))})
       .catch(error => error.message)
     } else {
       if(!needSize) { 
-        return console.log('Выберете размер!')}
+        return info('Уточните размер')}
       const newOrder = { product: currentProduct.id, size: needSize, numberOfItems: 1 };
       dispatch(addProductCartAC(newOrder));
       dispatch(updateProductInStokAC(needSize))

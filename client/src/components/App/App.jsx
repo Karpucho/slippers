@@ -19,10 +19,10 @@ import Admin from "../Admin/Admin";
 import Signin from "../Signin/Signin";
 import Signup from "../Signup/Signup";
 import { initProductsListAC } from "../../redux/actionCreators/productsAC";
-import { loginUserAC, authAC } from "../../redux/actionCreators/usersAC";
+import { authAC } from "../../redux/actionCreators/usersAC";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

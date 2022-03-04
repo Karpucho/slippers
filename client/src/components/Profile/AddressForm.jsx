@@ -2,12 +2,12 @@ import React from "react";
 import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { info, error } from "../Toast/Toast";
+import { info } from "../Toast/Toast";
 
 
 function AddressForm(props) {
   const dispatch = useDispatch();
-  const  {cartProducts}= useSelector((state)=> state.cartReducer)
+  // const  {cartProducts}= useSelector((state)=> state.cartReducer)
   // console.log(cartProducts.product, 'cartProdu');
   const {
     register,
@@ -16,24 +16,24 @@ function AddressForm(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    info(JSON.stringify(data));
+    info('Адресные данные для доставки успешно отправлены администратору');
     const body = {
       name: data.name,
       address: data.address,
       phone: data.phone,
-      cartProducts:data.cartProducts
+      // cartProducts:data.cartProducts
     };
     dispatch({type:'FETCH_ORDER_SEND', payload:body});
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      
+{/*       
       <TextField
       type="hidden"
       {...register("cartProducts")}
       value = {cartProducts}
       id="cartProducts"
-    />
+    /> */}
  
     <TextField
       margin="normal"

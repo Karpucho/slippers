@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { info, error } from "../Toast/Toast";
+import { info } from "../Toast/Toast";
 
 const theme = createTheme();
 
