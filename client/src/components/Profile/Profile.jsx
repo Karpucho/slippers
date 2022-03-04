@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CartItems from '../CartItems/CartItems'
 import AddressForm from "./AddressForm";
-import { info, error } from "../Toast/Toast";
+import { info} from "../Toast/Toast";
 
 function Profile(props) {
   const theme = createTheme();
