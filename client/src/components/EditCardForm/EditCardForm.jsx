@@ -15,7 +15,6 @@ function EditCardForm(props) {
 
   const inputName = useRef();
   const inputGender = useRef();
-  const inputCategory = useRef();
   const inputDescription = useRef();
   const inputPrice = useRef();
   const inputPhoto = useRef();
