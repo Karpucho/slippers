@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CartItems from "../CartItems/CartItems";
 import { Typography} from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-
+import { IconButton } from '@mui/material';
 
 export default function Cart() {
 
@@ -129,11 +129,11 @@ export default function Cart() {
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-          {/* <IconButton aria-label="cart">
+          <IconButton aria-label="cart">
                 <StyledBadge badgeContent={countProduct} color="primary">
                   <ShoppingCartIcon />
                   </StyledBadge>
-                </IconButton> */}
+                </IconButton>
           </Button>
           <Drawer
             anchor={anchor}

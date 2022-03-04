@@ -43,9 +43,8 @@ function ConnectionForm(props) {
   };
 
   return (
-    <>
-      <InstagramIcon/>
-<Box ml={17}  style={{display: 'flex',flexDirection: 'column', justifyContent:"space-between",  minWidth: '300px', maxWidth: '700px'}}>
+    <div style={{display: 'flex', flexDirection: 'row'}}>
+<Box ml={17}  style={{display: 'flex',flexDirection: 'column', justifyContent:"space-between",  minWidth: '600px', maxWidth: '700px', marginRight: '100px'}}>
   <Typography pb={3} variant='h5' color="textSecondary">
     Для связи
   </Typography>
@@ -66,7 +65,7 @@ function ConnectionForm(props) {
       <br />
   <Input  placeholder="E-mail" inputProps={ariaLabel} />
   <br />
-  <TextField style={{ minWidth: '300px', maxWidth: '700px'}}
+  <TextField style={{ minWidth: '400px', maxWidth: '700px'}}
           id="outlined-multiline-static"
           // label="Multiline"
           multiline
@@ -75,7 +74,18 @@ function ConnectionForm(props) {
           // defaultValue="Default Value"
         />
   </Box>
-  </>
+    <Box>
+    <Typography align="rigth" color="textSecondary" style={{display: 'flex',flexDirection: 'column', justifyContent:"space-between",  minWidth: '300px', maxWidth: '600px', marginLeft: '50px', paddingTop: '60px'}}>
+        При заказе от 3000 руб. доставка Почтой или СДЭК в города России бесплатно!*
+        <br />
+        <br />
+        При заказе до 3000 руб. доставка по России 299 руб. *
+        <br />
+        <br />
+        *Доставка в отдалённые регионы оговаривается отдельно
+        </Typography>
+    </Box>
+  </div>
   );
 }
 

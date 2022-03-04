@@ -85,7 +85,7 @@ function Reviews(props) {
               </div>
 
                   <Box mr={3}>
-    <Dialog style={{align:"center"}} open={dialogOpen} onClose={dialogClickClose}  >
+    {/* <Dialog style={{align:"center"}} open={dialogOpen} onClose={dialogClickClose}  >
         <DialogContent  align="center">
           <DialogTitle>
           Отзывы
@@ -99,7 +99,7 @@ function Reviews(props) {
       </DialogContentText>
         </DialogContent>
         
-     </Dialog>
+     </Dialog> */}
     </Box>
 
     <Grid container spacing={2}>

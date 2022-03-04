@@ -24,6 +24,9 @@ const useStyles = makeStyles({
 
 function ReviewsList(props) {
 
+  const { user } = useSelector((state) => state.usersReducer);
+
+  console.log(user, 'ACTIVATED');
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
 

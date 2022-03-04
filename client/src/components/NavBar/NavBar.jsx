@@ -23,6 +23,7 @@ import { initProductsListAC } from '../../redux/actionCreators/productsAC'
 import SignIn from "../Signin/Signin";
 import LogoutReal from "../LogoutReal/LogoutReal";
 // import Logout from '../'
+import LoginIcon from './SneakersMania.png';
 
 const theme = createTheme();
 
@@ -211,7 +212,7 @@ function NavBar() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick} edge="start" color={classes.setColor.grey} aria-label="menu">
-          <MenuIcon mr={10}/>
+          <MenuIcon fontSize="large" mr={12}/>
         </IconButton>
         <Menu
         id="basic-menu"
@@ -223,14 +224,15 @@ function NavBar() {
         }}
       >
 
-        <MenuItem onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
-        <MenuItem onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
+        <MenuItem style={{fontSize: '20px'}} onClick={()=>  {navigate('/');handleClose()}}>Главная</MenuItem>
+        <MenuItem style={{fontSize: '20px'}} onClick={()=>  {navigate('/info');handleClose()}}>Инфо</MenuItem>
+        <MenuItem style={{fontSize: '20px'}} onClick={()=>  {navigate('/reviews');handleClose()}}>Отзывы</MenuItem>
         {/* <MenuItem onClick={()=>  {navigate('/wholesale');handleClose()}}>Оптом</MenuItem> */}
       </Menu>
-      <Typography variant="h5" className={classes.title}>Tapcomania</Typography>
+      <Typography variant="h4" style={{ marginLeft: "400px"}} className={classes.title}>SneakersMania </Typography>
+      <img url='./SneakersMania.png'/>
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -239,10 +241,10 @@ function NavBar() {
               inputProps={{ 'aria-label': 'search' }}
               type="text"
             />
-          </Search>
+          </Search> */}
         <Tooltip title="Account settings">
           
-          <IconButton
+          {/* <IconButton
             onClick={Click}
             size="small"
             sx={{ ml: 2 }}
@@ -251,7 +253,17 @@ function NavBar() {
             aria-expanded={profileOpen ? 'true' : undefined}
           >
             <Avatar sx={{ width: 32, height: 32 }}><Avatar /> </Avatar>
-
+              Мой аккаунт
+          </IconButton> */}
+          <IconButton
+              onClick={Click}
+              size="small"
+              sx={{ ml: 2 }}
+              aria-controls={profileOpen ? 'account-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={profileOpen ? 'true' : undefined}
+          >
+          <Avatar /> 
           </IconButton>
         </Tooltip>
       <Cart/>
@@ -293,19 +305,28 @@ function NavBar() {
       >
         {/* <HomeIcon color="disabled" /> */}
         <MenuItem onClick={() => {handleClose();dialogClickOpen()}}>
-          <div> Войти</div>
+          <div style={{fontSize: '19px'}}>  Войти</div>
         </MenuItem>
         <MenuItem>
-           <div onClick={() => {navigate('/signup');handleClose()}}> Регистрация</div>
+           <div style={{fontSize: '19px'}} onClick={() => {navigate('/signup');handleClose()}}> Регистрация</div>
         </MenuItem>
         <MenuItem>
-          <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
+          {/* <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div> */}
         </MenuItem>
         <Divider />
+
+        {/* <MenuItem>
+          <ListItemIcon>
+            <Logout fontSize="medium" />
+          </ListItemIcon >
+          <div style={{fontSize: '19px'}}>Выйти</div>
+        </MenuItem> */}
+
        
         
           <LogoutReal />
     
+
       </Menu>
         </Toolbar>
      </Container>

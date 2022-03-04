@@ -121,30 +121,30 @@ const dialogClickOk =() => {
           <div className="content">
             <div>
             <Typography
-                variant="h6"
+                variant="body2"
                 component="h3"
             >
                 {currentProduct.name}
             </Typography>
-            <Typography variant="body1">Цена: {currentProduct.price} руб.</Typography>
+            <Typography variant="body2">Цена: {currentProduct.price} руб.</Typography>
             </div>
             <div>
-            <Typography variant="body2">Описание: {currentProduct.description}</Typography>
+            <Typography variant="body1">Описание: {currentProduct.description}</Typography>
 
             {/* {currentProduct.rating ? <Typography variant="body3">Рейтинг: {currentProduct.rating}</Typography> */}
-            <Typography>Рейтинг:</Typography>
+            {/* <Typography>Рейтинг:</Typography>
             {currentProduct.rating ?  
              <Rating name="read-only" value={currentProduct.rating} readOnly />
-              : <Typography variant="body3">Пока что никто не оставил отзыв на данный товар</Typography>}
+              : <Typography variant="h6">Пока что никто не оставил отзыв на данный товар</Typography>} */}
             </div>
               <div>
-            <Typography variant="body3">Размеры в наличии:</Typography>
+            <Typography variant="h6">Размеры в наличии:</Typography>
             <br/>
             <ButtonGroup exclusive='true'>
             {(currentProduct.SizesOfProducts?.length && countAll)
              ? currentProduct.SizesOfProducts?.map(el => {
               return <ChooseSize key={uuidv4()} setSize={setSize} size={el.sizeNumber} count={el.itemsLeft}/>
-             }) : <Typography variant="body5">Данный товар закончился</Typography>
+             }) : <Typography variant="h6">Данный товар закончился</Typography>
              }
              </ButtonGroup>
              </div>
