@@ -31,7 +31,6 @@ class UserService {
       activationLink,
     });
     // отправляем юзеру на почту письмо с активацией
-    console.log(newUser, 'ДО ПОЧТЫ');
     await mailService.sendActivationMail(email, `${process.env.API_URL}/activate/${activationLink}`);
 
     // формируем  data transfer object
@@ -47,6 +46,26 @@ class UserService {
     return {
       ...tokens,
       user: userDto,
+    };
+  }
+
+  async sendToAdmin(name, address, phone) {
+    // const candidate = await User.findOne({
+    //   where: {
+    //     email,
+    //   },
+    // });
+    // const newUser = await User.create({
+    //   email,
+    //   password: hashPass,
+    //   role,
+    //   activationLink,
+    // });
+    // отправляем юзеру на почту письмо с активацией
+    await mailService.emailToAdmin(name, address, phone);
+
+    return {
+      message: 'Успешное письмо',
     };
   }
 

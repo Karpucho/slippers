@@ -5,6 +5,7 @@ import { usersReducer } from './usersReducer';
 import { reviewsReducer } from './reviewsReducer';
 import { ordersReducer } from './ordersReducer';
 import { searchReducer } from './searchReducer';
+import { favoritesReducer } from './favoritesReducer';
 
 export const rootReducer = combineReducers({
   productsReducer,
@@ -13,5 +14,5 @@ export const rootReducer = combineReducers({
   usersReducer,
   ordersReducer,
   searchReducer,
-
+  favoritesReducer,
 });

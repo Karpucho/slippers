@@ -70,7 +70,7 @@ function Advertising(props) {
     // Индекс текущего слайда
 // const [activeIndex, setActiveIndex] = useState(0);
  
-// // Хук Effect
+// Хук Effect
 // useEffect(() => {
 //     // Запускаем интервал
 //     const interval = setInterval(() => {
@@ -83,10 +83,10 @@ function Advertising(props) {
 //         })
 //     }, 3000)
 //     // Выключаем интервал
-//     return () => clearInterval()
+//     return () => clearInterval(interval)
 // }, [])
  
-// // Вычисляем индекс предыдущего слайда
+// Вычисляем индекс предыдущего слайда
 // const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1
 // // Вычисляем индекс следующего слайда
 // const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1

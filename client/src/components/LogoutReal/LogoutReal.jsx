@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { Component } from 'react';
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logoutUserAC } from "../../redux/actionCreators/usersAC";
-
 import Logout from "@mui/icons-material/Logout";
 import { MenuItem, ListItemIcon } from "@mui/material";
+
+
 
 function LogoutReal(props) {
   const dispatch = useDispatch();
@@ -12,11 +12,14 @@ function LogoutReal(props) {
   const navigate = useNavigate();
 
   const logout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("user");
-    dispatch(logoutUserAC());
+    // e.preventDefault();
+    // const { cookies } = this.props;
+    dispatch({
+      type: "FETCH_LOGOUT_USER",
+    });
+    // cookies.remove('refreshToken')
     alert("Вы успешно вышли из системы!");
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -26,6 +29,7 @@ function LogoutReal(props) {
       </ListItemIcon>
       Выйти
     </MenuItem>
+
   );
 }
 

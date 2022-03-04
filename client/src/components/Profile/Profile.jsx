@@ -1,41 +1,27 @@
 import { Container, Typography, Grid, Button, TextField } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import ProductCard from "../ProductCard/ProductCard";
 import CartItems from '../CartItems/CartItems'
-import { v4 as uuidv4 } from 'uuid';
-import { initProductCartAC } from '../../redux/actionCreators/cartAC'
 import AddressForm from "./AddressForm";
 
 
 function Profile(props) {
   const theme = createTheme();
-
-  const { user } = useSelector((state) => state.usersReducer);
-  console.log("user selector profile", user);
-  // const {userProducts} = useSelector(state => state.usersReducer?.userProducts)
-  const { cartProducts } = useSelector((state) => state.cartReducer);
-
-  // console.log('userproducts selector profile', userProducts);
-  // const {favoriteProducts} = useSelector(state => state.favoriteProducts)
-  // console.log('favoriteProducts selector profile', favoriteProducts);
-
-  // const test = JSON.parse(localStorage.getItem('cart'))
   const dispatch = useDispatch();
 
-  // useEffect(()=> {
-  //  dispatch(initProductCartAC(test))
-  // }, [dispatch])
-
-  const id = user.id;
-  // console.log('userId', id);
+  const { user } = useSelector((state) => state.usersReducer?.user.userData);
+  const { cartProducts } = useSelector((state) => state.cartReducer);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  if (!user) return <></>;
+  if (!cartProducts) return <></>;
+
+  const id = user.id;
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
@@ -54,6 +40,7 @@ function Profile(props) {
     // console.log(body);
   };
 
+ 
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="xs">

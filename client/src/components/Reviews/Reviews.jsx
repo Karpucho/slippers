@@ -39,7 +39,7 @@ function Reviews(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      fetch('http://localhost:5000/reviews', {
+      fetch('/reviews', {
         credentials: 'include',
       })
       .then(data => data.json())

@@ -314,12 +314,19 @@ function NavBar() {
           {/* <Avatar /> <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div> */}
         </MenuItem>
         <Divider />
-        <MenuItem>
+
+        {/* <MenuItem>
           <ListItemIcon>
             <Logout fontSize="medium" />
           </ListItemIcon >
           <div style={{fontSize: '19px'}}>Выйти</div>
-        </MenuItem>
+        </MenuItem> */}
+
+       
+        
+          <LogoutReal />
+    
+
       </Menu>
         </Toolbar>
      </Container>

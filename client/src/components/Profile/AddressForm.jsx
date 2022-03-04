@@ -1,8 +1,7 @@
-import React from 'react';
-import { Container, Typography, Grid, Button, TextField } from "@mui/material";
+import React from "react";
+import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useDispatch} from "react-redux";
-
+import { useDispatch } from "react-redux";
 
 function AddressForm(props) {
   const dispatch = useDispatch();
@@ -20,7 +19,7 @@ function AddressForm(props) {
       address: data.address,
       phone: data.phone,
     };
-    dispatch();
+    dispatch({type:'FETCH_ORDER_SEND', payload:body});
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -46,7 +45,7 @@ function AddressForm(props) {
     <TextField
       margin="normal"
       type="text"
-      {...register("Почтовый адрес доставки", {
+      {...register("address", {
         minLength: {
           value: 2,
           message: "Введите действительный адрес доставки",
@@ -94,4 +93,3 @@ function AddressForm(props) {
 }
 
 export default AddressForm;
-

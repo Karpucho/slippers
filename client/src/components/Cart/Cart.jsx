@@ -7,7 +7,6 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -16,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CartItems from "../CartItems/CartItems";
 import { Typography} from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-
+import { IconButton } from '@mui/material';
 
 export default function Cart() {
 
