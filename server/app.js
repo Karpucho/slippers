@@ -30,7 +30,9 @@ app.use('/reviews', commentsRouter);
 app.use('/cart', cartRouter);
 
 app.use(errorMiddleware);
-
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('../client/build/index.html'));
+});
 app.listen(PORT, async () => {
   console.log('Сервер запущен на порту', PORT);
 
