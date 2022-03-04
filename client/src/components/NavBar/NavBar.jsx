@@ -156,6 +156,7 @@ function NavBar() {
 
   const { cartProducts } = useSelector(state => state.cartReducer);
   const { products } = useSelector(state => state.productsReducer);
+  const { user } = useSelector(state => state.usersReducer)
 
   // console.log('cartProducts', cartProducts);
   // console.log('products', products);
@@ -304,17 +305,17 @@ function NavBar() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         {/* <HomeIcon color="disabled" /> */}
-        <MenuItem onClick={() => {handleClose();dialogClickOpen()}}>
-          <div style={{fontSize: '19px'}}>  Войти</div>
-        </MenuItem>
-        <MenuItem>
-           <div style={{fontSize: '19px'}} onClick={() => {navigate('/signup');handleClose()}}> Регистрация</div>
-        </MenuItem>
-        <MenuItem>
-         <div onClick={() => {navigate('/profile');handleClose()}}> Мой аккаунт</div>
-        </MenuItem>
-        <Divider />
 
+        { (!user.isActivated) ?
+        <><MenuItem onClick={() => { handleClose(); dialogClickOpen(); } }>
+                  <div style={{ fontSize: '19px' }}>Войти</div>
+                </MenuItem><MenuItem>
+                    <div style={{ fontSize: '19px' }} onClick={() => { navigate('/signup'); handleClose(); } }>Регистрация</div>
+                  </MenuItem></> :
+        <><MenuItem>
+                  <Avatar /> <div onClick={() => { navigate('/profile'); handleClose(); } }>Мой аккаунт</div>
+                </MenuItem><Divider /></>
+        }
         {/* <MenuItem>
           <ListItemIcon>
             <Logout fontSize="medium" />

@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CartItems from '../CartItems/CartItems'
 import AddressForm from "./AddressForm";
-
+import { info} from "../Toast/Toast";
 
 function Profile(props) {
   const theme = createTheme();
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.usersReducer?.user.userData);
+  const { user } = useSelector((state) => state.usersReducer);
   const { cartProducts } = useSelector((state) => state.cartReducer);
   const {
     register,
@@ -24,7 +24,7 @@ function Profile(props) {
   const id = user.id;
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    info('Ваши данные успешно изменены!');
     const body = {
       email: data.email,
       password: data.password,
@@ -64,13 +64,7 @@ function Profile(props) {
           {/* ) : (
             <p>Пустая корзина</p>
           ) */}
-          <Grid container spacing={3}>
-            <Grid item s={8}>
-              <Typography component="h1" variant="h6">
-                Изменить свой профиль{" "}
-              </Typography>
-            </Grid>
-          </Grid>
+     
         </div>
         <Grid container spacing={3}>
           <Grid item s={8}>
@@ -80,7 +74,13 @@ function Profile(props) {
           </Grid>
         </Grid>
         < AddressForm />
-
+        <Grid container spacing={3}>
+            <Grid item s={8}>
+              <Typography component="h1" variant="h6">
+                Изменить свой профиль{" "}
+              </Typography>
+            </Grid>
+          </Grid>
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             margin="normal"

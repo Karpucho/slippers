@@ -27,7 +27,7 @@ class UserService {
     const newUser = await User.create({
       email,
       password: hashPass,
-      role,
+      role: 'user',
       activationLink,
     });
     // отправляем юзеру на почту письмо с активацией
