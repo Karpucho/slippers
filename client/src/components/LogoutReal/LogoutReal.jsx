@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Logout from "@mui/icons-material/Logout";
 import { MenuItem, ListItemIcon } from "@mui/material";
+import { info, error } from "../Toast/Toast";
 
 
 
@@ -12,14 +13,13 @@ function LogoutReal(props) {
   const navigate = useNavigate();
 
   const logout = (e) => {
-    // e.preventDefault();
-    // const { cookies } = this.props;
     dispatch({
       type: "FETCH_LOGOUT_USER",
     });
-    // cookies.remove('refreshToken')
-    alert("Вы успешно вышли из системы!");
+    localStorage.removeItem('cart')
+    info("Вы успешно вышли из системы!");
     navigate("/");
+    window.location.reload()
   };
 
   return (

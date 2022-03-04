@@ -8,7 +8,7 @@ const toastInfo =() => toast.info("Для подтверждения регис�
 function InfoAlertMessage(props) {
   return (
     <div>
-       <button onClick={toastInfo}>вызов InfoAlertMessage</button>
+       {/* <button onClick={toastInfo}>вызов InfoAlertMessage</button> */}
        <ToastContainer
       theme = {'dark'}
       style={{marginTop: '200px'}}
