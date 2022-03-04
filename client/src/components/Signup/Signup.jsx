@@ -70,7 +70,7 @@ export default function Signup() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-          Зарегься чтобы мы доставили тапочки
+          Регистрация
           </Typography>
           <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit(onSubmit)}>
           {/* <TextField

@@ -39,7 +39,7 @@ export default function Cart() {
 
   const [state, setState] = React.useState({right: false});
   const { user } = useSelector(state => state.usersReducer)
-  console.log(user.isActivated, 'ИЗАКТИВАТЕД');
+  // console.log(user.isActivated, 'ИЗАКТИВАТЕД');
 
   const toggleDrawer = (anchor, open) => (event) => {
     if(event
