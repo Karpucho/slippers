@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon --ignore sessions",
-    "make-seed": "npx sequelize-cli seed:generate --name demo-students",
     "seed": "npx sequelize-cli db:seed:all"
   },
   "author": "",
