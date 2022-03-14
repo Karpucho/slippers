@@ -2,7 +2,7 @@
 # E-Commerce
 ### [Live Site](https://spb-vipe.netlify.app/)
 MVP-версия магазина вейп-товаров.
-![eCommerce]([url=https://ibb.co/vvqQb8v][img]https://i.ibb.co/vvqQb8v/2022-03-14-15-40-45.png[/img][/url] [url=https://ibb.co/yBp0NK6][img]https://i.ibb.co/yBp0NK6/2022-03-14-15-40-03.png[/img][/url] [url=https://ibb.co/JkF0xVr][img]https://i.ibb.co/JkF0xVr/2022-03-14-15-39-55.png[/img][/url] [url=https://ibb.co/tcWTt8Y][img]https://i.ibb.co/tcWTt8Y/2022-03-14-15-39-39.png[/img][/url])
+![eCommerce](https://i.ibb.co/bL8MZzN/2022-03-14-15-39-39.png)
 
 В этом проекте мы реализовали функционал  Commerce JS, а также Stripe Payments по ТЗ заказчика.
 
