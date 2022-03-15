@@ -1,20 +1,17 @@
 
 # Vape-spb
 ### [Live Site](https://spb-vipe.netlify.app/)
-MVP-версия магазина вейп-товаров.
-![Vape-spb](https://ibb.co/vvqQb8v][img]https://i.ibb.co/DgW8Nng/2022-03-14-15-40-45.png)
+MVP-версия магазина кроссовок.
+![sneakers-from-krasnoda](https://ibb.co/ydvYDqV"><img src="https://i.ibb.co/QpSCZMX/2022-03-15-09-39-18.png")
 
-В этом проекте мы реализовали по ТЗ заказчика функционал Commerce JS, а также Stripe Payments.
-API платформы публикуются намеренно с целью открытого тестирования. 
-Данные в файле .env
 
 ## Используемый стек
 
 Material UI
-React
-Stripe
-Commerce JS
-
+React/ Redux/Saga
+Express/Sequelize/Postgress
+Авторизация реализована на JWT
+deploy - Heroku
 
 ## Требования к окружению для запуска продукта
 
@@ -26,9 +23,8 @@ Commerce JS
   node > 14...
 
 ## Сценарий сборки и запуска проекта
-Приведите пошаговую инструкцию по запуску вашего проекта.
 
-Деплой mvp-версии на открытом хостинге Netlify: spb-vipe.netlify.app
+Деплой mvp-версии на открытом хостинге Netlify: https://sneakers-from-krasnodar.herokuapp.com/
 Для просмотра версии используйте VPN.
 
 
