@@ -2,29 +2,38 @@
 # Vape-spb
 ### [Live Site](https://spb-vipe.netlify.app/)
 MVP-версия магазина кроссовок.
-![sneakers-from-krasnoda](https://ibb.co/ydvYDqV"><img src="https://i.ibb.co/QpSCZMX/2022-03-15-09-39-18.png")
+![sneakers-from-krasnodar](https://ibb.co/ydvYDqV][img]https://i.ibb.co/QpSCZMX/2022-03-15-09-39-18.png)
 
+<br/>
 
+(https://ibb.co/4Vc6tSb][img]https://i.ibb.co/1m3DQXC/2022-03-15-09-39-38.png)
 ## Используемый стек
-
+<br/>
 Material UI
+<br/>
 React/ Redux/Saga
+<br/>
 Express/Sequelize/Postgress
+<br/>
 Авторизация реализована на JWT
+<br/>
 deploy - Heroku
+<br/>
 
 ## Требования к окружению для запуска продукта
 
 Платформа: кроссплатформенное решение
+<br/>
 Используемый требуемое окружение:
  "react-hook-form": "^7.28.0",
   "react-router": "^5.2.0",
   "@material-ui/core": "^4.11.0",
   node > 14...
-
+<br/>
 ## Сценарий сборки и запуска проекта
-
-Деплой mvp-версии на открытом хостинге Netlify: https://sneakers-from-krasnodar.herokuapp.com/
+<br/>
+Деплой mvp-версии на открытом хостинге Heroku: https://sneakers-from-krasnodar.herokuapp.com/
+<br/>
 Для просмотра версии используйте VPN.
 
 
