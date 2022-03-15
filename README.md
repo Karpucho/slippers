@@ -7,6 +7,11 @@ MVP-версия магазина кроссовок.
 <br/>
 
 ![sneakers-from-krasnodar](https://i.ibb.co/1m3DQXC/2022-03-15-09-39-38.png)
+<br/>
+
+![sneakers-from-krasnodar](https://i.ibb.co/rwbwGBD/2022-03-15-09-41-40.png)
+
+
 ## Используемый стек
 <br/>
 Material UI
