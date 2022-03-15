@@ -2,11 +2,11 @@
 # Vape-spb
 ### [Live Site](https://spb-vipe.netlify.app/)
 MVP-версия магазина кроссовок.
-![sneakers-from-krasnodar](https://ibb.co/ydvYDqV][img]https://i.ibb.co/QpSCZMX/2022-03-15-09-39-18.png)
+![sneakers-from-krasnodar](https://i.ibb.co/QpSCZMX/2022-03-15-09-39-18.png)
 
 <br/>
 
-<!-- ![sneakers-from-krasnodar](https://ibb.co/4Vc6tSb][img]https://i.ibb.co/1m3DQXC/2022-03-15-09-39-38.png) -->
+![sneakers-from-krasnodar](https://i.ibb.co/1m3DQXC/2022-03-15-09-39-38.png)
 ## Используемый стек
 <br/>
 Material UI
