@@ -1,6 +1,6 @@
 
-# Vape-spb
-### [Live Site](https://spb-vipe.netlify.app/)
+<!-- # Vape-spb
+### [Live Site](https://spb-vipe.netlify.app/) -->
 MVP-версия магазина кроссовок.
 ![sneakers-from-krasnodar](https://i.ibb.co/QpSCZMX/2022-03-15-09-39-18.png)
 
@@ -16,9 +16,9 @@ MVP-версия магазина кроссовок.
 <br/>
 Material UI
 <br/>
-React/ Redux/Saga
+React/ Redux-Saga
 <br/>
-Express/Sequelize/Postgress
+Express/Sequelize/Postgres
 <br/>
 Авторизация реализована на JWT
 <br/>
@@ -45,4 +45,4 @@ deploy - Heroku
 
 ## Дополнительный инструментарий
 
-Не требются
+Не требуется
